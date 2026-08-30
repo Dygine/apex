@@ -1,0 +1,107 @@
+{
+  "_note": "Edit, reorder or delete any service here. The home page scroll sequence and the services page both read this file. Remove an entry and it disappears from both. `active: false` hides a service without deleting it.",
+  "services": [
+    {
+      "id": "housekeeping",
+      "number": "01",
+      "active": true,
+      "title": "Housekeeping",
+      "short": "Daily upkeep that holds its standard on the three-hundredth day, not just the first.",
+      "description": "Trained, uniformed housekeeping teams working to a written scope for your building — floors, restrooms, workstations, common areas, glass and waste. Each site gets a cleaning schedule matched to its footfall, a checklist the supervisor signs, and a named person accountable for the result.",
+      "labels": ["Daily cleaning", "Restroom hygiene", "Waste segregation", "Glass and facade", "Deep cleaning"],
+      "image": "assets/images/staff/staff-housekeeping.jpg",
+      "alt": "Apex housekeeping team member cleaning a modern corporate workspace",
+      "applications": [
+        "Corporate floors and workstations",
+        "Restrooms and pantry areas",
+        "Lobbies, lifts and common corridors",
+        "Periodic deep cleaning and floor restoration"
+      ]
+    },
+    {
+      "id": "security",
+      "number": "02",
+      "active": true,
+      "title": "Security",
+      "short": "Uniformed, briefed and posted to a written duty chart — not just present, but accountable.",
+      "description": "Manned guarding with documented post instructions for every position. Access control, visitor handling, gate and material movement records, patrol rounds and shift handover in writing. Supervisors check posts through the shift rather than only at the start of it.",
+      "labels": ["Manned guarding", "Access control", "Visitor management", "Patrol rounds", "Shift handover"],
+      "image": "assets/images/staff/staff-security.jpg",
+      "alt": "Apex security professional at a corporate building entrance",
+      "applications": [
+        "Main gate and reception posts",
+        "Visitor and contractor entry control",
+        "Material inward and outward records",
+        "Night patrol and incident escalation"
+      ]
+    },
+    {
+      "id": "technical",
+      "number": "03",
+      "active": true,
+      "title": "Technical maintenance",
+      "short": "Planned work that stops breakdowns being the only time anyone looks at the plant.",
+      "description": "Electrical, plumbing, HVAC and general upkeep run on a planned preventive schedule rather than a call-out queue. Meter readings, filter changes, pump checks and DG runs recorded against a calendar, with breakdown response and escalation defined before anything fails.",
+      "labels": ["Electrical", "Plumbing", "HVAC", "Preventive schedule", "Breakdown response"],
+      "image": "assets/images/staff/staff-technician.jpg",
+      "alt": "Apex maintenance technician inspecting building services plant",
+      "applications": [
+        "Planned preventive maintenance calendar",
+        "Electrical panels, lighting and DG sets",
+        "Plumbing, pumps and water systems",
+        "HVAC servicing and filter management"
+      ]
+    },
+    {
+      "id": "landscaping",
+      "number": "04",
+      "active": true,
+      "title": "Landscaping",
+      "short": "The first thing a visitor sees, maintained on a schedule instead of on request.",
+      "description": "Lawn care, pruning, seasonal planting, irrigation checks and indoor plant upkeep. Grounds are worked to a maintenance calendar so a campus looks the same in the week before an audit as it does in the week after one.",
+      "labels": ["Lawn care", "Pruning", "Irrigation", "Seasonal planting", "Indoor plants"],
+      "image": "assets/images/staff/staff-landscape.jpg",
+      "alt": "Apex landscaping professional maintaining a corporate campus lawn",
+      "applications": [
+        "Campus lawns and garden beds",
+        "Tree pruning and green waste removal",
+        "Irrigation checks and water management",
+        "Indoor and lobby plant maintenance"
+      ]
+    },
+    {
+      "id": "pest",
+      "number": "05",
+      "active": true,
+      "title": "Pest management",
+      "short": "Scheduled, documented treatment — with a record you can produce during an audit.",
+      "description": "Treatment programmes for cockroaches, rodents, termites and mosquitoes using approved chemicals, applied on a schedule and logged. Every visit produces a service record showing what was treated, with what, where and by whom.",
+      "labels": ["General pest", "Rodent control", "Termite treatment", "Mosquito management", "Service records"],
+      "image": "assets/images/staff/staff-pest.jpg",
+      "alt": "Apex pest management technician carrying out a documented treatment",
+      "applications": [
+        "Kitchens, pantries and waste areas",
+        "Basements, ducts and service shafts",
+        "Perimeter and landscape treatment",
+        "Documented records for audits"
+      ]
+    },
+    {
+      "id": "manpower",
+      "number": "06",
+      "active": true,
+      "title": "Manpower and support",
+      "short": "Front office, pantry, helpdesk and general support staff, deployed and supervised.",
+      "description": "Trained support roles placed on site and managed by Apex — front office, pantry and cafeteria support, helpdesk, mailroom, office assistants and general operatives. Attendance, replacement cover and statutory paperwork are handled by us, not by your admin team.",
+      "labels": ["Front office", "Pantry support", "Helpdesk", "Office assistants", "Replacement cover"],
+      "image": "assets/images/staff/staff-briefing.jpg",
+      "alt": "Apex support staff at a shift briefing before deployment",
+      "applications": [
+        "Reception and front office",
+        "Pantry and cafeteria support",
+        "Facility helpdesk and coordination",
+        "Mailroom and office assistance"
+      ]
+    }
+  ]
+}

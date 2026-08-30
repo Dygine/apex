@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Favicon placeholder — swap this file for the client's own logo mark -->
-  <rect width="64" height="64" rx="14" fill="#0B2044"/>
-  <path d="M32 12 16 52h9l7-17.5L39 52h9z" fill="#FFFFFF"/>
-  <path d="M32 12 16 52h9l7-17.5z" fill="#2E6BE6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
+<!-- FAVICON PLACEHOLDER — mirrors assets/brand/apex-mark.svg. Replace both together. -->
+  <rect width="108" height="108" rx="20" fill="#16233D"/>
+  <path d="M54 20 L88 78 H72 L54 47 L36 78 H20 Z" fill="#FBFAF7"/>
+  <rect x="36" y="82" width="36" height="7" rx="3.5" fill="#0FA47F"/>
 </svg>

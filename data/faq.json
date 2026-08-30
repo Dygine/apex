@@ -1,0 +1,21 @@
+{
+  "_note": "Questions and answers for the FAQ accordion. Add, edit or remove freely.",
+  "faq": [
+    { "q": "What is integrated facility management?",
+      "a": "It means one company takes responsibility for the services that keep a building working — cleaning, security, maintenance, grounds, pest control and support staff — instead of you holding a separate contract and a separate argument with each of them. One scope, one supervisor structure, one point of contact when something goes wrong." },
+    { "q": "What services can Apex provide?",
+      "a": "Housekeeping, security, technical maintenance, landscaping, pest management and support manpower. These can be taken as a full integrated contract or individually. If your requirement includes something not listed here, ask — the answer is either yes, or an honest no." },
+    { "q": "Can services be customised to our facility?",
+      "a": "Yes, and they have to be. A warehouse and a corporate floor need different headcount, different timings and different cleaning schedules. Scope, deployment and shift pattern are written for your site after a walkthrough, not selected from a package." },
+    { "q": "How do I request a proposal?",
+      "a": "Send an enquiry through the contact form with your facility type, location and rough size. We arrange a site walkthrough, then issue a written proposal covering scope, deployment, supervision and commercials." },
+    { "q": "What types of facilities can Apex support?",
+      "a": "Corporate offices, commercial buildings, residential communities, IT campuses, industrial units, warehousing, retail, healthcare, education and hospitality. The service mix changes considerably between them; the way we structure and supervise the work does not." },
+    { "q": "How is quality actually checked?",
+      "a": "Through supervision on site rather than a form filled in afterwards. Supervisors work to a written checklist for each area, escalate what they cannot resolve the same day, and review recurring issues with you on a fixed cycle." },
+    { "q": "What about statutory compliance for deployed staff?",
+      "a": "Staff placed at your site are engaged on Apex's rolls. Wage, PF, ESI and welfare obligations for those staff sit with us, and the supporting records can be produced for your audits. Please confirm current registration details with us directly before contracting." },
+    { "q": "How do I contact Apex?",
+      "a": "Use the enquiry form on the contact page, or the phone and email listed there once those details are confirmed. Enquiries are answered within one working day." }
+  ]
+}

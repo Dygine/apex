@@ -196,6 +196,82 @@
 }
 
 
+/* ══════════════════════════════════════════════════════════════════════════
+   COMPONENTS ADDED IN THIS BUILD
+   Breakpoints for the service sequence, people, uniform, ecosystem, scroll
+   story, FAQ, compliance and work gallery. Mobile is designed rather than
+   stacked: the pinned stages become inline images, and the five-across people
+   row becomes a swipeable rail instead of five unreadable slivers.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width:1200px){
+  .ppl-grid{ grid-template-columns:repeat(3,1fr); }
+  .ppl-card:nth-child(even){ margin-top:0; }
+  .wk-grid{ grid-template-columns:repeat(2,1fr); }
+}
+
+@media (max-width:1024px){
+  .svc-wrap{ grid-template-columns:1fr; }
+  .svc-stage{ display:none; }                 /* image moves inline instead */
+  .svc-panel-img{ display:block; }
+  .svc-panel{ min-height:0; padding:clamp(36px,7vw,56px) 0; }
+  .uni-wrap{ grid-template-columns:1fr; gap:36px; }
+  .uni-stage{ max-width:420px; }
+  .sdet, .sdet--flip{ grid-template-columns:1fr; }
+  .sdet--flip .sdet-img{ order:0; }
+  .indc, .indc:nth-child(even){ grid-template-columns:1fr; }
+  .indc:nth-child(even) .indc-img{ order:0; }
+  .cmp-grid{ grid-template-columns:repeat(2,1fr); }
+  .lb-inner{ grid-template-columns:1fr; max-height:88vh; overflow-y:auto; }
+  .lb-img img{ max-height:34vh; }
+  .eco-node{ font-size:.6rem; }
+}
+
+@media (max-width:860px){
+  /* People becomes a swipeable rail — five columns is unreadable below this */
+  .ppl-grid{
+    display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory;
+    margin-inline:calc(var(--pad) * -1); padding-inline:var(--pad);
+    padding-bottom:12px; -webkit-overflow-scrolling:touch;
+  }
+  .ppl-grid::-webkit-scrollbar{ height:3px; }
+  .ppl-grid::-webkit-scrollbar-thumb{ background:var(--line); }
+  .ppl-card{ flex:0 0 min(66vw,260px); scroll-snap-align:start; }
+  .ppl-card:nth-child(even){ margin-top:0; }
+
+  .wk-grid{ grid-template-columns:1fr; }
+  .cmp-grid{ grid-template-columns:1fr; }
+  .eco-stage{ aspect-ratio:1/1; }
+  .faq-a p{ padding-right:0; }
+  .faq-q button{ gap:1.2em; }
+}
+
+@media (max-width:620px){
+  .svc-title{ font-size:clamp(1.8rem,8vw,2.4rem); }
+  .uni-stage{ max-width:none; }
+  .uni-dot{ width:26px; height:26px; }
+  .uni-index button{ font-size:.86rem; }
+  .wk-filters{ margin-block:20px 26px; }
+  .wf{ padding:.6em 1em; font-size:.68rem; }
+
+  /* Scroll story un-pins on small screens — a 100vh pin with five stages is
+     a lot of thumb travel on a phone for very little payoff. */
+  .sstory-pin{ position:static; height:auto; padding:14vh 0; }
+  .sstory-media{ position:absolute; inset:0; }
+  .sstory-spacer{ display:none; }
+  .sstory-bar{ position:static; margin-top:2.5em; }
+  .sstory-step h3{ font-size:clamp(2.4rem,13vw,3.4rem); }
+
+  .lb{ padding:0; }
+  .lb-inner{ border-radius:0; min-height:100vh; }
+}
+
+@media (max-width:400px){
+  .ppl-card{ flex-basis:78vw; }
+  .svc-labels li{ font-size:.66rem; padding:.45em .75em; }
+}
+
+
 /* ── Print ──────────────────────────────────────────────────────────────── */
 @media print{
   .nav,.panel,.cursor,.progress,.hero-light,.marq,.rail,.stack{ display:none !important; }

@@ -2,5 +2,6 @@
 # Replace example.com with the live domain before launch.
 User-agent: *
 Allow: /
+Disallow: /tools/
 
 Sitemap: https://example.com/sitemap.xml

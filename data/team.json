@@ -1,0 +1,20 @@
+{
+  "_note": "Roles shown in the People section. These describe positions in a facility team, NOT named individuals — no person is invented anywhere on this site. Add real people only with their consent and a real photograph.",
+  "roles": [
+    { "id": "supervisor",   "role": "Facility supervisor",   "label": "SUPERVISION",
+      "line": "Walks the site, signs the checklist, and owns what did not get done.",
+      "image": "assets/images/staff/staff-supervisor.jpg", "alt": "Apex facility supervisor on a corporate office floor" },
+    { "id": "housekeeping", "role": "Housekeeping operative","label": "CARE",
+      "line": "Holds the same standard on an ordinary Tuesday as on an audit day.",
+      "image": "assets/images/staff/staff-housekeeping.jpg", "alt": "Apex housekeeping operative cleaning an office workspace" },
+    { "id": "security",     "role": "Security personnel",    "label": "CONTROL",
+      "line": "Knows the post instructions without being asked for them.",
+      "image": "assets/images/staff/staff-security.jpg", "alt": "Apex security personnel at a building entrance" },
+    { "id": "technician",   "role": "Maintenance technician","label": "UPTIME",
+      "line": "Finds the fault on the schedule, not on the complaint.",
+      "image": "assets/images/staff/staff-technician.jpg", "alt": "Apex maintenance technician inspecting building plant" },
+    { "id": "landscape",    "role": "Landscape operative",   "label": "PRESENTATION",
+      "line": "Maintains the first thing every visitor forms an opinion about.",
+      "image": "assets/images/staff/staff-landscape.jpg", "alt": "Apex landscape operative maintaining a campus lawn" }
+  ]
+}

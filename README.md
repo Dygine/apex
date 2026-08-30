@@ -1,264 +1,250 @@
-# Apex Integrated Facility Management — Website
+# Apex Integrated Facility Management — website
 
-A six-page, fully static marketing site built with HTML5, CSS3 and vanilla JavaScript.
-GSAP, ScrollTrigger and Lenis are loaded from CDN for the scroll choreography; there is no
-framework, no build step, no backend and no database.
+Seven pages. HTML5, CSS3, vanilla JavaScript. GSAP, ScrollTrigger and Lenis from
+CDN for the scroll work. No framework, no build step, no backend, no database.
 
-Open `index.html` and it runs. Upload the folder to GitHub Pages, Netlify or Vercel and it runs there.
+Open `index.html` and it runs. Push the folder to GitHub Pages and it runs there.
 
 ---
 
-## 1. Folder structure
+## 1. Read this first — the one gap
+
+**The staff photography is not real yet.** Twelve photo slots hold branded
+placeholders showing the slot code and the scene each one wants. Every prompt is
+written and waiting in `assets/images/staff/PROMPTS.md`.
+
+Until those are replaced, the site is a complete and honest demo — but it is not
+finished. Nothing else on the site is blocked on anything.
+
+```bash
+# 1. Generate or shoot the twelve images (prompts in PROMPTS.md)
+# 2. Save each at the same filename in assets/images/staff/
+# 3. Stamp the Apex logo on consistently
+python3 tools/brand-photos.py --preview staff-supervisor.jpg   # check placement
+python3 tools/brand-photos.py --all                            # stamp everything
+python3 tools/brand-photos.py --restore                        # undo, any time
+```
+
+No HTML changes needed. The `alt` text is already written to match each scene.
+
+---
+
+## 2. Folder structure
 
 ```
 apex-integrated-facility-management/
 │
-├── index.html          Home — cinematic hero, pinned image stack, sticky story,
-│                       facility map, horizontal rail, marquee, numbers,
-│                       industries, operations, statements, process, safety,
-│                       facility stories, testimonials, CTA
-├── about.html          Story, mission/vision/values, approach, people, safety, quality
-├── services.html       Nine service lines in detail + delivery process
-├── industries.html     Eight sectors: challenges, requirements, response
-├── projects.html       Demo case studies, clearly labelled
-├── contact.html        Split-screen contact, floating-label form, map placeholder
+├── index.html          Home — 18 sections
+├── about.html          Who Apex is, approach, people, safety, quality
+├── services.html       Six service lines in full, from JSON
+├── industries.html     Ten facility types, from JSON
+├── process.html        Assess → Plan → Deploy → Monitor → Improve   (new)
+├── work.html           Filterable worked examples + lightbox         (new)
+├── contact.html        Enquiry form, contact details, map slot
 │
-├── css/
-│   ├── style.css       Design tokens + every component and section (27 blocks)
-│   └── responsive.css  All breakpoint rules, in one place
+├── data/               ← EDIT CONTENT HERE
+│   ├── services.json     Service lines. Delete one and it vanishes site-wide.
+│   ├── industries.json   Facility types
+│   ├── projects.json     Worked examples shown on work.html
+│   ├── faq.json          Questions and answers
+│   ├── team.json         Roles in the People section
+│   └── uniform.json      Uniform hotspots and copy
 │
 ├── js/
-│   ├── main.js         Interaction layer — nav, menu, cursor, industries,
-│   │                   facility map, process, counters, form
-│   └── animations.js   Lenis + GSAP ScrollTrigger choreography, with fallbacks
+│   ├── config.js       ← EDIT COMPANY DETAILS HERE (phone, email, address…)
+│   ├── data.js         Auto-generated offline snapshot — do not hand-edit
+│   ├── render.js       Turns config + JSON into the page
+│   ├── main.js         Nav, menu, cursor, facility map, counters, form
+│   └── animations.js   Lenis + GSAP choreography, with fallbacks
+│
+├── css/
+│   ├── style.css       Design tokens and the original components
+│   ├── components.css  Sections added in this build
+│   └── responsive.css  Every media query, in one file
 │
 ├── assets/
-│   ├── images/         20 photographs (2.8 MB total)
-│   └── icons/
-│       └── favicon.svg Favicon placeholder
+│   ├── brand/
+│   │   ├── apex-logo.svg          ← REPLACE with the real logo
+│   │   ├── apex-mark.svg          ← REPLACE (mark only, used in nav + favicon)
+│   │   ├── apex-mark-mono.svg     ← REPLACE (single colour, for embroidery)
+│   │   └── apex-uniform-spec.svg  Vendor-ready uniform drawing
+│   ├── images/
+│   │   ├── staff/      12 photo slots + PROMPTS.md
+│   │   └── *.jpg       Buildings, interiors, facility types
+│   └── icons/favicon.svg          ← REPLACE (match apex-mark.svg)
+│
+├── tools/              Maintenance scripts, not part of the site
+│   ├── build-data.js        Refresh js/data.js after editing JSON
+│   ├── brand-photos.py      Stamp the logo onto photographs
+│   ├── make-placeholders.py Regenerate the placeholder slots
+│   └── test-site.py         Full production-readiness check
 │
 ├── robots.txt
 ├── sitemap.xml
 └── README.md
 ```
 
-**Why the split.** `style.css` owns the design system so there is a single source of truth for
-colour, type and spacing. `responsive.css` owns every media query, so changing behaviour at a
-breakpoint never means hunting through the main file. `main.js` runs with or without GSAP;
-`animations.js` is pure enhancement and bails out cleanly if the CDN is unreachable.
+---
 
-**No icon library.** Every icon is inline SVG. That removes a render-blocking request and keeps
-the icons sharp at any size.
+## 3. Where to change things
+
+| What | Where | Notes |
+|---|---|---|
+| Phone, email, WhatsApp, address | `js/config.js` | One file. Updates nav, footer, contact page and WhatsApp button on all seven pages. |
+| Add / remove / reorder a service | `data/services.json` | Home sequence, services page and the contact form dropdown all follow. |
+| Facility types | `data/industries.json` | Home list, industries page, contact form dropdown. |
+| FAQ questions | `data/faq.json` | |
+| Worked examples | `data/projects.json` | Set `"demo": false` to drop the DEMO tag. |
+| People roles | `data/team.json` | |
+| Uniform hotspots | `data/uniform.json` | `x` / `y` are percentages of the image. |
+| Logo | `assets/brand/*.svg` + `assets/icons/favicon.svg` | Four files, all currently placeholders. |
+| Uniform spec sheet | `assets/brand/apex-uniform-spec.svg` | Print it, send it to a uniform vendor. |
+| Turn off every demo notice | `js/config.js` → `demoMode: false` | Single switch for launch day. |
+| Domain | `js/config.js` → `domain`, plus `robots.txt`, `sitemap.xml`, and the canonical/OG tags in each `<head>` | |
+
+**After editing any JSON file, run:**
+
+```bash
+node tools/build-data.js
+```
+
+That refreshes `js/data.js`, the offline snapshot used when someone opens the
+site by double-clicking rather than through a server. Skip it and the site still
+works everywhere except `file://`.
+
+### The `confirmed` flag
+
+Contact fields in `config.js` look like this:
+
+```js
+phone: { value: '+91 00000 00000', confirmed: false },
+```
+
+While `confirmed` is `false` the value renders greyed with a dashed underline and
+the link is disabled — so a half-filled site never looks like it is stating a
+fact. Set it to `true` once the real value is in. The WhatsApp button hides
+entirely until its number is confirmed, rather than showing a dead one.
 
 ---
 
-## 2. How to run it locally
-
-**Simplest:** double-click `index.html`.
-
-**Better** — a local server, which matches how the site behaves once deployed:
+## 4. Running it locally
 
 ```bash
 cd apex-integrated-facility-management
-python -m http.server 8000     # then open http://localhost:8000
-
-# or
-npx serve
+python3 -m http.server 8000     # then open http://localhost:8000
 ```
 
-**VS Code:** install Live Server, right-click `index.html`, *Open with Live Server*.
+Or VS Code Live Server, or `npx serve`. Double-clicking `index.html` also works
+via the `js/data.js` fallback.
 
 ---
 
-## 3. How to deploy to GitHub Pages
+## 5. Deploying to GitHub Pages
 
-1. Create a public repository on GitHub.
-
-2. Push the contents of this folder to the repository root. `index.html` must be at the top
-   level, not inside a subfolder:
+1. Create a repository and push the contents of this folder to the **root** —
+   `index.html` must be at the top level.
 
    ```bash
-   cd apex-integrated-facility-management
-   git init
-   git add .
-   git commit -m "Apex IFM website"
+   git init && git add . && git commit -m "Apex IFM website"
    git branch -M main
-   git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
+   git remote add origin https://github.com/USER/REPO.git
    git push -u origin main
    ```
 
-3. **Settings → Pages → Build and deployment.** Set Source to `Deploy from a branch`, branch
-   `main`, folder `/ (root)`. Save.
+2. **Settings → Pages → Build and deployment.** Source: `Deploy from a branch`,
+   branch `main`, folder `/ (root)`. Save.
 
-4. After a minute your link appears at the top of that page:
-   `https://YOUR-USERNAME.github.io/YOUR-REPO/`
+3. The link appears at the top of that page after a minute.
 
-**Three things that catch people out:**
+Three things that catch people out:
 
-- Every path in the code is relative (`css/style.css`, `about.html`). That is exactly what a
-  project URL like `/YOUR-REPO/` needs. Do not change them to start with `/` — they will work
-  locally and 404 on Pages.
-- Filenames are case-sensitive on GitHub's servers but not on Windows. Keep everything lowercase.
-- Page links use `about.html`, not `/about/`. No server-side routing is involved, so nothing
-  needs a rewrite rule. Netlify and Vercel work the same way — drag the folder in, no config.
+- Every path is relative (`css/style.css`, not `/css/style.css`). A leading slash
+  works locally and 404s on a project URL like `/REPO/`.
+- GitHub's servers are case-sensitive; Windows is not. Keep filenames lowercase.
+- Links are `about.html`, not `/about/`. No rewrite rules needed. Netlify and
+  Vercel behave the same way — drag the folder in, no config.
 
 ---
 
-## 4. Where to replace company details
+## 6. Making the enquiry form live
 
-| What | Where |
-|---|---|
-| Phone, email, WhatsApp | Search `data-placeholder` — every placeholder carries it |
-| Office address | `contact.html` (`.ctc-details`) and the footer of all six pages |
-| Domain in canonical + Open Graph | `<head>` of each page — replace `https://example.com/` |
-| Domain in `robots.txt` and `sitemap.xml` | Both files, replace `example.com` |
-| Logo wordmark | The `.nav-logo` block and `.foot-brand` in each page |
-| Favicon | `assets/icons/favicon.svg` |
-| Copyright year | Auto-updates via `data-year` in `js/main.js` |
-
-The WhatsApp link format is `https://wa.me/91` followed by the 10-digit number, no `+` or spaces.
-
-**Map placeholder.** `contact.html` has a `.map-holder` block near the bottom. Replace the inner
-`<div>` with a Google Maps embed:
-
-```html
-<iframe src="PASTE_EMBED_URL" width="100%" height="100%" style="border:0"
-        allowfullscreen loading="lazy" title="Apex office location"></iframe>
-```
-
-**Two demo notices to delete before launch:** the line under the WhatsApp/Call/Email buttons on
-`contact.html`, and "Demonstration website…" in the footer of all six pages.
+It is front-end only: `js/main.js` validates, shows a confirmation, and sends
+nothing. To connect it, use Formspree, Web3Forms or Netlify Forms — add an
+`action` URL to the `<form>` and remove the `e.preventDefault()` line. All three
+have free tiers and work on static hosting.
 
 ---
 
-## 5. Where to replace images
+## 7. What was verified
 
-All 20 live in `assets/images/`. Drop replacements in using the **same filenames** and nothing
-else needs editing.
-
-| File | Used for |
-|---|---|
-| `hero-towers.jpg` | Home hero background (widest — use a landscape shot) |
-| `portrait-tech.jpg`, `ops-control.jpg` | Hero foreground cards |
-| `about-housekeeping.jpg`, `crew-sky.jpg`, `tech-team.jpg` | Story, about, marquee |
-| `safety-engineer.jpg`, `quality-plantroom.jpg`, `welding.jpg` | Safety, HVAC, electrical |
-| `corridor.jpg` | Contact hero, pest control |
-| `hub-facility.jpg` | Spare |
-| `ind-*.jpg` (8) | Industry cards and previews |
-
-Keep roughly the same shape — the hero wants landscape, industry cards are landscape, the about
-main image is portrait. **Update the `alt` text** when you swap a photo; it is written
-descriptively for accessibility and SEO, so a stale description is worse than none.
-
-Current photographs are Unsplash stock used under the Unsplash License. Replacing them with the
-client's own site photography will lift the design more than any other single change.
-
----
-
-## 6. Where to replace demo statistics
-
-**Home, "By the numbers"** — search `data-count`:
-
-```html
-<div class="nums-cell"><b><span data-count="10">0</span><i>+</i></b><span>Service categories</span></div>
-```
-
-`data-count` is the number counted to; the `<i>` is the suffix (`+`, `/7`, `°`, `%`); the trailing
-`<span>` is the label. The section ends with a visible note calling them demonstration figures —
-delete that line once the numbers are real.
-
-**Home hero strip** — three figures in `.hero-stats`, hardcoded (not animated).
-
-**Operations board** — `data-val` on each `.ops-bar i` drives the bar width, 0–100. These are
-labelled "illustrative" in the UI. Both the label and the note should change when real data exists.
-
-**Page hero meta rows** — the `.phero-meta` blocks on the five inner pages.
-
----
-
-## 7. Where to replace demo projects and testimonials
-
-**Projects.** `projects.html` holds four `.detail-item` blocks, each marked `Demo project`, plus a
-standing notice at the top of the page. The structure per case is: challenge, approach, services in
-scope, outcome. Replace the text, delete the `demo-tag` span and the notice block, and the layout
-takes real content without any CSS changes. The home page has a matching four-card teaser under
-`<!-- ══ 14 FACILITY STORIES ══ -->` with the same `demo-tag` markers.
-
-**Testimonials.** `index.html`, marked in the source:
-
-```html
-<!-- DEMO CONTENT — REPLACE WITH REAL CLIENT TESTIMONIALS.
-     Names below are role descriptions, not real individuals or companies. -->
-```
-
-Quotes are attributed to roles ("Facility manager, corporate office — placeholder"), never to
-invented people or companies. Swap in real quotes with permission, or delete the section.
-
-**Making the form live.** It is front-end only — `js/main.js` section 10 validates and shows a
-confirmation. Nothing is transmitted or stored. To connect it, use Formspree, Web3Forms or Netlify
-Forms: add an `action` URL to the `<form>` and remove the `e.preventDefault()` line. All three have
-free tiers and work on static hosting.
-
----
-
-## 8. Production-readiness check
-
-Verified in headless Chromium against a local server.
+`tools/test-site.py` runs all seven pages in headless Chromium. Latest run:
 
 | Check | Result |
 |---|---|
-| JavaScript errors, all 6 pages | none |
+| JavaScript errors, 7 pages | none |
 | Failed network requests | none |
-| Images loading (115 across the site) | 115/115 |
-| Broken internal links | none |
-| Horizontal overflow @ 1920/1440/1366/768/430/390 | none |
-| `<h1>` per page | exactly 1 |
+| Broken images | none |
+| Dead internal links | none |
+| Horizontal overflow @ 1920/1440/1366/1024/768/430/390/360 | none |
+| One `<h1>` per page | 7/7 |
 | Images without `alt` | 0 |
-| Unique title + meta description per page | yes, 6/6 |
-| Canonical + Open Graph tags | on all 6 pages |
-| Form: blocks empty submit | 4 fields flagged |
-| Form: rejects malformed email | pass |
-| Form: valid submit → success animation | pass |
-| Form: reset restores and clears | pass |
-| Mobile menu: opens, locks scroll, closes on Escape | pass |
-| Reduced motion: hidden elements | 0 (all content visible) |
-| Reduced motion: custom cursor | disabled |
+| Unique title + meta description | 7/7 |
+| Canonical, Open Graph, structured data | all pages |
+| JSON rendering | 6 services, 10 industries, 5 roles, 6 hotspots, 8 questions, 6 examples |
+| FAQ accordion | opens; one panel at a time |
+| Uniform hotspots | click and hover both select |
+| Work filter | 6 → 2 on filtering |
+| Lightbox | opens; closes on Escape |
+| Mobile menu | opens; closes on Escape |
+| Contact form | flags 4 empty required fields; dropdowns populate from JSON |
+| Process scroll story | advances through all five stages |
+| Reduced motion | 0 elements left invisible |
 
-**Accessibility.** Semantic sectioning, one `<h1>` per page, skip link, visible focus rings, ARIA
-on the menu toggle, keyboard-reachable industry rows and process steps, and `alt` on every image.
-`prefers-reduced-motion` disables Lenis, GSAP, the custom cursor and all ambient animation, then
-reveals every element that would otherwise animate in.
+Re-run any time:
 
-**Performance.** No framework. Below-the-fold images are lazy-loaded; hero images use
-`fetchpriority="high"`. Scroll handlers are throttled with `requestAnimationFrame`. Counters,
-bars and reveals use `IntersectionObserver`. Total image payload is 2.8 MB across 20 files.
+```bash
+python3 -m http.server 8899 &
+python3 tools/test-site.py
+```
 
-**Graceful degradation.** If the GSAP or Lenis CDN is blocked, `animations.js` detects it and calls
-`revealAll()` — the site renders as a clean, fully functional static page with no invisible content.
-The same path runs under reduced-motion. Pinned sections (image stack, horizontal rail) are desktop
-only; touch devices get purpose-built vertical equivalents rather than a broken pin.
+**Accessibility.** Semantic sectioning, skip link, visible focus rings, ARIA on
+the menu toggle and FAQ panels, keyboard-reachable hotspots and industry rows,
+`alt` on every image. `prefers-reduced-motion` disables Lenis, GSAP, the custom
+cursor and all ambient motion, un-pins the sticky sections, and reveals
+everything that would otherwise animate in.
 
-**Known limitations.** Google Fonts is the one external dependency for typography; if it fails the
-site falls back to system sans-serif. The two pinned sections make the home page long by design
-(roughly 22,700px at 1440 wide) — that is the scroll experience, not a layout bug.
+**Graceful degradation.** If the GSAP or Lenis CDN is blocked, `animations.js`
+detects it and calls `revealAll()` — the site renders as a clean static page with
+nothing invisible. If `fetch` is unavailable, `js/data.js` supplies the content.
+Pinned sections are desktop-only; touch devices get purpose-built vertical
+equivalents rather than a broken pin.
 
 ---
 
-## 9. Tuning the scroll speed
+## 8. Tuning the scroll speed
 
-Open `js/animations.js`. The two knobs are at the very top of the file:
+Top of `js/animations.js`:
 
 ```js
-var SMOOTH_SCROLL = true;   // false = native browser scrolling (fastest response)
+var SMOOTH_SCROLL = true;   // false = native browser scrolling
 var SCROLL_EASE   = 0.75;   // lower = snappier. 0.6 quick, 1.2 floaty
 ```
 
-Setting `SMOOTH_SCROLL = false` turns off Lenis entirely. Every scroll-triggered animation still
-works — you just get the browser's own instant scrolling, which is as fast as it gets. Nothing else
-needs changing.
+Setting `SMOOTH_SCROLL = false` turns Lenis off entirely. Every scroll animation
+still works.
 
-If you want the page itself shorter, the two pinned sections are where the length lives:
+---
 
-- **Image stack** — `js/animations.js`, `end: '+=' + (items.length * 36) + '%'`. Lower the `36`.
-- **Horizontal rail** — `css/style.css`, `.rail-panel { width: clamp(240px,23vw,330px) }`.
-  Narrower panels mean less horizontal travel and less scrolling to get through the section.
+## 9. Before launch — checklist
+
+- [ ] Replace the four logo files and re-export the uniform spec sheet
+- [ ] Replace the twelve photo slots, then run `tools/brand-photos.py --all`
+- [ ] Fill `js/config.js` and flip each `confirmed` to `true`
+- [ ] Set `demoMode: false` in `js/config.js`
+- [ ] Replace `example.com` in `robots.txt`, `sitemap.xml` and every `<head>`
+- [ ] Replace or delete the `data/projects.json` demo entries
+- [ ] Replace or delete the testimonials block in `index.html` (marked in source)
+- [ ] Add the Google Maps embed in `contact.html` (`.map-holder`)
+- [ ] Add compliance registrations to the compliance section — only ones Apex holds
+- [ ] Connect the form to Formspree / Web3Forms / Netlify Forms
+- [ ] Delete `tools/` from the deployed copy if you would rather not ship it

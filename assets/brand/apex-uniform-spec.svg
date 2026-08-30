@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" width="1200" height="820" font-family="Helvetica, Arial, sans-serif">
+<!-- =======================================================================
+     APEX INTEGRATED FACILITY MANAGEMENT — UNIFORM SPECIFICATION SHEET
+     Original technical drawing. Hand this to a uniform vendor.
+     Colours, placements and sizes are a proposal, not a confirmed standard.
+     ======================================================================= -->
+<rect width="1200" height="820" fill="#FBFAF7"/>
+
+<!-- header -->
+<g>
+  <rect x="0" y="0" width="1200" height="72" fill="#16233D"/>
+  <g transform="translate(28,14) scale(0.42)">
+    <rect width="108" height="108" rx="20" fill="#FBFAF7"/>
+    <path d="M54 20 L88 78 H72 L54 47 L36 78 H20 Z" fill="#16233D"/>
+    <rect x="36" y="82" width="36" height="7" rx="3.5" fill="#0FA47F"/>
+  </g>
+  <text x="86" y="34" fill="#FBFAF7" font-size="17" font-weight="700" letter-spacing="1.4">APEX — UNIFORM SPECIFICATION</text>
+  <text x="86" y="54" fill="#9FB0CC" font-size="11.5" letter-spacing="1.8">TECHNICAL FLAT · FRONT VIEW · PROPOSED STANDARD · REV A</text>
+  <text x="1172" y="43" fill="#9FB0CC" font-size="11" text-anchor="end" letter-spacing="1.4">SHEET 1 OF 1</text>
+</g>
+
+<!-- ============================ SHIRT ============================ -->
+<g transform="translate(70,110)">
+  <text x="0" y="0" fill="#6B7079" font-size="10.5" letter-spacing="2.2">01 — SUPERVISOR / TECHNICAL SHIRT</text>
+
+  <!-- shirt body -->
+  <g transform="translate(0,22)">
+    <path d="M250,20 L168,46 L104,214 L168,238 L196,180 L182,540 L418,540 L404,180 L432,238 L496,214 L432,46 L350,20
+             C336,52 314,66 300,66 C286,66 264,52 250,20 Z"
+          fill="#1E3050" stroke="#0C1526" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- shoulder yoke seam -->
+    <path d="M186,58 C240,86 360,86 414,58" fill="none" stroke="#0C1526" stroke-width="1.6" opacity=".55"/>
+
+    <!-- collar -->
+    <path d="M250,20 L300,66 L262,86 L236,44 Z" fill="#16233D" stroke="#0C1526" stroke-width="2"/>
+    <path d="M350,20 L300,66 L338,86 L364,44 Z" fill="#16233D" stroke="#0C1526" stroke-width="2"/>
+
+    <!-- placket -->
+    <rect x="286" y="60" width="28" height="480" fill="#16233D" stroke="#0C1526" stroke-width="1.6"/>
+    <g fill="#C9D3E4">
+      <circle cx="300" cy="120" r="4.5"/><circle cx="300" cy="196" r="4.5"/>
+      <circle cx="300" cy="272" r="4.5"/><circle cx="300" cy="348" r="4.5"/>
+      <circle cx="300" cy="424" r="4.5"/>
+    </g>
+
+    <!-- sleeve hems -->
+    <path d="M104,214 L168,238" fill="none" stroke="#0C1526" stroke-width="2"/>
+    <path d="M496,214 L432,238" fill="none" stroke="#0C1526" stroke-width="2"/>
+
+    <!-- shoulder epaulettes -->
+    <rect x="196" y="46" width="52" height="16" rx="3" fill="#16233D" stroke="#0C1526" stroke-width="1.4"/>
+    <rect x="352" y="46" width="52" height="16" rx="3" fill="#16233D" stroke="#0C1526" stroke-width="1.4"/>
+
+    <!-- APEX LOGO — wearer's left chest (viewer right) -->
+    <g transform="translate(348,140)">
+      <g transform="scale(0.30)">
+        <path d="M54 20 L88 78 H72 L54 47 L36 78 H20 Z" fill="#FBFAF7"/>
+        <rect x="36" y="82" width="36" height="7" rx="3.5" fill="#0FA47F"/>
+      </g>
+      <text x="38" y="22" fill="#FBFAF7" font-size="15" font-weight="800" letter-spacing="-.3">APEX</text>
+      <text x="38" y="33" fill="#9FB0CC" font-size="5.6" letter-spacing="1.05">INTEGRATED FACILITY MGMT</text>
+    </g>
+
+    <!-- NAME BADGE — wearer's right chest (viewer left) -->
+    <g transform="translate(202,142)">
+      <rect width="76" height="24" rx="2.5" fill="#0FA47F"/>
+      <text x="7" y="11.5" fill="#04231B" font-size="8" font-weight="700" letter-spacing=".5">NAME</text>
+      <text x="7" y="20.5" fill="#04231B" font-size="6.4" letter-spacing=".9" opacity=".85">SUPERVISOR</text>
+    </g>
+
+    <!-- sleeve service tape -->
+    <g transform="translate(122,168) rotate(-70)">
+      <rect x="0" y="0" width="62" height="14" rx="2" fill="#FBFAF7" opacity=".92"/>
+      <text x="5" y="10" fill="#16233D" font-size="7.2" font-weight="700" letter-spacing="1">FACILITY</text>
+    </g>
+
+    <!-- reflective hem tape -->
+    <rect x="182" y="512" width="236" height="9" fill="#9FB0CC" opacity=".55"/>
+
+    <!-- lanyard + ID card -->
+    <path d="M268,66 L292,196 M332,66 L308,196" fill="none" stroke="#0FA47F" stroke-width="5" stroke-linecap="round"/>
+    <g transform="translate(266,196)">
+      <rect width="68" height="46" rx="4" fill="#FBFAF7" stroke="#0C1526" stroke-width="1.4"/>
+      <rect x="0" y="0" width="68" height="11" rx="4" fill="#16233D"/>
+      <rect x="0" y="7" width="68" height="4" fill="#16233D"/>
+      <text x="5" y="8" fill="#FBFAF7" font-size="5.4" font-weight="700" letter-spacing=".8">APEX · IFM</text>
+      <rect x="5" y="15" width="18" height="22" rx="2" fill="#DEDAD1"/>
+      <text x="27" y="22" fill="#14161A" font-size="5.6" font-weight="700">STAFF NAME</text>
+      <text x="27" y="29" fill="#6B7079" font-size="4.6">ID · AX-0000</text>
+      <text x="27" y="35.5" fill="#6B7079" font-size="4.6">SITE · ______</text>
+      <rect x="5" y="39" width="58" height="3" fill="#0FA47F"/>
+    </g>
+  </g>
+
+  <!-- callouts — leader lines never cross -->
+  <g stroke="#16233D" stroke-width="1.1" fill="none" opacity=".75">
+    <path d="M424,166 L560,166"/>   <!-- A chest logo   -->
+    <path d="M200,176 L58,176"/>    <!-- B name badge   -->
+    <path d="M336,242 L560,258"/>   <!-- C id card      -->
+    <path d="M404,76  L560,84"/>    <!-- D epaulette    -->
+    <path d="M128,196 L58,262"/>    <!-- E sleeve tape  -->
+    <path d="M418,534 L560,470"/>   <!-- F hem tape     -->
+  </g>
+  <g fill="#16233D">
+    <circle cx="424" cy="166" r="3.5"/><circle cx="200" cy="176" r="3.5"/>
+    <circle cx="336" cy="242" r="3.5"/><circle cx="404" cy="76"  r="3.5"/>
+    <circle cx="128" cy="196" r="3.5"/><circle cx="418" cy="534" r="3.5"/>
+  </g>
+  <g fill="#16233D" font-size="12" font-weight="700" letter-spacing=".8" text-anchor="middle">
+    <text x="574" y="170">A</text><text x="44" y="180">B</text>
+    <text x="574" y="262">C</text><text x="574" y="88">D</text>
+    <text x="44"  y="266">E</text><text x="574" y="474">F</text>
+  </g>
+</g>
+
+<!-- ============================ SPEC TABLE ============================ -->
+<g transform="translate(700,132)">
+  <text x="0" y="0" fill="#6B7079" font-size="10.5" letter-spacing="2.2">02 — PLACEMENT &amp; MATERIAL SCHEDULE</text>
+  <line x1="0" y1="12" x2="440" y2="12" stroke="#DEDAD1" stroke-width="1.5"/>
+
+  <g font-size="12">
+    <g transform="translate(0,42)">
+      <text x="0" y="0" fill="#16233D" font-weight="700">A · CHEST LOGO</text>
+      <text x="0" y="17" fill="#6B7079" font-size="11.2">Wearer's left chest. 70 mm wide. Embroidered,</text>
+      <text x="0" y="32" fill="#6B7079" font-size="11.2">flat stitch. Bone #FBFAF7 + signal #0FA47F.</text>
+    </g>
+    <g transform="translate(0,98)">
+      <text x="0" y="0" fill="#16233D" font-weight="700">B · NAME BADGE</text>
+      <text x="0" y="17" fill="#6B7079" font-size="11.2">Wearer's right chest. 75 × 24 mm. Signal green</text>
+      <text x="0" y="32" fill="#6B7079" font-size="11.2">plate, dark text. Name over role. Magnetic back.</text>
+    </g>
+    <g transform="translate(0,154)">
+      <text x="0" y="0" fill="#16233D" font-weight="700">C · PHOTO ID + LANYARD</text>
+      <text x="0" y="17" fill="#6B7079" font-size="11.2">86 × 54 mm PVC. Photo, name, staff ID, site,</text>
+      <text x="0" y="32" fill="#6B7079" font-size="11.2">colour band by service line. Breakaway lanyard.</text>
+    </g>
+    <g transform="translate(0,210)">
+      <text x="0" y="0" fill="#16233D" font-weight="700">D · EPAULETTE</text>
+      <text x="0" y="17" fill="#6B7079" font-size="11.2">Supervisor grade only. Plain on operative grade.</text>
+    </g>
+    <g transform="translate(0,252)">
+      <text x="0" y="0" fill="#16233D" font-weight="700">E · SLEEVE SERVICE TAPE</text>
+      <text x="0" y="17" fill="#6B7079" font-size="11.2">Left sleeve. Service line in caps: HOUSEKEEPING /</text>
+      <text x="0" y="32" fill="#6B7079" font-size="11.2">SECURITY / TECHNICAL / LANDSCAPE / PEST.</text>
+    </g>
+    <g transform="translate(0,308)">
+      <text x="0" y="0" fill="#16233D" font-weight="700">F · HEM REFLECTIVE TAPE</text>
+      <text x="0" y="17" fill="#6B7079" font-size="11.2">Technical and night-shift grades. 20 mm silver.</text>
+    </g>
+  </g>
+
+  <!-- colour chips -->
+  <g transform="translate(0,364)">
+    <line x1="0" y1="0" x2="440" y2="0" stroke="#DEDAD1" stroke-width="1.5"/>
+    <text x="0" y="22" fill="#6B7079" font-size="10.5" letter-spacing="2.2">03 — COLOUR</text>
+    <g transform="translate(0,36)">
+      <rect x="0" y="0" width="88" height="46" fill="#16233D"/>
+      <rect x="100" y="0" width="88" height="46" fill="#1E3050"/>
+      <rect x="200" y="0" width="88" height="46" fill="#0FA47F"/>
+      <rect x="300" y="0" width="88" height="46" fill="#FBFAF7" stroke="#DEDAD1"/>
+      <g font-size="9" fill="#6B7079" letter-spacing=".6">
+        <text x="0" y="60">#16233D</text><text x="100" y="60">#1E3050</text>
+        <text x="200" y="60">#0FA47F</text><text x="300" y="60">#FBFAF7</text>
+        <text x="0" y="72" font-size="8.4">UNIFORM NAVY</text><text x="100" y="72" font-size="8.4">SHIRT BODY</text>
+        <text x="200" y="72" font-size="8.4">SIGNAL</text><text x="300" y="72" font-size="8.4">BONE</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- grades -->
+  <g transform="translate(0,506)">
+    <line x1="0" y1="0" x2="440" y2="0" stroke="#DEDAD1" stroke-width="1.5"/>
+    <text x="0" y="22" fill="#6B7079" font-size="10.5" letter-spacing="2.2">04 — GRADE VARIANTS</text>
+    <g font-size="11.2" fill="#6B7079">
+      <text x="0" y="44"><tspan fill="#16233D" font-weight="700">Supervisor</tspan> — navy shirt, epaulettes, photo ID.</text>
+      <text x="0" y="64"><tspan fill="#16233D" font-weight="700">Housekeeping</tspan> — navy polo, apron option, badge.</text>
+      <text x="0" y="84"><tspan fill="#16233D" font-weight="700">Technical</tspan> — navy work shirt, reflective hem.</text>
+      <text x="0" y="104"><tspan fill="#16233D" font-weight="700">Security</tspan> — navy shirt, shoulder title, cap.</text>
+      <text x="0" y="124"><tspan fill="#16233D" font-weight="700">Landscape</tspan> — navy tee, high-vis vest outdoors.</text>
+    </g>
+  </g>
+</g>
+
+<!-- footer -->
+<g transform="translate(0,782)">
+  <line x1="70" y1="0" x2="1130" y2="0" stroke="#DEDAD1" stroke-width="1.5"/>
+  <text x="70" y="22" fill="#6B7079" font-size="10">Placeholder logo artwork. Replace assets/brand/apex-mark.svg with the official Apex mark, then re-export this sheet.</text>
+</g>
+</svg>

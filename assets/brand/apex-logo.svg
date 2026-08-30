@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 120" role="img" aria-label="Apex Integrated Facility Management">
+<!-- =====================================================================
+     APEX — LOGO PLACEHOLDER
+     This is NOT the client's official logo. It is an original placeholder
+     drawn for this demo so the layout, uniform mock-ups and favicon all
+     read correctly. Replace this file with the real Apex artwork.
+     Keep the 460x120 viewBox (or update css .brand-mark width) and keep
+     currentColor on the wordmark so it inverts on dark backgrounds.
+     ===================================================================== -->
+
+  <!-- Mark: a stacked apex/chevron reading as levels of a managed building -->
+  <g id="apex-mark">
+    <rect x="0" y="6" width="108" height="108" rx="20" fill="#16233D"/>
+    <!-- roof / apex -->
+    <path d="M54 26 L88 84 H72 L54 53 L36 84 H20 Z" fill="#FBFAF7"/>
+    <!-- floor plates -->
+    <rect x="36" y="88" width="36" height="7" rx="3.5" fill="#0FA47F"/>
+    <rect x="45" y="70" width="18" height="6" rx="3" fill="#FBFAF7" opacity=".55"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g id="apex-wordmark" fill="currentColor">
+    <text x="128" y="62" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif"
+          font-size="46" font-weight="800" letter-spacing="-1.5">APEX</text>
+    <text x="130" y="90" font-family="'IBM Plex Mono', ui-monospace, monospace"
+          font-size="13.5" font-weight="500" letter-spacing="2.6" opacity=".72">INTEGRATED FACILITY MGMT</text>
+  </g>
+</svg>

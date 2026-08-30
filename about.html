@@ -10,15 +10,48 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="About | Apex Integrated Facility Management">
 <meta property="og:description" content="Apex Integrated Facility Management is a Bangalore-based facility management company. Our story, mission, values, approach to people, safety and quality.">
-<meta property="og:image" content="assets/images/crew-sky.jpg">
+<meta property="og:image" content="assets/images/staff/staff-team.jpg">
 <meta property="og:url" content="https://example.com/about.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icons/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/responsive.css">
+<!-- Structured data. Add telephone, email and streetAddress here once
+     confirmed — do not publish values that are not real. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Apex Integrated Facility Management",
+  "description": "Integrated facility management in Bengaluru: housekeeping, security, technical maintenance, landscaping, pest management and support manpower under one contract.",
+  "url": "https://example.com/",
+  "logo": "https://example.com/assets/brand/apex-logo.svg",
+  "areaServed": {
+    "@type": "City",
+    "name": "Bengaluru"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bengaluru",
+    "addressRegion": "Karnataka",
+    "addressCountry": "IN"
+  },
+  "knowsAbout": [
+    "Integrated facility management",
+    "Housekeeping services",
+    "Security services",
+    "Technical maintenance",
+    "Landscaping",
+    "Pest management",
+    "Facility manpower"
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -26,14 +59,15 @@
 <header class="nav" id="nav">
   <div class="wrap-wide nav-in">
     <a href="index.html" class="nav-logo" aria-label="Apex Integrated Facility Management, home">
-      <b>Apex</b><span>Integrated Facility Management</span>
+      <svg class="brand-mark" viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="20" fill="#16233D"/><path d="M54 20 L88 78 H72 L54 47 L36 78 H20 Z" fill="#FBFAF7"/><rect x="36" y="82" width="36" height="7" rx="3.5" fill="#0FA47F"/><rect x="45" y="64" width="18" height="6" rx="3" fill="#FBFAF7" opacity=".55"/></svg><span class="nav-word"><b>Apex</b><span>Integrated Facility Management</span></span>
     </a>
     <nav class="nav-menu" aria-label="Primary">
       <a class="nav-a" href="index.html">Home</a>
       <a class="nav-a current" href="about.html">About</a>
       <a class="nav-a" href="services.html">Services</a>
       <a class="nav-a" href="industries.html">Industries</a>
-      <a class="nav-a" href="projects.html">Projects</a>
+      <a class="nav-a" href="process.html">Process</a>
+      <a class="nav-a" href="work.html">Work</a>
       <a class="nav-a" href="contact.html">Contact</a>
     </nav>
     <a href="contact.html" class="btn btn-solid nav-cta" data-magnetic>Request a consultation</a>
@@ -48,18 +82,19 @@
     <li><a href="about.html"><span class="idx">02</span>About</a></li>
     <li><a href="services.html"><span class="idx">03</span>Services</a></li>
     <li><a href="industries.html"><span class="idx">04</span>Industries</a></li>
-    <li><a href="projects.html"><span class="idx">05</span>Projects</a></li>
-    <li><a href="contact.html"><span class="idx">06</span>Contact</a></li>
+    <li><a href="process.html"><span class="idx">05</span>Process</a></li>
+    <li><a href="work.html"><span class="idx">06</span>Work</a></li>
+    <li><a href="contact.html"><span class="idx">07</span>Contact</a></li>
   </ul>
   <div class="panel-foot">
-    <a href="tel:+910000000000" data-placeholder>+91 XXXXX XXXXX</a>
-    <a href="mailto:info@example.com" data-placeholder>info@example.com</a>
+    <a data-cfg-tel>+91 00000 00000</a>
+    <a data-cfg-mail>hello@example.com</a>
     <a href="https://wa.me/910000000000" target="_blank" rel="noopener" data-placeholder>WhatsApp</a>
   </div>
 </div>
 <main id="main">
 <section class="phero" id="top">
-  <div class="phero-bg"><img src="assets/images/crew-sky.jpg" alt="Apex site crew in protective equipment at the start of a shift" fetchpriority="high"></div>
+  <div class="phero-bg"><img src="assets/images/staff/staff-team.jpg" alt="Apex facility team in uniform at a client site" fetchpriority="high"></div>
   <div class="noise"></div>
   <div class="wrap" style="position:relative;z-index:2">
     <p class="crumb"><a href="index.html">Home</a> &nbsp;/&nbsp; About</p>
@@ -106,7 +141,7 @@
 </section>
 <section class="section"><div class="wrap"><div class="detail">
 <article class="detail-item" id="approach">
-  <div class="detail-media img-reveal" data-cursor="View"><span class="idx">Approach</span><img src="assets/images/tech-team.jpg" alt="Apex team reviewing equipment condition on site" loading="lazy" decoding="async"></div>
+  <div class="detail-media img-reveal" data-cursor="View"><span class="idx">Approach</span><img src="assets/images/staff/staff-briefing.jpg" alt="Apex team at a shift briefing before deployment" loading="lazy" decoding="async"></div>
   <div class="detail-body">
     <h2>Our approach</h2>
     <p class="lede">Every engagement starts with a site walk, not a proposal. We look at how the building is used, where the pressure points are and what the current team already does well, then design around that.</p>
@@ -117,7 +152,7 @@
   </div>
 </article>
 <article class="detail-item" id="people">
-  <div class="detail-media img-reveal" data-cursor="View"><span class="idx">People</span><img src="assets/images/crew-sky.jpg" alt="Apex site crew in protective equipment" loading="lazy" decoding="async"></div>
+  <div class="detail-media img-reveal" data-cursor="View"><span class="idx">People</span><img src="assets/images/staff/staff-team.jpg" alt="Apex facility team in uniform at a client site" loading="lazy" decoding="async"></div>
   <div class="detail-body">
     <h2>Our people</h2>
     <p class="lede">Facility management is a people business before it is anything else. Most of what a client experiences comes down to whether the person on site that morning was trained, supervised and turned up.</p>
@@ -167,6 +202,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
+        <svg class="brand-mark" viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="20" fill="#16233D"/><path d="M54 20 L88 78 H72 L54 47 L36 78 H20 Z" fill="#FBFAF7"/><rect x="36" y="82" width="36" height="7" rx="3.5" fill="#0FA47F"/><rect x="45" y="64" width="18" height="6" rx="3" fill="#FBFAF7" opacity=".55"/></svg>
         <b>Apex</b>
         <span class="mono">Integrated Facility Management</span>
         <p>A Bangalore-based integrated facility management company delivering housekeeping, security, technical, electrical, HVAC, landscaping, pest control, waste and fire safety services under one accountable contract.</p>
@@ -178,7 +214,7 @@
       </div>
       <nav class="foot-col" aria-label="Pages">
         <h4>Pages</h4>
-        <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="industries.html">Industries</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul>
+        <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="industries.html">Industries</a></li><li><a href="work.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul>
       </nav>
       <nav class="foot-col" aria-label="Services">
         <h4>Services</h4>
@@ -186,20 +222,30 @@
       </nav>
       <div class="foot-col foot-contact">
         <h4>Contact</h4>
-        <ul><li>Bangalore, Karnataka, India</li><li><a href="tel:+910000000000" data-placeholder>+91 XXXXX XXXXX</a></li><li><a href="mailto:info@example.com" data-placeholder>info@example.com</a></li></ul>
+        <ul>
+          <li data-cfg-address>Bengaluru, Karnataka</li>
+          <li><a data-cfg-tel>+91 00000 00000</a></li>
+          <li><a data-cfg-mail>hello@example.com</a></li>
+        </ul>
         <p style="margin-top:20px"><a href="contact.html" class="btn btn-solid" style="padding:12px 20px">Get in touch</a></p>
       </div>
     </div>
     <div class="foot-bottom">
       <p>&copy; <span data-year>2026</span> Apex Integrated Facility Management. All rights reserved.</p>
-      <p>Demonstration website &mdash; content, statistics and contact details are placeholders.</p>
+      <p class="demo-only">Demonstration website &mdash; imagery, sample projects and contact details are placeholders pending client content.</p>
     </div>
   </div>
 </footer>
 
+<!-- WhatsApp — number comes from js/config.js -->
+<a class="wa-float" data-cfg-wa target="_blank" rel="noopener" aria-label="Message Apex on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97s-.47-.15-.67.15-.77.96-.94 1.16-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3 0-.46.13-.6s.3-.35.45-.53.2-.3.3-.5 0-.37-.03-.52-.67-1.62-.92-2.22-.49-.5-.67-.51h-.57a1.1 1.1 0 0 0-.79.37 3.32 3.32 0 0 0-1.04 2.47 5.77 5.77 0 0 0 1.21 3.06 13.2 13.2 0 0 0 5.05 4.46c.7.3 1.26.49 1.69.63a4.06 4.06 0 0 0 1.86.12 3.05 3.05 0 0 0 2-1.41 2.47 2.47 0 0 0 .17-1.41c-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2A9.94 9.94 0 0 0 3.6 17.2L2 22l4.94-1.55A9.94 9.94 0 1 0 12.04 2m0 1.8a8.14 8.14 0 1 1-4.24 15.1l-.3-.18-2.94.92.93-2.86-.2-.31a8.14 8.14 0 0 1 6.75-12.67" /></svg></a>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/config.js"></script>
+<script src="js/data.js" defer></script>
+<script src="js/render.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/animations.js" defer></script>
 </body>
