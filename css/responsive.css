@@ -1,0 +1,204 @@
+/* ==========================================================================
+   APEX — responsive.css
+   All breakpoint rules live here so style.css stays a single source of truth
+   for the design system.
+
+   Breakpoints
+     1440px  large desktop tuning
+     1200px  small desktop
+     1024px  tablet landscape / small laptop
+     860px   tablet portrait — navigation becomes a full-screen panel
+     620px   mobile
+     400px   small mobile
+   ========================================================================== */
+
+
+/* ── 1440px: keep the very large display type from overwhelming ─────────── */
+@media (max-width:1440px){
+  .hero-card.c1{ width:186px; height:238px; }
+  .hero-card.c2{ width:140px; height:98px; }
+  .hero-card.c3{ width:112px; height:140px; }
+}
+
+
+/* ── 1200px ─────────────────────────────────────────────────────────────── */
+@media (max-width:1200px){
+  .nav-a{ padding:10px 11px; font-size:.66rem; }
+  .nav-cta{ margin-left:10px; padding:12px 18px; }
+
+  .foot-top{ grid-template-columns:1.4fr 1fr 1fr; }
+  .foot-contact{ grid-column:1 / -1; }
+
+  .tst-grid{ grid-template-columns:1fr 1fr; }
+  .tst-card:last-child{ grid-column:1 / -1; }
+}
+
+
+/* ── 1024px: two-column layouts start collapsing ────────────────────────── */
+@media (max-width:1024px){
+  :root{ --sec:clamp(72px,9vw,120px); }
+
+  .sec-head{ grid-template-columns:1fr; align-items:start; gap:20px; }
+
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero-cards{ display:none; }          /* foreground cards need width to read */
+  .hero-foot{ flex-direction:column; align-items:flex-start; gap:26px; }
+
+  .fmap-grid,
+  .ops-grid,
+  .safe-grid,
+  .edit-grid,
+  .inds-grid,
+  .ctc-grid{ grid-template-columns:1fr; }
+
+  .fmap-stage{ max-width:620px; margin-inline:auto; }
+  .inds-preview{ position:relative; top:0; max-width:560px; aspect-ratio:4/3; order:-1; }
+  .edit-media{ max-width:560px; }
+  .safe-media{ max-width:560px; }
+
+  .detail-item{ grid-template-columns:1fr; }
+  .detail-item:nth-child(even) .detail-media{ order:0; }
+  .detail-media{ max-width:620px; }
+
+  .vgrid{ grid-template-columns:1fr 1fr; }
+
+  .nums-grid{ grid-template-columns:1fr 1fr; }
+  .nums-cell:nth-child(odd){ border-left:0; padding-left:0; }
+  .nums-cell:nth-child(n+3){ border-top:1px solid rgba(255,255,255,.12); }
+}
+
+
+/* ── 860px: navigation becomes a full-screen panel ──────────────────────── */
+@media (max-width:860px){
+  body{ font-size:16px; }
+
+  .nav-menu{ display:none; }
+  .nav-cta{ display:none; }
+  .burger{ display:flex; }
+  .nav-in{ height:74px; }
+  .nav.stuck .nav-in{ height:64px; }
+
+  /* The pinned horizontal rail and image stack are pointer-driven ideas.
+     On touch they become straightforward vertical sequences instead. */
+  .stack{ height:auto; }
+  .stack-stage,
+  .stack-head,
+  .stack-count{ display:none; }
+  .stack-fallback{ display:block; padding-block:var(--sec); }
+  .stack-fallback .sf-item{ position:relative; border-radius:var(--r-lg); overflow:hidden;
+                            margin-bottom:16px; }
+  .stack-fallback .sf-item img{ width:100%; aspect-ratio:4/3.2; object-fit:cover; }
+  .stack-fallback .sf-item::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(transparent 45%, rgba(12,13,15,.9));
+  }
+  .stack-fallback .sf-cap{ position:absolute; left:20px; right:20px; bottom:18px; z-index:2; }
+  .stack-fallback .sf-cap span{ font-family:var(--mono); font-size:.58rem; letter-spacing:.18em;
+                                color:var(--signal-2); display:block; margin-bottom:6px; }
+  .stack-fallback .sf-cap b{ font-family:var(--display); font-size:1.2rem; font-weight:800;
+                             text-transform:uppercase; letter-spacing:-.02em; color:var(--bone); }
+
+  .rail-pin{ height:auto; display:block; padding-block:var(--sec); }
+  .rail-track{ display:none; }
+  .rail-prog{ display:none; }
+  .rail-mobile{ display:grid; gap:14px; padding-inline:var(--pad); }
+  .rail-mobile .rail-panel{ width:100%; height:auto; aspect-ratio:4/3.1; }
+  .rail-mobile .rail-body p{ max-height:none; opacity:1; }
+
+  /* Sticky story becomes image-then-text pairs */
+  .story-grid{ grid-template-columns:1fr; gap:0; }
+  .story-visual{ position:sticky; top:64px; height:auto; padding-top:24px; z-index:2; }
+  .story-frame{ height:44vh; }
+  .story-steps{ padding-block:36px 60px; }
+  .story-step{ min-height:auto; padding-block:34px; }
+
+  .stm-item{ grid-template-columns:52px 1fr; gap:14px; }
+  .stm-item p{ display:none; }
+
+  .proc-step{ grid-template-columns:60px 1fr; }
+
+  .stories-grid{ grid-template-columns:1fr; }
+  .tst-grid{ grid-template-columns:1fr; }
+  .tst-card:last-child{ grid-column:auto; }
+
+  .f-row{ grid-template-columns:1fr; gap:0; }
+
+  .foot-top{ grid-template-columns:1fr 1fr; }
+  .foot-brand{ grid-column:1 / -1; }
+
+  .cursor{ display:none !important; }
+}
+
+
+/* ── 620px: mobile ──────────────────────────────────────────────────────── */
+@media (max-width:620px){
+  :root{ --sec:clamp(60px,13vw,88px); }
+
+  .hero{ min-height:94svh; padding:124px 0 36px; }
+  .hero-mask{
+    background:linear-gradient(180deg, rgba(12,13,15,.86) 0%, rgba(12,13,15,.58) 40%,
+                                        rgba(12,13,15,.96) 92%);
+  }
+  .hero-actions .btn{ flex:1 1 100%; justify-content:center; }
+  .hero-stats{ gap:24px; }
+  .hero-stats div b{ font-size:1.3rem; }
+
+  .inds-row{ grid-template-columns:40px 1fr auto; gap:12px; }
+  .inds-preview{ aspect-ratio:4/3.4; }
+
+  .nums-grid{ grid-template-columns:1fr; }
+  .nums-cell{ border-left:0; padding-left:0; padding-block:26px;
+              border-top:1px solid rgba(255,255,255,.12); }
+  .nums-cell:first-child{ border-top:0; padding-top:0; }
+
+  .edit-float.f1{ position:relative; right:auto; top:auto; width:100%; margin-top:14px;
+                  border-width:0; }
+  .edit-float.f2{ display:none; }
+  .edit-label.l1{ right:10px; top:10px; }
+  .edit-list li{ grid-template-columns:40px 1fr; gap:12px; }
+
+  .safe-chip.p2{ display:none; }
+  .safe-list li{ grid-template-columns:1fr; gap:6px; }
+
+  .ctc-details li{ grid-template-columns:1fr; gap:5px; }
+  .ctc-quick a{ flex:1 1 100%; justify-content:center; }
+
+  .cta-actions .btn{ flex:1 1 100%; justify-content:center; }
+  .cta{ min-height:auto; padding-block:var(--sec); }
+
+  .detail-cols{ grid-template-columns:1fr; gap:20px; }
+  .vgrid{ grid-template-columns:1fr; }
+
+  .phero-meta{ gap:16px 22px; }
+  .marq-item.m-lg{ width:230px; height:160px; }
+  .marq-item.m-md{ width:180px; height:135px; }
+  .marq-item.m-sm{ width:140px; height:112px; }
+
+  .foot-top{ grid-template-columns:1fr; gap:34px; }
+  .foot-bottom{ flex-direction:column; align-items:flex-start; }
+}
+
+
+/* ── 400px: small mobile — protect against overflow ─────────────────────── */
+@media (max-width:400px){
+  .nav-logo span{ display:none; }
+  .story-frame{ height:38vh; }
+  .stm-item h3{ font-size:1.5rem; }
+  .panel-list a{ font-size:1.7rem; }
+}
+
+
+/* ── Landscape phones: sticky story would otherwise fill the screen ─────── */
+@media (max-height:520px) and (orientation:landscape){
+  .story-visual{ position:relative; height:auto; }
+  .story-frame{ height:56vh; }
+  .hero{ min-height:auto; padding-block:120px 40px; }
+}
+
+
+/* ── Print ──────────────────────────────────────────────────────────────── */
+@media print{
+  .nav,.panel,.cursor,.progress,.hero-light,.marq,.rail,.stack{ display:none !important; }
+  body{ background:#fff; color:#000; }
+  .on-dark,.on-graphite,.footer{ background:#fff !important; color:#000 !important; }
+}
