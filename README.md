@@ -240,4 +240,25 @@ only; touch devices get purpose-built vertical equivalents rather than a broken 
 
 **Known limitations.** Google Fonts is the one external dependency for typography; if it fails the
 site falls back to system sans-serif. The two pinned sections make the home page long by design
-(roughly 24,000px at 1440 wide) — that is the scroll experience, not a layout bug.
+(roughly 22,700px at 1440 wide) — that is the scroll experience, not a layout bug.
+
+---
+
+## 9. Tuning the scroll speed
+
+Open `js/animations.js`. The two knobs are at the very top of the file:
+
+```js
+var SMOOTH_SCROLL = true;   // false = native browser scrolling (fastest response)
+var SCROLL_EASE   = 0.75;   // lower = snappier. 0.6 quick, 1.2 floaty
+```
+
+Setting `SMOOTH_SCROLL = false` turns off Lenis entirely. Every scroll-triggered animation still
+works — you just get the browser's own instant scrolling, which is as fast as it gets. Nothing else
+needs changing.
+
+If you want the page itself shorter, the two pinned sections are where the length lives:
+
+- **Image stack** — `js/animations.js`, `end: '+=' + (items.length * 36) + '%'`. Lower the `36`.
+- **Horizontal rail** — `css/style.css`, `.rail-panel { width: clamp(240px,23vw,330px) }`.
+  Narrower panels mean less horizontal travel and less scrolling to get through the section.

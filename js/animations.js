@@ -23,6 +23,17 @@
   var $  = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
+  /* ────────────────────────────────────────────────────────────────────
+     SCROLL FEEL — the two knobs worth touching.
+
+     SMOOTH_SCROLL  false = native browser scrolling, the fastest possible
+                    response. Scroll-triggered animation still works.
+                    true  = Lenis eased scrolling (default).
+     SCROLL_EASE    lower = snappier. 0.6 is quick, 1.2 is floaty.
+     ──────────────────────────────────────────────────────────────────── */
+  var SMOOTH_SCROLL = true;
+  var SCROLL_EASE   = 0.75;
+
   var reduced  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isMobile = window.matchMedia('(max-width: 860px)').matches;
 
@@ -45,16 +56,18 @@
   var gsap = window.gsap;
   gsap.registerPlugin(window.ScrollTrigger);
   var ST = window.ScrollTrigger;
+  ST.config({ limitCallbacks: true, ignoreMobileResize: true });
 
 
   /* 02 ─ LENIS ========================================================== */
   var lenis = null;
-  if (window.Lenis && !isMobile) {
+  if (SMOOTH_SCROLL && window.Lenis && !isMobile) {
     lenis = new window.Lenis({
-      duration: 1.15,
+      duration: SCROLL_EASE,
       easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
       smoothWheel: true,
-      touchMultiplier: 1.6
+      wheelMultiplier: 1.35,
+      touchMultiplier: 1.8
     });
     window.__lenis = lenis;
 
@@ -131,6 +144,7 @@
       scale: 1.18, yPercent: 6, ease: 'none',
       scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true }
     });
+    gsap.set(['.hero-in', '.hero-card'], { willChange: 'transform' });
     gsap.to('.hero-in', {
       yPercent: -14, opacity: 0.15, ease: 'none',
       scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true }
@@ -165,9 +179,9 @@
         scrollTrigger: {
           trigger: stack,
           start: 'top top',
-          end: '+=' + (items.length * 70) + '%',
+          end: '+=' + (items.length * 36) + '%',
           pin: true,
-          scrub: 0.8,
+          scrub: 0.25,
           anticipatePin: 1,
           onUpdate: function (self) {
             if (!counter) return;
@@ -203,7 +217,7 @@
       // The heading drifts up over the whole sequence
       gsap.to('.stack-head', {
         yPercent: -40, opacity: 0.35, ease: 'none',
-        scrollTrigger: { trigger: stack, start: 'top top', end: '+=' + (items.length * 70) + '%', scrub: true }
+        scrollTrigger: { trigger: stack, start: 'top top', end: '+=' + (items.length * 36) + '%', scrub: true }
       });
     }
   }
@@ -243,10 +257,10 @@
     var fill  = $('.rail-prog i', rail);
 
     if (track) {
+      // Measure the real gap rather than parsing the --pad clamp() string,
+      // which getPropertyValue returns unresolved (parseInt gave NaN).
       var distance = function () {
-        return Math.max(0, track.scrollWidth - window.innerWidth + parseInt(
-          getComputedStyle(document.documentElement).getPropertyValue('--pad'), 10
-        ) * 2);
+        return Math.max(0, track.scrollWidth - track.parentElement.clientWidth + 40);
       };
 
       gsap.to(track, {
@@ -257,7 +271,7 @@
           start: 'top top',
           end: function () { return '+=' + distance(); },
           pin: true,
-          scrub: 0.7,
+          scrub: 0.3,
           invalidateOnRefresh: true,
           anticipatePin: 1,
           onUpdate: function (self) {
@@ -272,18 +286,38 @@
   /* 08 ─ MARQUEE ======================================================== */
   /* Two rows travelling in opposite directions. Each row's markup is
      duplicated in the HTML, so animating to -50% loops seamlessly. */
+  var marqTweens = [];
   $$('.marq-row').forEach(function (row, i) {
     var dir = row.getAttribute('data-dir') === 'right' ? 1 : -1;
-    gsap.fromTo(row,
+    marqTweens.push(gsap.fromTo(row,
       { xPercent: dir === -1 ? 0 : -50 },
-      {
-        xPercent: dir === -1 ? -50 : 0,
-        duration: 46 + i * 8,
-        ease: 'none',
-        repeat: -1
-      }
-    );
+      { xPercent: dir === -1 ? -50 : 0, duration: 40 + i * 7, ease: 'none', repeat: -1 }
+    ));
   });
+
+  // Only run the marquee while it is on screen — two infinite tweens burning
+  // frames behind 20,000px of page is wasted work.
+  var marq = $('.marq');
+  if (marq && marqTweens.length) {
+    ST.create({
+      trigger: marq, start: 'top bottom', end: 'bottom top',
+      onToggle: function (self) {
+        marqTweens.forEach(function (t) { self.isActive ? t.play() : t.pause(); });
+      }
+    });
+    marqTweens.forEach(function (t) { t.pause(); });
+  }
+
+  // Same for the hero's ambient light, which is a large animated gradient
+  if (hero) {
+    ST.create({
+      trigger: hero, start: 'top bottom', end: 'bottom top',
+      onToggle: function (self) {
+        var g = $('.hero-light');
+        if (g) g.style.animationPlayState = self.isActive ? 'running' : 'paused';
+      }
+    });
+  }
 
 
   /* 09 ─ PARALLAX ======================================================= */
