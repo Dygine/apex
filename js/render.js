@@ -148,16 +148,25 @@
     var list = DATA.clients.clients || [];
     if (!list.length) return;
 
-    /* An <img> when a logo file is given, the monogram fallback when it is
-       not — so a half-supplied list still renders as one even wall rather
-       than logos next to text plates. */
+    /* One plate shape, whether or not a logo file exists. The mark box holds
+       the logo when there is one and a monogram when there is not, and the
+       name and sector sit beside it either way.
+
+       This matters because a client list fills up slowly. The earlier
+       version swapped the whole plate for a bare image, so a strip with
+       three logos and seven name plates read as two different components
+       stuck together. Now adding a logo upgrades a plate instead of
+       replacing it, and the strip looks finished at any stage. */
     function plate(c, dup) {
-      var inner = c.logo
-        ? '<img src="' + esc(c.logo) + '" alt="' + esc(c.name) + '" ' +
-          'loading="lazy" decoding="async" width="300" height="60">'
-        : '<span class="cplate-mark" aria-hidden="true">' + esc(initials(c.name)) + '</span>' +
-          '<span class="cplate-txt"><b>' + esc(c.name) + '</b>' +
-          '<span>' + esc(c.sector || '') + '</span></span>';
+      var mark = c.logo
+        ? '<span class="cplate-mark cplate-mark--img">' +
+          '<img src="' + esc(c.logo) + '" alt="" aria-hidden="true" ' +
+          'loading="lazy" decoding="async" height="36"></span>'
+        : '<span class="cplate-mark" aria-hidden="true">' + esc(initials(c.name)) + '</span>';
+
+      var inner = mark +
+        '<span class="cplate-txt"><b>' + esc(c.name) + '</b>' +
+        '<span>' + esc(c.sector || '') + '</span></span>';
 
       return '<li class="cplate' + (c.logo ? ' cplate--logo' : '') + '"' +
         (dup ? ' aria-hidden="true"' : '') + '>' + inner + '</li>';

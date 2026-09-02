@@ -1,7 +1,10 @@
 # Apex Integrated Facility Management
-# Replace example.com with the live domain before launch.
+# Run `node tools/set-domain.js https://yourdomain.com` to stamp the real
+# domain here and everywhere else it appears.
+
 User-agent: *
 Allow: /
 Disallow: /tools/
+Disallow: /data/
 
 Sitemap: https://example.com/sitemap.xml

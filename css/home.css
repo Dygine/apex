@@ -520,14 +520,18 @@
    span is aria-hidden with the whole sentence restored as aria-label, so a
    screen reader hears a sentence, not an alphabet.
    ========================================================================== */
+/* Slowed down deliberately. Each character now takes just over a second to
+   settle, and js/hero.js staggers the start of each one, so the line arrives
+   as a slow sweep rather than a flicker. The blur is what makes it read as
+   "coming into focus" rather than "fading in". */
 .ltr{
   display:inline-block;
   opacity:0;
-  transform:translateY(.36em);
-  filter:blur(5px);
-  transition:opacity .72s var(--rv-ease),
-             transform .82s var(--rv-ease),
-             filter .72s var(--rv-ease);
+  transform:translateY(.42em);
+  filter:blur(7px);
+  transition:opacity 1.15s var(--rv-ease),
+             transform 1.3s var(--rv-ease),
+             filter 1.15s var(--rv-ease);
   will-change:opacity, transform;
 }
 /* Words are unbreakable; the plain space between them is the break point. */

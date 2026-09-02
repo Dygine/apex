@@ -1,0 +1,725 @@
+/* ==========================================================================
+   APEX — home-v2.css
+   Home-page layout layer. Loads after style / components / responsive /
+   home.css, and BEFORE page-accent.css, which owns the per-page accent.
+
+   Scoped to `.v2` on <html>, which gives it one extra class of specificity
+   over the existing single-class selectors — including the ones inside
+   responsive.css. That means this file carries its own breakpoints for
+   anything it restyles, which it does in section 13.
+
+   Nothing in js/ was changed. Every hook the scripts look for is still in
+   index.html: [data-hero-slides], [data-hero-dots], [data-letters],
+   [data-render=...], [data-cfg-...], .fmap-node, .proc-step, .inds-row.
+
+   ── LOGO SAFETY ─────────────────────────────────────────────────────────
+   Every band is either LIGHT (navy wordmark, navy type) or near-black navy
+   (white wordmark, white type). Nothing sits at a mid-tone, which is the one
+   value that breaks both wordmark files at once. The header is light on all
+   seven pages, so it always carries the navy mark; the reversed mark is only
+   ever used in the footer. No logo file was edited.
+
+     01 Tokens + type
+     02 Shared bits (bands, headings, buttons)
+     03 Hero — split
+     04 Operations clock
+     05 Built-for strip
+     06 Service lines — bento
+     07 Facility map
+     08 About — editorial
+     09 Industries
+     10 Process
+     11 Feedback
+     12 Closing CTA
+     13 Breakpoints
+     14 Reduced motion
+   ========================================================================== */
+
+
+/* 01 ─ TOKENS + TYPE ====================================================== */
+.v2{
+  /* Dark ground. Blue-black rather than grey-black — it has to sit next to
+     the navy in the logo without looking like a second, muddier navy. */
+  --deep-v:   #061423;
+  --deep-v2:  #0A2242;
+
+  /* Mid ground. The old build used a pale blue-grey everywhere, which is why
+     the page read as one flat sheet top to bottom. Neutral concrete grey
+     instead: still not warm, but it separates from white properly. */
+  --conc:     #E9EBEC;
+  --conc-2:   #DCDFE2;
+  --hair:     #C9CED4;
+
+  /* --accent and --accent-2 come from page-accent.css and are read off the
+     photograph at the top of this page. */
+}
+
+/* Archivo has a width axis. Using it is the single biggest change in how the
+   page reads — set wide, the display face looks like building signage rather
+   than a default UI grotesk. */
+.v2 h1, .v2 h2, .v2 h3,
+.v2 .d1, .v2 .d2, .v2 .d3, .v2 .d4{
+  font-variation-settings:'wdth' 108,'wght' 700;
+  font-weight:700;
+}
+
+.v2 .vh1{
+  font-family:var(--display);
+  font-size:clamp(2.9rem, 6.2vw, 5.6rem);
+  line-height:.92;
+  letter-spacing:-.038em;
+  font-variation-settings:'wdth' 104,'wght' 700;
+  margin:0;
+  color:#fff;
+}
+.v2 .vh2{
+  font-family:var(--display);
+  font-size:clamp(2rem, 3.8vw, 3.3rem);
+  line-height:1.02;
+  letter-spacing:-.032em;
+  font-variation-settings:'wdth' 106,'wght' 700;
+  margin:0;
+  color:var(--navy);
+  max-width:17ch;
+}
+.v2 .on-deep .vh2, .v2 .vh2.on-deep{ color:#fff; }
+
+.v2 .vlede{
+  font-size:clamp(1.02rem,1.25vw,1.15rem);
+  line-height:1.6;
+  color:var(--mute);
+  max-width:52ch;
+  margin:0;
+}
+.v2 .on-deep .vlede{ color:rgba(255,255,255,.68); }
+
+/* Numeric labels keep the mono face. Everything else does not — mono on
+   prose labels is the tell that a page was assembled rather than designed. */
+.v2 .vnum{
+  font-family:var(--mono);
+  font-size:.78rem; font-weight:500; letter-spacing:.04em;
+  font-variant-numeric:tabular-nums;
+}
+
+/* Sentence case, hairline rule. The old eyebrow was tracked-out uppercase
+   above every single heading, eight times down the page. */
+.v2 .eyebrow{
+  text-transform:none; letter-spacing:0;
+  font-size:.9rem; font-weight:500; color:var(--mute);
+}
+.v2 .eyebrow::before{ width:26px; background:var(--red); }
+
+
+/* 02 ─ SHARED ============================================================= */
+.v2 .section{ padding:clamp(64px,7vw,110px) 0; }
+
+.v2 .band-white{ background:var(--paper); }
+.v2 .band-conc{ background:var(--conc); }
+.v2 .band-deep{ background:var(--deep-v); color:#fff; position:relative; }
+
+/* One hairline at the head of each dark band: brand red, then this page's
+   accent. It marks where a section starts without adding another label. */
+.v2 .band-deep::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:3px;
+  background:linear-gradient(90deg,var(--red) 0 22%,var(--accent) 22% 100%);
+}
+
+.v2 .vhead{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:clamp(24px,4vw,64px);
+  align-items:end;
+  margin-bottom:clamp(36px,4vw,60px);
+}
+
+.v2 .btn{ border-radius:2px; }
+.v2 .btn-solid{ background:var(--navy); box-shadow:none; }
+.v2 .btn-solid:hover{ background:var(--red); }
+.v2 .btn-line{ border-color:var(--hair); }
+/* The footer band is navy, so a navy solid button disappears into it. */
+.v2 .footer .btn-solid{ background:var(--red); color:#fff; }
+.v2 .footer .btn-solid:hover{ background:#fff; color:var(--navy); }
+
+/* The header is a light ground on this page now, the same as every other
+   page, so it always carries the navy wordmark. The reversed mark stays in
+   the markup for the footer and is hidden here. */
+.v2 .nav-logo .logo-rev{ display:none; }
+.v2 .nav.stuck{ border-bottom:1px solid var(--line); }
+
+
+/* 03 ─ HERO ===============================================================
+   The home hero is now the same component as the six inner page heroes: one
+   full-bleed photograph under .phero-veil, copy on top. It inherits almost
+   everything from .phero in components.css; what is below is only the extra
+   the home page needs — the rotation stacked inside .phero-bg, and the type
+   scale, which is a step larger here than on an inner page. */
+.v2 .phero.vhero{
+  min-height:min(88svh,860px);
+  padding:calc(82px + clamp(52px,7vw,96px)) 0 clamp(48px,6vw,84px);
+}
+
+/* The rotating slides live inside .phero-bg. Each one is stacked in the same
+   box and only opacity moves, so there is never a seam down the middle. */
+.v2 .phero-bg .hslide{ position:absolute; inset:0; }
+.v2 .phero-bg .hslide img{
+  width:100%; height:100%; object-fit:cover;
+  transform:none; animation:none;
+}
+
+.v2 .vhero-loc{
+  display:inline-flex; align-items:center; gap:9px;
+  margin:0 0 24px;
+  font-size:.86rem; font-weight:500;
+  color:rgba(255,255,255,.72);
+}
+.v2 .vhero-loc .dot{
+  width:7px; height:7px; border-radius:50%; background:var(--red-2);
+  box-shadow:0 0 0 4px rgba(227,11,19,.22);
+}
+
+.v2 .vhero-sub{
+  margin:24px 0 0;
+  font-size:clamp(1.02rem,1.2vw,1.16rem);
+  line-height:1.62;
+  color:rgba(255,255,255,.84);
+  max-width:52ch;
+}
+
+.v2 .vhero-actions{
+  margin-top:32px;
+  display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center;
+}
+.v2 .vhero-actions .btn-solid{
+  background:var(--red); color:#fff; padding:15px 26px; font-size:.95rem;
+}
+.v2 .vhero-actions .btn-solid:hover{ background:#a5121a; }
+.v2 .vhero-ghost{
+  display:inline-flex; align-items:center; gap:10px;
+  color:#fff; font-weight:500; font-size:.95rem;
+  padding:15px 4px;
+  border-bottom:1px solid rgba(255,255,255,.32);
+  transition:border-color .3s var(--ease), color .3s var(--ease);
+}
+.v2 .vhero-ghost:hover{ border-color:var(--accent); color:var(--accent); }
+
+/* Three facts, in the same plate the inner pages use for four. */
+.v2 .phero-meta.vhero-facts{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  max-width:760px;
+}
+
+/* Slide dots sit under the copy, clear of the scroll cue on the right and of
+   the fixed WhatsApp button in the corner. */
+.v2 .phero-in .hero-dots{
+  position:relative; z-index:2;
+  display:flex; gap:8px; margin-top:30px;
+}
+/* The visible bar is drawn by ::before in page-accent.css so the control
+   itself can be a 34px hit box without looking like one. */
+
+
+/* 05 ─ CLIENTS ============================================================
+   A right-to-left marquee, as it was. The list is emitted twice by
+   render.js — the second pass is aria-hidden — and the track is translated
+   by exactly half its width, so the loop is seamless.
+
+   Every plate is the same shape whether or not that client has a logo file
+   yet: a fixed mark box on the left holding either the logo or a monogram,
+   with the name and sector beside it. A client list fills up slowly, and a
+   strip that only looks right once all ten logos are in is a strip that
+   looks broken for months. */
+.v2 .clients{
+  background:var(--paper);
+  padding:clamp(48px,5vw,74px) 0;
+  border-bottom:1px solid var(--line-2);
+}
+.v2 .clients-head{
+  display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(20px,3vw,48px); align-items:baseline;
+  margin-bottom:clamp(26px,3vw,38px);
+}
+.v2 .clients-lead{ margin:0; }
+/* home.css hangs a 52px rule off this label. It belonged to the old small
+   uppercase eyebrow; on a real heading it reads as a stray mark. */
+.v2 .clients-lead span::after{ display:none; }
+.v2 .clients-lead span{
+  font-family:var(--display);
+  font-size:clamp(1.35rem,2.1vw,1.8rem);
+  font-variation-settings:'wdth' 106,'wght' 700;
+  letter-spacing:-.022em;
+  color:var(--navy);
+  text-transform:none;
+}
+.v2 .clients-sub{ margin:0; color:var(--mute); font-size:.98rem; line-height:1.6; max-width:56ch; }
+
+/* Full-bleed track, with the page gutter faded rather than cut so plates
+   arrive and leave instead of being clipped at a hard edge. */
+.v2 .clients-rail{
+  position:relative; overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+}
+.v2 .cplates{
+  display:flex; flex-wrap:nowrap; align-items:stretch;
+  width:max-content; gap:0;
+  animation:apexClients 46s linear infinite;
+}
+.v2 .clients-rail:hover .cplates{ animation-play-state:paused; }
+@keyframes apexClients{
+  from{ transform:translate3d(0,0,0); }
+  to  { transform:translate3d(-50%,0,0); }
+}
+
+.v2 .cplate{
+  display:flex; align-items:center; gap:14px;
+  flex:none; width:270px;
+  background:var(--paper);
+  border:0; border-right:1px solid var(--line-2);
+  border-radius:0;
+  padding:18px 22px 18px 18px;
+  filter:none; opacity:1;
+}
+/* The mark box. Same size for a logo and a monogram, so the names below
+   them line up down the whole strip. */
+.v2 .cplate-mark{
+  flex:none;
+  width:52px; height:44px; border-radius:2px;
+  display:grid; place-items:center;
+  background:var(--navy); color:#fff;
+  font-family:var(--mono); font-size:.76rem; font-weight:500; letter-spacing:.02em;
+}
+.v2 .cplate-mark--img{
+  background:transparent; padding:0;
+  width:74px; justify-items:start;
+}
+.v2 .cplate-mark--img img{
+  max-width:74px; max-height:40px; width:auto; height:auto;
+  object-fit:contain; object-position:left center;
+  filter:none; opacity:1;
+}
+.v2 .cplate-txt{ display:block; min-width:0; }
+/* home.css sets white-space:nowrap on both of these. That was right for a
+   marquee of short logos and clips real names in a fixed-width plate. */
+.v2 .cplate-txt b{
+  display:block; color:var(--navy);
+  font-size:.9rem; font-weight:600; line-height:1.25;
+  white-space:normal;
+}
+.v2 .cplate-txt span{
+  display:block; color:var(--mute);
+  font-size:.75rem; line-height:1.35; margin-top:3px;
+  white-space:normal;
+}
+.v2 .clients-note{ font-size:.78rem; color:var(--label); margin-top:18px; }
+
+@media (prefers-reduced-motion:reduce){
+  .v2 .cplates{ animation:none; }
+  .v2 .clients-rail{
+    overflow-x:auto; mask-image:none; -webkit-mask-image:none;
+  }
+}
+
+
+/* 05b ─ SCOPE =============================================================
+   The only wholly text section on the page, and deliberately so. Everything
+   above it is photographs; someone reading this far wants the scope and the
+   reporting, and neither is a thing a photograph can show. */
+.v2 .scope{ background:var(--paper); }
+.v2 .scope-grid{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1px; background:var(--line-2);
+  border-top:1px solid var(--line-2); border-bottom:1px solid var(--line-2);
+}
+.v2 .scope-col{ background:var(--paper); padding:clamp(24px,2.6vw,38px) clamp(20px,2.2vw,34px); }
+.v2 .scope-col h3{
+  color:var(--navy); margin:0 0 12px;
+  font-size:clamp(1.1rem,1.5vw,1.35rem);
+  font-variation-settings:'wdth' 106,'wght' 700;
+}
+.v2 .scope-col > p{ margin:0 0 20px; color:var(--mute); font-size:.94rem; line-height:1.6; }
+.v2 .scope-col ul{ margin:0; }
+.v2 .scope-col li{
+  position:relative;
+  padding:0 0 12px 20px;
+  color:var(--ink-2); font-size:.92rem; line-height:1.55;
+}
+.v2 .scope-col li:last-child{ padding-bottom:0; }
+.v2 .scope-col li::before{
+  content:""; position:absolute; left:0; top:.62em;
+  width:7px; height:1px; background:var(--accent-2);
+}
+
+.v2 .scope-facts{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(20px,3vw,48px);
+  margin:clamp(32px,3.5vw,50px) 0 0;
+}
+.v2 .scope-facts b{
+  display:block; color:var(--navy);
+  font-family:var(--display); font-size:1.15rem; line-height:1.2;
+  font-variation-settings:'wdth' 104,'wght' 700;
+  margin-bottom:7px;
+}
+.v2 .scope-facts span{ color:var(--mute); font-size:.88rem; line-height:1.5; }
+
+
+/* 06 ─ SERVICE LINES — BENTO ==============================================
+   Six identical cards in a 3×2 grid is the shape the old page used for
+   services, industries, day-on-site and work. Here the six get different
+   weights: the two wide ones run photograph-beside-text, the four narrow
+   ones stack. Same markup, generated by render.js. */
+.v2 .svcs{ background:var(--conc); }
+.v2 .svc-wrap{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:clamp(14px,1.5vw,22px);
+}
+.v2 .svc-card{
+  grid-column:span 6;
+  display:flex; flex-direction:column;
+  background:var(--paper);
+  border:1px solid var(--conc-2);
+  border-radius:2px; box-shadow:none; overflow:hidden;
+  transition:border-color .35s var(--ease);
+}
+.v2 .svc-card:hover{ transform:none; border-color:var(--navy); box-shadow:none; }
+.v2 .svc-card:nth-child(1),
+.v2 .svc-card:nth-child(4){
+  grid-column:span 7;
+  display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+}
+.v2 .svc-card:nth-child(2),
+.v2 .svc-card:nth-child(3){ grid-column:span 5; }
+
+.v2 .svc-figure{ position:relative; margin:0; overflow:hidden; }
+.v2 .svc-card:not(:nth-child(1)):not(:nth-child(4)) .svc-figure{ aspect-ratio:16/10; }
+.v2 .svc-card:nth-child(1) .svc-figure,
+.v2 .svc-card:nth-child(4) .svc-figure{
+  /* home.css sets aspect-ratio:16/11 here. Left in place alongside
+     height:100% it resolves the width from the height, and the figure
+     overflows its grid track and covers the body column. */
+  aspect-ratio:auto;
+  height:100%; width:100%; min-width:0; min-height:300px;
+}
+.v2 .svc-figure img{ width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease); }
+.v2 .svc-card:hover .svc-figure img{ transform:scale(1.04); }
+
+.v2 .svc-num{
+  position:absolute; left:0; top:0;
+  background:var(--red); color:#fff;
+  font-family:var(--mono); font-size:.74rem; font-weight:500;
+  padding:7px 11px; border-radius:0; border:0;
+  box-shadow:none; backdrop-filter:none;
+}
+.v2 .svc-name{
+  position:absolute; left:16px; right:16px; bottom:14px;
+  color:#fff; font-family:var(--display);
+  font-size:clamp(1.15rem,1.6vw,1.5rem); line-height:1.1;
+  letter-spacing:-.02em;
+  font-variation-settings:'wdth' 106,'wght' 700;
+  text-shadow:0 2px 18px rgba(6,20,35,.65);
+}
+.v2 .svc-figure::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(0deg,rgba(6,20,35,.78) 0,rgba(6,20,35,0) 52%);
+}
+
+.v2 .svc-body{
+  padding:clamp(20px,2vw,30px);
+  display:flex; flex-direction:column; gap:16px;
+  min-width:0;
+}
+/* On the two wide cards the body sits beside a tall photograph, so pinning
+   the link to the bottom leaves a hole in the middle of the text. */
+.v2 .svc-card:nth-child(1) .svc-body,
+.v2 .svc-card:nth-child(4) .svc-body{ justify-content:center; gap:18px; }
+.v2 .svc-card:nth-child(1) .svc-go,
+.v2 .svc-card:nth-child(4) .svc-go{ margin-top:4px; }
+
+.v2 .svc-short{ margin:0; color:var(--ink-2); font-size:.95rem; line-height:1.6; }
+.v2 .svc-labels{ display:flex; flex-wrap:wrap; gap:7px; margin:0; }
+.v2 .svc-labels li{
+  font-size:.76rem; color:var(--mute);
+  border:1px solid var(--line); border-radius:2px;
+  padding:5px 9px; background:transparent;
+}
+.v2 .svc-go{
+  margin-top:auto; justify-content:flex-start; padding-top:0;
+  display:inline-flex; align-items:center; gap:9px;
+  color:var(--navy); font-weight:600; font-size:.88rem;
+}
+.v2 .svc-go svg{
+  width:18px; height:18px; padding:0; flex:none;
+  border:0; border-radius:0; background:none;
+  transition:transform .35s var(--ease);
+}
+.v2 .svc-card:hover .svc-go{ color:var(--red); }
+.v2 .svc-card:hover .svc-go svg{ background:none; border:0; color:inherit; transform:translateX(5px); }
+
+
+/* 07 ─ FACILITY MAP =======================================================
+   The schematic is the best thing on the site. On the feature band its
+   linework finally has something to push against. */
+.v2 .fmap{ background:var(--deep-v); color:#fff; }
+.v2 .fmap .grid-overlay{ opacity:.28; }
+.v2 .fmap .eyebrow{ color:rgba(255,255,255,.62); }
+.v2 .fmap .eyebrow::before{ background:var(--accent); }
+.v2 .fmap h2, .v2 .fmap .d2{ color:#fff; }
+.v2 .fmap .lede{ color:rgba(255,255,255,.66); }
+
+.v2 .fmap-svg .bld{ fill:rgba(255,255,255,.06); stroke:rgba(255,255,255,.3); }
+.v2 .fmap-svg .bld-2{ fill:rgba(255,255,255,.12); stroke:var(--accent); }
+.v2 .fmap-svg .wire{ stroke:rgba(255,255,255,.22); }
+.v2 .fmap-svg .wire.lit{ stroke:var(--accent); stroke-width:1.6; }
+.v2 .fmap-svg .halo{ stroke:rgba(255,255,255,.13); }
+.v2 .fmap-svg .flr{ stroke:rgba(255,255,255,.2); }
+
+.v2 .fmap-node{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.18);
+  color:rgba(255,255,255,.82);
+  border-radius:2px;
+  backdrop-filter:blur(3px);
+}
+.v2 .fmap-node i{ background:rgba(255,255,255,.35); }
+.v2 .fmap-node:hover,.v2 .fmap-node.on{
+  background:var(--red); border-color:var(--red); color:#fff;
+}
+.v2 .fmap-node:hover i,.v2 .fmap-node.on i{ background:#fff; }
+.v2 .fmap-info{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.16);
+  border-left:2px solid var(--accent);
+  border-radius:2px;
+}
+.v2 .fmap-info .mono{ color:var(--accent); }
+.v2 .fmap-info h3{ color:#fff; }
+.v2 .fmap-info p{ color:rgba(255,255,255,.66); }
+.v2 .fmap-info li{
+  background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.16);
+  color:rgba(255,255,255,.8); border-radius:2px;
+}
+
+
+/* 08 ─ ABOUT — EDITORIAL ================================================== */
+.v2 .edit{ background:var(--paper); }
+.v2 .edit-title{ margin-bottom:clamp(30px,3.5vw,52px); }
+.v2 .edit-copy p{ font-size:1.02rem; line-height:1.72; color:var(--ink-2); }
+
+/* One pull quote. The about copy was four grey paragraphs and a list; this
+   gives the eye somewhere to land and states the actual proposition. */
+.v2 .vquote{
+  margin:clamp(26px,3vw,40px) 0;
+  padding:0 0 0 26px;
+  border-left:3px solid var(--red);
+  font-family:var(--display);
+  font-size:clamp(1.2rem,1.7vw,1.55rem);
+  line-height:1.28; letter-spacing:-.02em;
+  font-variation-settings:'wdth' 104,'wght' 700;
+  color:var(--navy);
+}
+
+.v2 .edit-list li{ border-color:var(--line-2); }
+.v2 .edit-list .idx{ color:var(--red); }
+.v2 .edit-label{ border-radius:2px; }
+
+
+/* 09 ─ INDUSTRIES ========================================================= */
+.v2 .inds{ background:var(--conc); }
+.v2 .inds-grid{ align-items:start; }
+.v2 .inds-row{ border-color:var(--conc-2); }
+.v2 .inds-row h3{
+  font-size:clamp(1.15rem,1.9vw,1.65rem);
+  font-variation-settings:'wdth' 104,'wght' 700;
+}
+.v2 .inds-row .idx{ color:var(--label); }
+.v2 .inds-row.on{ background:transparent; }
+.v2 .inds-row.on h3,.v2 .inds-row.on .idx{ color:var(--accent-2); }
+.v2 .inds-preview{ border-radius:2px; }
+.v2 .inds-preview .cap{ border-radius:0; }
+
+
+/* 10 ─ PROCESS ============================================================
+   Six stages, in order — the only place on the page where 01…06 is telling
+   the truth. Set as a stepped rail rather than six equal boxes. */
+.v2 .proc{ background:var(--deep-v); color:#fff; position:relative; }
+.v2 .proc::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:3px;
+  background:linear-gradient(90deg,var(--red) 0 22%,var(--accent) 22% 100%);
+}
+.v2 .proc .eyebrow{ color:rgba(255,255,255,.62); }
+.v2 .proc .eyebrow::before{ background:var(--accent); }
+.v2 .proc h2, .v2 .proc .d2{ color:#fff; }
+.v2 .proc .lede{ color:rgba(255,255,255,.66); }
+
+.v2 .proc-list{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  background:transparent;
+  border:0; border-top:1px solid rgba(255,255,255,.18);
+  border-radius:0; overflow:visible;
+}
+.v2 .proc-step{
+  display:block; position:relative;
+  padding:30px clamp(20px,2.2vw,34px) clamp(34px,3.6vw,50px) 0;
+  border-right:1px solid rgba(255,255,255,.12);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  background:transparent;
+  transition:background .35s var(--ease);
+}
+.v2 .proc-step:nth-child(3n){ border-right:0; }
+.v2 .proc-step:nth-child(n+4){ border-bottom:0; }
+.v2 .proc-step::after{
+  content:""; position:absolute; left:0; top:-1px; width:0; height:2px;
+  background:var(--accent);
+  transition:width .5s var(--ease);
+}
+.v2 .proc-step:hover::after,
+.v2 .proc-step.on::after,
+.v2 .proc-step:focus-visible::after{ width:64px; }
+.v2 .proc-step .idx{
+  display:block; margin:0 0 16px;
+  width:auto; height:auto; place-items:initial;
+  background:none; border:0; border-radius:0;
+  font-family:var(--mono); font-size:.8rem; font-weight:500;
+  color:var(--accent); font-variant-numeric:tabular-nums;
+}
+.v2 .proc-step.on .idx,
+.v2 .proc-step:hover .idx{ background:none; border:0; color:var(--red-2); }
+.v2 .proc-step h3{
+  color:#fff; margin:0 0 10px;
+  font-size:clamp(1.15rem,1.6vw,1.45rem);
+  font-variation-settings:'wdth' 106,'wght' 700;
+}
+.v2 .proc-step p{ margin:0; color:rgba(255,255,255,.6); font-size:.92rem; line-height:1.6; }
+.v2 .proc-step.on, .v2 .proc-step:hover{ background:rgba(255,255,255,.035); }
+
+
+/* 11 ─ FEEDBACK =========================================================== */
+.v2 .fb{ background:var(--paper); }
+.v2 .fb-card{
+  border-radius:2px; border-color:var(--line);
+  background:var(--paper); box-shadow:none;
+}
+.v2 .fb-card .star.on{ color:var(--red); }
+.v2 .fb-quote{ font-size:1rem; line-height:1.65; color:var(--ink-2); }
+.v2 .fb-av{ background:var(--navy); color:#fff; border-radius:2px; }
+.v2 .fb-btn{ border-radius:2px; border-color:var(--hair); color:var(--navy); }
+
+
+/* 12 ─ CLOSING CTA ======================================================== */
+.v2 .vcta{
+  position:relative; isolation:isolate;
+  min-height:clamp(420px,58vh,620px);
+  display:flex; align-items:center;
+  background:var(--deep-v);
+  overflow:hidden;
+}
+.v2 .vcta-bg{ position:absolute; inset:0; z-index:0; }
+/* The photograph is a tall portrait with the subject centred. Pushed right so
+   he lands in the lighter half of the gradient rather than under the type. */
+.v2 .vcta-bg img{ width:100%; height:100%; object-fit:cover; object-position:64% 26%; }
+.v2 .vcta::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(90deg,rgba(6,20,35,.96) 0,rgba(6,20,35,.82) 46%,rgba(6,20,35,.35) 100%);
+}
+/* padding-block, not the shorthand — .wrap carries padding-inline and the
+   shorthand was resetting it, which pulled this heading out of alignment
+   with every other section on the page. */
+.v2 .vcta-in{ position:relative; z-index:2; padding-block:clamp(56px,6vw,90px); }
+.v2 .vcta h2{
+  font-family:var(--display); color:#fff; margin:0 0 20px;
+  font-size:clamp(2.1rem,4.6vw,4rem);
+  line-height:.98; letter-spacing:-.035em;
+  font-variation-settings:'wdth' 104,'wght' 700;
+  max-width:15ch;
+}
+.v2 .vcta p{ color:rgba(255,255,255,.72); max-width:44ch; font-size:1.05rem; margin:0 0 32px; }
+.v2 .vcta-actions{ display:flex; flex-wrap:wrap; gap:14px; }
+.v2 .vcta-actions .btn-solid{ background:var(--red); }
+.v2 .vcta-actions .btn-solid:hover{ background:#a5121a; }
+.v2 .vcta-actions .btn-line{
+  background:transparent; border-color:rgba(255,255,255,.4); color:#fff;
+}
+.v2 .vcta-actions .btn-line:hover{ background:#fff; color:var(--navy); border-color:#fff; }
+
+
+/* 13 ─ BREAKPOINTS ========================================================
+   These have to be here rather than in responsive.css: this file loads after
+   it, and `.v2 .x` outranks `.x` inside a media query, so anything restyled
+   above needs its own small-screen rule or it stays at desktop values. */
+
+@media (max-width:1024px){
+  .v2 .phero.vhero{ min-height:clamp(480px,74vh,720px); }
+
+  .v2 .vhead,
+
+  .v2 .svc-card,
+  .v2 .svc-card:nth-child(1),
+  .v2 .svc-card:nth-child(2),
+  .v2 .svc-card:nth-child(3),
+  .v2 .svc-card:nth-child(4){ grid-column:span 6; display:flex; flex-direction:column; }
+  .v2 .svc-card:nth-child(1) .svc-figure,
+  .v2 .svc-card:nth-child(4) .svc-figure{ height:auto; min-height:0; aspect-ratio:16/10; }
+  .v2 .svc-card:nth-child(1) .svc-body,
+  .v2 .svc-card:nth-child(4) .svc-body{ justify-content:flex-start; }
+
+  .v2 .clients-head{ grid-template-columns:1fr; gap:12px; }
+  .v2 .scope-grid{ grid-template-columns:1fr; }
+  .v2 .scope-facts{ grid-template-columns:1fr; gap:22px; }
+
+  .v2 .proc-list{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .v2 .proc-step:nth-child(3n){ border-right:1px solid rgba(255,255,255,.12); }
+  .v2 .proc-step:nth-child(2n){ border-right:0; }
+  .v2 .proc-step:nth-child(n+4){ border-bottom:1px solid rgba(255,255,255,.12); }
+  .v2 .proc-step:nth-child(n+5){ border-bottom:0; }
+}
+
+@media (max-width:760px){
+  /* The three-cell plate becomes one column, each cell a label-and-value row.
+     Three cells side by side at 390px gives four-word wraps. */
+  .v2 .phero-meta.vhero-facts{ grid-template-columns:1fr; }
+  .v2 .phero-meta.vhero-facts > div{
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    display:flex; justify-content:space-between; gap:16px; align-items:baseline;
+  }
+  .v2 .phero-meta.vhero-facts > div:last-child{ border-bottom:0; }
+  .v2 .phero-meta.vhero-facts b{ text-align:right; }
+  .v2 .phero-scroll{ display:none; }
+
+
+  .v2 .svc-card,
+  .v2 .svc-card:nth-child(1),
+  .v2 .svc-card:nth-child(2),
+  .v2 .svc-card:nth-child(3),
+  .v2 .svc-card:nth-child(4){ grid-column:span 12; }
+
+  .v2 .proc-list{ grid-template-columns:1fr; }
+  .v2 .proc-step,
+  .v2 .proc-step:nth-child(3n),
+  .v2 .proc-step:nth-child(2n){ border-right:0; border-bottom:1px solid rgba(255,255,255,.12); }
+  .v2 .proc-step:last-child{ border-bottom:0; }
+
+  .v2 .vcta::after{
+    background:linear-gradient(0deg,rgba(6,20,35,.96) 0,rgba(6,20,35,.7) 60%,rgba(6,20,35,.5) 100%);
+  }
+}
+
+@media (max-width:480px){
+  .v2 .cplate{ width:236px; }
+  .v2 .vhero-actions .btn-solid,
+  .v2 .vhero-actions .vhero-ghost{ width:100%; justify-content:center; }
+}
+
+
+/* 14 ─ REDUCED MOTION ===================================================== */
+@media (prefers-reduced-motion:reduce){
+  .v2 *,
+  .v2 *::before,
+  .v2 *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}

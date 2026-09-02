@@ -1,0 +1,73 @@
+# ==========================================================================
+# APEX — Apache configuration (A2 Hosting, cPanel, most shared hosts)
+# Cloudflare Pages and Netlify ignore this file; they read _headers instead.
+# ==========================================================================
+
+# ── Canonical host and HTTPS ───────────────────────────────────────────────
+# Uncomment both blocks once the domain is live and the certificate is issued.
+# Pick ONE of the www / non-www rules — running both is a redirect loop.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Force www:
+  # RewriteCond %{HTTP_HOST} !^www\. [NC]
+  # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+  # Or force non-www:
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # Serve /about instead of /about.html if you prefer extensionless URLs.
+  # If you turn this on, update every href in the seven pages to match, or
+  # you will have two indexable URLs for every page.
+  # RewriteCond %{REQUEST_FILENAME}.html -f
+  # RewriteRule ^([^\.]+)$ $1.html [NC,L]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+# ── Compression ────────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ── Caching ────────────────────────────────────────────────────────────────
+# HTML is never cached hard, so a content edit goes live immediately. Assets
+# are cached for a year; rename the file when you change one.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType application/json          "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  <FilesMatch "\.(css|js|jpg|jpeg|png|svg|webp|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# ── Don't serve the working files ──────────────────────────────────────────
+<FilesMatch "\.(md|py|json)$">
+  Require all denied
+</FilesMatch>
+<Files "sitemap.xml">
+  Require all granted
+</Files>

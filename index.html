@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js v2 p-home">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apex Integrated Facility Management | Bangalore</title>
-<meta name="description" content="Apex Integrated Facility Management delivers housekeeping, security, technical maintenance, HVAC, landscaping, pest control, waste and fire safety services for corporate, healthcare, industrial and residential facilities in Bangalore.">
+<meta name="description" content="Integrated facility management in Bangalore. Housekeeping, security, technical maintenance, landscaping, pest control and support staff under one contract.">
 <link rel="canonical" href="https://example.com/">
 <meta name="theme-color" content="#0B2A5F">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Apex Integrated Facility Management | Bangalore">
-<meta property="og:description" content="We manage every detail. Integrated facility management that keeps people, places and operations performing at their best.">
+<meta property="og:description" content="Housekeeping, security, technical, landscaping, pest and support staff for Bangalore facilities — one team, one contract, one report.">
 <meta property="og:image" content="assets/images/staff/staff-supervisor.jpg">
 <meta property="og:url" content="https://example.com/">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,13 +19,15 @@
 <link rel="apple-touch-icon" href="assets/icons/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Archivo is loaded with its width axis this time. The display face is set
+     wide, which is where most of the change in how the page reads comes from. -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/home.css">
-<!-- Structured data. Add telephone, email and streetAddress here once
-     confirmed — do not publish values that are not real. -->
+<link rel="stylesheet" href="css/home-v2.css">
+<link rel="stylesheet" href="css/page-accent.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -60,11 +62,15 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- ══ NAVIGATION ══════════════════════════════════════════════════════ -->
+<!-- ══ NAVIGATION ══════════════════════════════════════════════════════
+     Unchanged apart from the second wordmark. The hero is dark on both
+     sides now, so the header carries the reversed mark until main.js adds
+     .stuck, then swaps back. CSS handles the swap; no script change. -->
 <header class="nav" id="nav">
   <div class="wrap-wide nav-in">
     <a href="index.html" class="nav-logo" aria-label="Apex Integrated Facility Management, home">
-      <img src="assets/brand/apex-wordmark.png" alt="Apex" width="330" height="140">
+      <img class="logo-dark" src="assets/brand/apex-wordmark.png" alt="Apex" width="330" height="140">
+      <img class="logo-rev" src="assets/brand/apex-wordmark-reverse.png" alt="" aria-hidden="true" width="330" height="140">
       <span class="nav-word">Integrated Facility Management</span>
     </a>
     <nav class="nav-menu" aria-label="Primary">
@@ -140,133 +146,89 @@
 <main id="main">
 
 <!-- ══ 01 HERO ════════════════════════════════════════════════════════
-     Full-bleed, and now rotating. Five photographs cross-fade every 6s while
-     the one on screen pushes in slowly. Cross-fade rather than slide: sliding
-     puts a hard vertical seam down the middle of the screen with two
-     different photographs either side of it, which reads as a glitch.
+     Same construction as the six inner pages: one full-bleed photograph
+     under the navy veil, copy on top of it. The split panel is gone — the
+     dark half was carrying a lot of empty space and the header had to invert
+     over it, which made the home page the odd one out.
 
-     The first slide is written into the HTML so the browser can start
-     fetching it before any script runs — it is the largest thing on the page.
-     The rest are added by js/hero.js once this one has landed. -->
-<section class="hero hero--full hero--light" id="top">
+     The rotation is unchanged. js/hero.js still finds [data-hero-slides],
+     adopts the slide written into the HTML so the browser can start fetching
+     it before any script runs, then appends the other four. -->
+<section class="phero vhero" id="top">
 
-  <div class="hero-media" data-hero-slides aria-hidden="true">
+  <figure class="phero-bg" data-hero-slides aria-hidden="true">
     <div class="hslide is-active">
-      <img src="assets/images/staff/staff-supervisor.jpg" alt="" width="1200" height="896" fetchpriority="high" decoding="async" style="object-position:center 40%">
+      <img src="assets/images/staff/staff-supervisor.jpg" alt="" width="1600" height="1100" fetchpriority="high" decoding="async" style="object-position:center 40%">
     </div>
-  </div>
-  <div class="hero-scrim" aria-hidden="true"></div>
+  </figure>
+  <div class="phero-veil" aria-hidden="true"></div>
 
-  <p class="hero-mark" aria-hidden="true">Your Facilities, Our Responsibility</p>
+  <div class="wrap phero-in">
+    <div class="phero-copy vhero-copy-in">
+      <p class="vhero-loc" data-letters="word" data-letter-step="70"><span class="dot" aria-hidden="true"></span>Bangalore, Karnataka</p>
 
-  <div class="hero-skyline" aria-hidden="true">
-    <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
-      <path class="sk1" d="M0 220V112h64v-30h44v30h58V70h50v42h62V52h74v60h48V88h58v24h66V60h52v52h70V96h56v16h74V74h50v38h60V98h58v14h72V66h54v46h70v-24h56v24h44v108Z"/>
-      <path class="sk2" d="M0 220V150h78v-26h52v26h66v-38h58v38h70v-20h48v20h74v-46h56v46h64v-28h60v28h72v-34h54v34h66v-18h56v18h70v-40h50v40h96v70Z"/>
-      <path class="sk3" d="M0 220V184h96v-18h70v18h84v-26h64v26h88v-14h72v14h86v-22h68v22h90v-16h74v16h88v-20h66v20h94v36Z"/>
-    </svg>
-  </div>
+      <!-- data-letters: hero.js splits this into one span per character and
+           brings them in once, on load. The string stays in the markup, so it
+           is readable without JavaScript, and the original text is put back on
+           the element's aria-label for screen readers. -->
+      <h1 class="vh1" data-letters data-letter-step="62" data-letter-after="0.5">We manage every detail.</h1>
 
-  <div class="wrap hero-in">
-    <div class="hero-copy">
-      <p class="hero-tag" data-anim="fade"><i></i> Bangalore <em>&middot;</em> Six service lines <em>&middot;</em> One contract</p>
+      <p class="vhero-sub" data-letters="word" data-letter-step="72" data-letter-after="2.1">Housekeeping, security, technical, landscaping, pest and support staff &mdash; run by one team, under one supervision structure, reported on one sheet.</p>
 
-      <!-- data-letters: js/hero.js splits this into one span per character and
-           brings them in one at a time. The text stays in the HTML so it is
-           readable without JavaScript and by search engines; the split spans
-           are marked aria-hidden and the original string is restored to the
-           element's aria-label, so a screen reader hears a sentence rather
-           than twenty-three separate letters. -->
-      <h1 class="d1 hero-title" data-letters data-letter-step="46">We manage <b>every detail.</b></h1>
-
-      <p class="lede hero-sub" data-letters data-letter-step="11" data-letter-after="0.9">Housekeeping, security, technical, landscaping, pest and support staff &mdash; run by one team, under one supervision structure, reported on one sheet.</p>
-
-      <div class="hero-actions" data-anim="up" data-delay="0.1">
-        <a href="services.html" class="btn btn-solid">
-          Explore services
+      <div class="vhero-actions">
+        <a href="contact.html" class="btn btn-solid">
+          Book a site walk
           <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="contact.html" class="btn btn-glass">Talk to our team</a>
+        <a href="services.html" class="vhero-ghost">See the six service lines</a>
       </div>
-    </div>
 
-    <div class="hero-thumbs" data-anim="up" data-delay="0.18">
-      <a href="services.html#service-housekeeping" class="hthumb" data-label="Housekeeping"><img src="assets/images/staff/staff-housekeeping.jpg" alt="Housekeeping" loading="lazy" decoding="async"></a>
-      <a href="services.html#service-security" class="hthumb" data-label="Security"><img src="assets/images/staff/staff-security-team.jpg" alt="Security" loading="lazy" decoding="async"></a>
-      <a href="services.html#service-technical" class="hthumb" data-label="Technical"><img src="assets/images/staff/staff-technical-team.jpg" alt="Technical maintenance" loading="lazy" decoding="async"></a>
-      <a href="services.html#service-landscaping" class="hthumb" data-label="Landscaping"><img src="assets/images/staff/staff-landscape-team.jpg" alt="Landscaping" loading="lazy" decoding="async"></a>
-      <a href="services.html#service-pest" class="hthumb" data-label="Pest control"><img src="assets/images/staff/staff-pest.jpg" alt="Pest management" loading="lazy" decoding="async"></a>
-      <a href="services.html#service-manpower" class="hthumb" data-label="Support staff"><img src="assets/images/staff/staff-pantry-team.jpg" alt="Manpower and support" loading="lazy" decoding="async"></a>
+      <!-- Same component the inner page heroes use, so the home page reads as
+           part of the set rather than as its own design. -->
+      <div class="phero-meta vhero-facts">
+        <div><span>Service lines</span><b>Six, one contract</b></div>
+        <div><span>Response desk</span><b>Open 24 hours</b></div>
+        <div><span>Facility types</span><b>Eight and counting</b></div>
+      </div>
     </div>
 
     <div class="hero-dots" data-hero-dots role="tablist" aria-label="Choose hero image"></div>
+
+    <a class="phero-scroll" href="#services" aria-label="Scroll to content">
+      <span></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
   </div>
 
-  <div class="hero-scroll" aria-hidden="true"><span class="track"></span>Scroll</div>
 </section>
 
-<!-- ══ 01b STAT BAND ══════════════════════════════════════════════════ -->
-<section class="statband" aria-label="Apex at a glance">
-  <div class="wrap statband-in">
-    <div class="stat"><b>06<i>+</i></b><span>Service lines under one contract</span></div>
-    <div class="stat"><b>24<i>/7</i></b><span>Response desk, every day</span></div>
-    <div class="stat"><b>08<i>+</i></b><span>Facility types we run</span></div>
-    <div class="stat"><b>100<i>%</i></b><span>Statutory records maintained</span></div>
-  </div>
-</section>
-
-
-
-<!-- ══ 01c TRUSTED BY ═════════════════════════════════════════════════
-     Content comes from data/clients.json. Every entry there is currently
-     confirmed:false, so the strip renders the facility type rather than a
-     company name and carries a visible note saying the list is illustrative.
-     Set confirmed:true on an entry and the note disappears once they all are.
-     Nothing here claims a client Apex has not named. -->
-<section class="clients" aria-label="Facilities we are built for">
+<!-- ══ 02 CLIENTS ════════════════════════════════════════════════════
+     Real names, from data/clients.json. No logo files are shipped — see the
+     note at the top of that file for how to add them properly. Set any entry
+     to confirmed:false and the caveat under the strip comes back. -->
+<section class="clients" aria-label="Facilities Apex runs">
   <div class="wrap">
-    <p class="clients-lead"><span>Built for</span></p>
+    <div class="clients-head">
+      <p class="clients-lead"><span>Facilities we run</span></p>
+      <p class="clients-sub">Malls, hospitals, corporate offices, manufacturing units and residential communities across Bengaluru and Karnataka.</p>
+    </div>
     <div class="clients-rail" data-render="clients">
-      <noscript><p class="lede">Corporate, healthcare, industrial, residential, logistics, retail, education and hospitality facilities.</p></noscript>
+      <noscript><p class="lede">Wipro Enterprises, INOX, VR Bengaluru, Garuda Mall, Raymond Retail, St Peter&rsquo;s Hospital, Swasya Living, Sannidhi Eco Farms, Tanzior Jewels and Transit Food Court.</p></noscript>
     </div>
-    <p class="clients-note demo-only" data-clients-note hidden>Facility types, not client names &mdash; a named client list will replace this once Apex supplies one with written permission.</p>
-  </div>
-</section>
-
-<!-- ══ 02 A DAY ON SITE ═══════════════════════════════════════════════
-     Was a pinned five-image sequence that took five screens of scrolling.
-     Same five moments, same captions, one screen. -->
-<section class="section day band-white" aria-label="A day on site">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow">The facility never stops</p>
-        <h2 class="d2 lines"><span class="line"><span>Every hour, somewhere on site,</span></span><span class="line"><span>something needs attention.</span></span></h2>
-      </div>
-      <p class="lede">One roster covers the whole day, from the first floor clean before anyone arrives to the handover after the building empties.</p>
-    </div>
-
-    <div class="day-grid">
-      <figure class="day-item"><img src="assets/images/staff/staff-housekeeping.jpg" alt="Apex housekeeping operative cleaning a building atrium in the morning" loading="lazy" decoding="async"><figcaption class="day-cap"><span>06:00</span><b>Housekeeping</b></figcaption></figure>
-      <figure class="day-item"><img src="assets/images/staff/staff-security-team.jpg" alt="Apex security team managing the main entrance and access control" loading="lazy" decoding="async"><figcaption class="day-cap"><span>09:30</span><b>Security &amp; monitoring</b></figcaption></figure>
-      <figure class="day-item"><img src="assets/images/staff/staff-technical-team.jpg" alt="Apex technicians working in a building plant room" loading="lazy" decoding="async"><figcaption class="day-cap"><span>13:15</span><b>HVAC &amp; plant</b></figcaption></figure>
-      <figure class="day-item"><img src="assets/images/staff/staff-technician.jpg" alt="Apex technician testing an HVAC distribution panel under permit" loading="lazy" decoding="async"><figcaption class="day-cap"><span>17:40</span><b>Technical maintenance</b></figcaption></figure>
-      <figure class="day-item"><img src="assets/images/staff/staff-review.jpg" alt="Apex supervisor briefing staff at the evening shift handover" loading="lazy" decoding="async"><figcaption class="day-cap"><span>22:00</span><b>Shift handover</b></figcaption></figure>
-    </div>
+    <p class="clients-note demo-only" data-clients-note hidden>Some entries are not yet cleared for publication.</p>
   </div>
 </section>
 
 <!-- ══ 03 SERVICE LINES ═══════════════════════════════════════════════
-     Content comes from data/services.json — add, reorder or delete a service
-     there and this section and services.html both follow. -->
-<section class="section svcs on-mist" id="services">
+     Content comes from data/services.json — add, reorder or delete a
+     service there and this section and services.html both follow. The
+     markup is generated by render.js and was not touched; home-v2.css gives
+     the six cards different weights so they stop reading as one grid. -->
+<section class="section svcs" id="services">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow">What we manage</p>
-        <h2 class="d2 lines"><span class="line"><span>Six service lines.</span></span><span class="line"><span>One contract.</span></span></h2>
-      </div>
-      <p class="lede">Take the whole scope or a single line. Either way the supervision structure, the checklists and the person you call when something goes wrong stay the same.</p>
+    <div class="vhead">
+      <h2 class="vh2">Six service lines. One contract.</h2>
+      <p class="vlede">Take the whole scope or a single line. Either way the supervision structure, the checklists and the person you call when something goes wrong stay the same.</p>
     </div>
 
     <div class="svc-wrap" data-render="service-scroll">
@@ -275,8 +237,11 @@
   </div>
 </section>
 
-<!-- ══ 04 FACILITY MAP — signature interactive section ════════════════ -->
-<section class="section fmap on-mist" id="integrated">
+<!-- ══ 04 FACILITY MAP — signature interactive section ════════════════
+     Same schematic, same nodes, same script. Moved onto the dark ground so
+     the drawn lines have something to sit against; on the pale blue band it
+     was the strongest idea on the page and the faintest thing on it. -->
+<section class="section fmap" id="integrated">
   <div class="grid-overlay"></div>
   <div class="wrap fmap-grid" style="position:relative;z-index:2">
 
@@ -291,17 +256,15 @@
         separate vendors &mdash; they share a roster, a supervisor structure and one report.
       </p>
 
-      <!-- Panel updated by main.js as nodes are hovered or focused -->
       <div class="fmap-info">
         <span class="mono" id="fmIdx">Node 01</span>
-        <h4 id="fmName">Housekeeping</h4>
+        <h3 id="fmName">Housekeeping</h3>
         <p id="fmText">Daily cleaning, washroom hygiene, facade and glass, waste segregation at source.</p>
         <ul id="fmTags"></ul>
       </div>
     </div>
 
     <div class="fmap-stage">
-      <!-- Stylised facility schematic. Nodes are HTML for accessibility. -->
       <svg class="fmap-svg" viewBox="0 0 900 660" role="img" aria-label="Diagram of eight facility services connected to a central building">
         <circle class="halo" cx="450" cy="330" r="248"/>
         <circle class="halo" cx="450" cy="330" r="186"/>
@@ -317,7 +280,6 @@
           <line class="wire" x1="450" y1="330" x2="257" y2="164"/>
         </g>
 
-        <!-- Building blocks -->
         <g>
           <rect class="bld" x="374" y="248" width="66" height="196"/>
           <rect class="bld bld-2" x="446" y="212" width="82" height="232"/>
@@ -382,15 +344,66 @@
   </div>
 </section>
 
-<!-- ══ 05 EDITORIAL ABOUT ═════════════════════════════════════════════ -->
+<!-- ══ 05 WHAT THE CONTRACT COVERS ═══════════════════════════════════
+     Text only, on purpose. Everything above this point on the page is
+     photographs; a facility manager reading this far wants the scope, the
+     supervision structure and what lands on their desk each month, and none
+     of those are things a photograph can show. -->
+<section class="section scope" id="scope">
+  <div class="wrap">
+    <div class="vhead">
+      <h2 class="vh2">What you are actually buying.</h2>
+      <p class="vlede">Every proposal is written after a site walk, so the numbers change. The structure does not.</p>
+    </div>
+
+    <div class="scope-grid">
+      <article class="scope-col">
+        <h3>People on site</h3>
+        <p>Deployed to a written roster, in Apex uniform, with photo ID and police verification on file.</p>
+        <ul>
+          <li>A named site supervisor, not a rotating helpdesk</li>
+          <li>Shift cover agreed before mobilisation, including reliever cover</li>
+          <li>Attendance recorded daily and reconciled against the roster</li>
+          <li>Induction and on-site training before a person is posted</li>
+        </ul>
+      </article>
+
+      <article class="scope-col">
+        <h3>Systems we keep running</h3>
+        <p>Planned maintenance on a calendar, not call-outs after something has already failed.</p>
+        <ul>
+          <li>HVAC, chillers, AHUs and filters on a service schedule</li>
+          <li>LT panels, lighting, DG sets and UPS attended under permit</li>
+          <li>Plumbing, pumps, STP and water systems</li>
+          <li>Fire extinguishers, hydrants and evacuation readiness</li>
+        </ul>
+      </article>
+
+      <article class="scope-col">
+        <h3>What reaches your desk</h3>
+        <p>One report, once a month, covering the whole contract rather than one per service line.</p>
+        <ul>
+          <li>Completed tasks against the maintenance calendar</li>
+          <li>Open issues, with the date each was raised and closed</li>
+          <li>Consumable usage and stock position</li>
+          <li>Statutory registers, current and available for audit</li>
+        </ul>
+      </article>
+    </div>
+
+    <ul class="scope-facts">
+      <li><b>Six service lines</b><span>Housekeeping, security, technical, landscaping, pest and support manpower, under one contract</span></li>
+      <li><b>Response desk, 24 hours</b><span>Every escalation logged with a closing time against it</span></li>
+      <li><b>Bengaluru and Karnataka</b><span>Mobilisation typically inside two weeks of a signed scope</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ 06 EDITORIAL ABOUT ═════════════════════════════════════════════ -->
 <section class="section edit" id="about">
   <div class="wrap">
     <div class="edit-title">
-      <p class="eyebrow">About Apex</p>
-      <h2 class="d2 lines">
-        <span class="line"><span>Behind every</span></span>
-        <span class="line"><span>well-run facility.</span></span>
-      </h2>
+      <h2 class="vh2">Behind every well-run facility.</h2>
     </div>
 
     <div class="edit-grid">
@@ -398,15 +411,15 @@
         <div class="edit-main img-reveal">
           <img src="assets/images/staff/staff-management.jpg" alt="Apex facility managers planning a site deployment over building drawings" loading="lazy" decoding="async">
         </div>
-        <figure class="edit-float f1 img-reveal"><img src="assets/images/staff/staff-pantry.jpg" alt="Apex pantry attendant preparing service in a corporate kitchen" loading="lazy" decoding="async"></figure>
-        <figure class="edit-float f2 img-reveal"><img src="assets/images/staff/staff-housekeeping-lobby.jpg" alt="Apex housekeeping operative maintaining a building lobby" loading="lazy" decoding="async"></figure>
-        <span class="edit-label l1">Bangalore &middot; Karnataka</span>
-        <span class="edit-label l2">Single contract</span>
+        <span class="edit-label l1">Bangalore, Karnataka</span>
       </div>
 
       <div class="edit-copy">
         <p>Apex Integrated Facility Management runs the day-to-day operation of commercial, healthcare, industrial, institutional and residential premises. We take on the people, the schedules, the checklists and the reporting, so the building works without your team having to chase it.</p>
-        <p>Most facilities do not fail dramatically. They drift &mdash; a skipped inspection here, an unfilled log there, three vendors each assuming the fourth handled it. Integrated management exists to close those gaps, because when every service sits inside one operating plan there is nowhere for work to fall between contracts.</p>
+
+        <p class="vquote">Most facilities do not fail dramatically. They drift.</p>
+
+        <p>A skipped inspection here, an unfilled log there, three vendors each assuming the fourth handled it. Integrated management exists to close those gaps, because when every service sits inside one operating plan there is nowhere for work to fall between contracts.</p>
 
         <ul class="edit-list">
           <li><span class="idx">01</span><div><b>One accountable partner</b><span>A named account manager and an on-site supervisor, not a rotating helpdesk.</span></div></li>
@@ -426,14 +439,11 @@
 </section>
 
 <!-- ══ 07 INDUSTRIES ══════════════════════════════════════════════════ -->
-<section class="section inds on-mist" id="industries">
+<section class="section inds" id="industries">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow">Industries</p>
-        <h2 class="d2 lines"><span class="line"><span>Built for every</span></span><span class="line"><span>type of facility.</span></span></h2>
-      </div>
-      <p class="lede">A hospital corridor and a warehouse floor need very different routines. The scope is written around how your building is actually used.</p>
+    <div class="vhead">
+      <h2 class="vh2">A hospital corridor is not a warehouse floor.</h2>
+      <p class="vlede">The two need different routines, different headcount and different timings. Scope is written around how your building is actually used, after we have walked it.</p>
     </div>
 
     <div class="inds-grid">
@@ -443,15 +453,14 @@
   </div>
 </section>
 
-<!-- ══ 10 PROCESS ═════════════════════════════════════════════════════ -->
+<!-- ══ 08 PROCESS ═════════════════════════════════════════════════════
+     Six stages in order, so the numbering here is describing a sequence
+     rather than decorating a grid. -->
 <section class="section proc" id="approach">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow">Our approach</p>
-        <h2 class="d2 lines"><span class="line"><span>How we take</span></span><span class="line"><span>over a facility.</span></span></h2>
-      </div>
-      <p class="lede">A six-stage mobilisation that runs from the first site walk to a reviewed, improving operation.</p>
+    <div class="vhead">
+      <h2 class="vh2 on-deep">How we take over a facility.</h2>
+      <p class="vlede">A six-stage mobilisation that runs from the first site walk to a reviewed, improving operation. Handover runs in parallel, so nothing on your site stops while it happens.</p>
     </div>
 
     <div class="proc-list">
@@ -465,16 +474,13 @@
   </div>
 </section>
 
-<!-- ══ 15 FEEDBACK ═══════════════════════════════════════════════════
+<!-- ══ 09 FEEDBACK ════════════════════════════════════════════════════
      Content comes from data/feedback.json. -->
-<section class="section fb on-mist" id="feedback">
+<section class="section fb" id="feedback">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow">Feedback</p>
-        <h2 class="d2 lines"><span class="line"><span>What facility managers</span></span><span class="line"><span>ask us for.</span></span></h2>
-      </div>
-      <p class="lede">Five things come up in almost every first conversation. They are the same five we are measured on afterwards.</p>
+    <div class="vhead">
+      <h2 class="vh2">What facility managers ask us for.</h2>
+      <p class="vlede">Five things come up in almost every first conversation. They are the same five we are measured on afterwards.</p>
     </div>
 
     <div class="fb-rail" data-render="feedback">
@@ -493,24 +499,20 @@
   </div>
 </section>
 
-<!-- ══ 16 FINAL CTA ═══════════════════════════════════════════════════ -->
-<section class="cta cta--light">
-  <div class="wrap cta-in">
-    <div class="cta-grid">
-      <div>
-        <h2 class="d2 lines"><span class="line"><span>Your facility.</span></span><span class="line"><span class="accent">Our responsibility.</span></span></h2>
-        <p class="lede">Let&rsquo;s create a safer, cleaner and better-performing environment.</p>
-        <div class="cta-actions">
-          <a href="contact.html" class="btn btn-solid">
-            Request a consultation
-            <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="contact.html" class="btn btn-line">Contact Apex</a>
-        </div>
-      </div>
-      <div class="cta-shot img-reveal">
-        <img src="assets/images/staff/staff-team.jpg" alt="Apex housekeeping, landscaping, security, technical and pantry teams across client sites" loading="lazy" decoding="async">
-      </div>
+<!-- ══ 10 CLOSING ═════════════════════════════════════════════════════ -->
+<section class="vcta">
+  <div class="vcta-bg" aria-hidden="true">
+    <img src="assets/images/staff/staff-handover.jpg" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="wrap vcta-in">
+    <h2>Your facility. Our responsibility.</h2>
+    <p>Tell us the building type, the location and roughly how big it is. We walk the site, then send a written scope with deployment, supervision and commercials on it.</p>
+    <div class="vcta-actions">
+      <a href="contact.html" class="btn btn-solid">
+        Book a site walk
+        <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="work.html" class="btn btn-line">See worked examples</a>
     </div>
   </div>
 </section>
@@ -533,7 +535,7 @@
       </div>
 
       <nav class="foot-col" aria-label="Pages">
-        <h4>Pages</h4>
+        <h3>Pages</h3>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -546,7 +548,7 @@
       </nav>
 
       <nav class="foot-col" aria-label="Services">
-        <h4>Services</h4>
+        <h3>Services</h3>
         <ul>
           <li><a href="services.html#service-housekeeping">Housekeeping</a></li>
           <li><a href="services.html#service-security">Security</a></li>
@@ -558,7 +560,7 @@
       </nav>
 
       <div class="foot-col foot-contact">
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <ul>
           <li data-cfg-address>Bengaluru, Karnataka</li>
           <li><a data-cfg-tel>+91 00000 00000</a></li>
@@ -571,6 +573,7 @@
 
     <div class="foot-bottom">
       <p>&copy; <span data-year>2026</span> Apex Integrated Facility Management. All rights reserved.</p>
+      <p class="foot-credit">Digital partner &mdash; <a href="https://dygine.com" target="_blank" rel="noopener">Dygine Software Solution</a></p>
       <p class="demo-only">Demonstration website &mdash; imagery, sample projects and contact details are placeholders pending client content.</p>
     </div>
   </div>

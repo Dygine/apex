@@ -1,6 +1,71 @@
 /* AUTO-GENERATED from data/*.json by tools/build-data.js — do not edit by hand.
    Offline snapshot so the site also works when opened via file://          */
 window.APEX_DATA = {
+  "clients": {
+    "_note": "Real Apex client list. Two logo files are included: wipro.png and garuda-mall.png, both taken from those companies' own websites rather than from a search engine. The other eight entries render a monogram in the same box until a logo is supplied. To add one: get WRITTEN permission from the client, ask them for their logo file at the same time (most have a brand or press kit), drop it into assets/images/clients/ at about 72px tall with a transparent background, set the `logo` path below, then run `node tools/build-data.js`. Set confirmed:false on any client not yet cleared to name publicly and the caveat under the strip returns.",
+    "clients": [
+      {
+        "name": "Wipro Enterprises",
+        "sector": "Corporate, Bengaluru",
+        "logo": "assets/images/clients/wipro.png",
+        "confirmed": true
+      },
+      {
+        "name": "INOX",
+        "sector": "Cinema, multiplex",
+        "logo": "",
+        "confirmed": true
+      },
+      {
+        "name": "VR Bengaluru",
+        "sector": "Mall, Whitefield",
+        "logo": "",
+        "confirmed": true
+      },
+      {
+        "name": "Garuda Mall",
+        "sector": "Mall, Magrath Road",
+        "logo": "assets/images/clients/garuda-mall.png",
+        "confirmed": true
+      },
+      {
+        "name": "Raymond Retail",
+        "sector": "Apparel retail",
+        "logo": "",
+        "confirmed": true
+      },
+      {
+        "name": "St Peter's Hospital",
+        "sector": "Healthcare, Bengaluru",
+        "logo": "",
+        "confirmed": true
+      },
+      {
+        "name": "Swasya Living",
+        "sector": "Residential developer",
+        "logo": "",
+        "confirmed": true
+      },
+      {
+        "name": "Sannidhi Eco Farms",
+        "sector": "Managed farmland, Sakleshpur",
+        "logo": "",
+        "confirmed": true
+      },
+      {
+        "name": "Tanzior Jewels",
+        "sector": "Manufacturing, Bellandur",
+        "logo": "",
+        "confirmed": true
+      },
+      {
+        "name": "Transit Food Court",
+        "sector": "Food and beverage",
+        "logo": "",
+        "confirmed": true
+      }
+    ]
+  },
   "faq": {
     "_note": "Questions and answers for the FAQ accordion. Add, edit or remove freely.",
     "faq": [
@@ -35,6 +100,51 @@ window.APEX_DATA = {
       {
         "q": "How do I contact Apex?",
         "a": "Use the enquiry form on the contact page, or the phone and email listed there once those details are confirmed. Enquiries are answered within one working day."
+      }
+    ]
+  },
+  "feedback": {
+    "_note": "PLACEHOLDER FEEDBACK. Written to describe outcomes facility managers ask for, attributed to roles rather than to named individuals. Nothing here is a real quote from a real client. Replace `quote`, `name` and `role`, then set `confirmed: true`. While confirmed is false the section carries a visible note saying so.",
+    "feedback": [
+      {
+        "quote": "One number to call when something breaks, and a report at month end that tells us what actually happened. That is the whole ask, and it is harder to find than it sounds.",
+        "name": "Facility manager",
+        "role": "Corporate office, Bengaluru",
+        "initials": "FM",
+        "rating": 5,
+        "confirmed": false
+      },
+      {
+        "quote": "Consistency matters more than intensity. We want the same standard on a Tuesday afternoon as on an audit morning, without anyone being told an inspection is coming.",
+        "name": "Administration head",
+        "role": "Healthcare facility",
+        "initials": "AH",
+        "rating": 5,
+        "confirmed": false
+      },
+      {
+        "quote": "Safety paperwork has to be ready before the inspector asks, not assembled afterwards. Statutory records are the first thing we check when we review a contract.",
+        "name": "Plant operations lead",
+        "role": "Industrial facility",
+        "initials": "PO",
+        "rating": 5,
+        "confirmed": false
+      },
+      {
+        "quote": "The supervisor knowing our building matters more than the size of the company behind them. We had four vendors before; the handover between them was where everything fell through.",
+        "name": "Estate manager",
+        "role": "Residential township",
+        "initials": "EM",
+        "rating": 5,
+        "confirmed": false
+      },
+      {
+        "quote": "Attendance you can verify, consumables logged against a rate, and open issues carried forward instead of quietly dropped. That is what a monthly review should contain.",
+        "name": "Finance controller",
+        "role": "Logistics facility",
+        "initials": "FC",
+        "rating": 4,
+        "confirmed": false
       }
     ]
   },
@@ -83,8 +193,8 @@ window.APEX_DATA = {
       {
         "id": "itpark",
         "title": "IT parks and campuses",
-        "image": "assets/images/staff/staff-landscape-team.jpg",
-        "alt": "Apex grounds team maintaining the landscaping at an IT campus",
+        "image": "assets/images/hub-facility.jpg",
+        "alt": "Multi-block IT campus with shared services and shift-based cover",
         "brief": "Multi-block campuses running long shifts across large footprints.",
         "needs": [
           "Multi-block coordination",

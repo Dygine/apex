@@ -1,41 +1,49 @@
 # Client logos
 
-**Everything in this folder is a placeholder.** None of these are real company
-logos. They are abstract marks with the facility type written beside them,
-drawn in the site's own colours so the logo wall can be reviewed at the correct
-size and spacing.
+Two real files are in here. Both were taken from the companies' own websites,
+not from a search engine:
 
-## Why there are no real logos here
+| File | Source |
+|---|---|
+| `wipro.png` | `wipro.com/content/dam/nexus/en/images/wipro_logo.png` |
+| `garuda-mall.png` | `garudamall.in/garuda-logo-nobg.png` |
 
-Two reasons, and both matter:
+Both were trimmed of transparent padding and resized to 72px tall.
 
-1. **Nobody has told me who Apex's clients are.** Inventing names would put a
-   false claim on a live site.
-2. **Using a company's logo needs their permission.** A logo is a trademark.
-   Putting a client's mark on your site without written sign-off is a real
-   commercial risk, and it is the kind of thing that ends a contract rather
-   than winning one. Most facility management agreements have a clause about
-   this — worth checking yours before you publish any of them.
+## The other eight
 
-## How to put the real ones in
+They render a monogram in the same box until a file is supplied. Here is what
+happened when I went looking for each one:
 
-1. Get written permission from each client. An email saying "yes, you may use
-   our logo on your website" is enough, and keep it.
-2. Export each logo at about **300 x 60 px**, **SVG or PNG with a transparent
-   background**. Landscape lockups work best; a square mark will look small
-   next to the others.
-3. Drop the file in this folder.
-4. Open `data/clients.json` and for each entry set:
-   - `name` — the company name (used as the image's alt text)
-   - `logo` — the filename, e.g. `assets/images/clients/acme.svg`
-   - `sector` — a short descriptor, e.g. "IT park, Whitefield"
-   - `confirmed` — change to `true`
+| Client | Result |
+|---|---|
+| INOX | site returns 403 to anything that is not a browser (Akamai) |
+| Raymond | same, 403 |
+| VR Bengaluru | file found, but it is the white-on-transparent version — invisible on this light strip, and inverting someone's logo is not something to do without asking |
+| St Peter's Hospital | no reachable site found |
+| Swasya Living | site is Framer-hosted; the only SVG served is a background texture, not the mark |
+| Sannidhi Eco Farms | Swasya Living project, same problem |
+| Tanzior Jewels | incorporated Feb 2025, no published brand assets |
+| Transit Food Court | no site found |
 
-When every entry is `confirmed: true`, the "these are placeholders" note under
-the strip disappears on its own. Until then it stays visible, on purpose.
+## Adding one properly
 
-## Not ready to name clients yet?
+1. Ask the client for permission to name them, and ask for the logo file in
+   the same message. Most companies have a brand or press kit and will send an
+   SVG or a transparent PNG.
+2. Drop the file in this folder, about 72px tall, transparent background.
+3. Set the `logo` path on that entry in `data/clients.json`.
+4. Run `node tools/build-data.js`.
 
-Delete `data/clients.json` and the whole strip disappears cleanly — no gap, no
-broken layout. That is a better look than a wall of logos you cannot stand
-behind.
+`render.js` swaps the monogram for the image automatically. Nothing else
+changes — the plate is the same shape either way, which is why a strip with
+two logos and eight monograms still looks deliberate.
+
+## Please do not source these from image search
+
+Search results are full of superseded versions, fan recreations and JPEGs with
+a white box baked into them. Put three of those next to each other and the
+strip makes Apex look smaller, not larger. The logos are also registered
+trademarks — Wipro, INOX, Raymond and VR Bengaluru all publish brand
+guidelines — so the permission conversation has to happen regardless. Ask for
+the file during that conversation and you get the correct one for free.

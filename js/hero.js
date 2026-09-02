@@ -27,12 +27,17 @@
   /* One photograph per service line, so the rotation says something rather
      than just moving. staff-team.jpg is deliberately not here — it is a
      six-panel contact sheet, which reads as a broken grid at full bleed. */
+  /* These five are chosen so that no photograph on the home page appears
+     twice. The six service cards use housekeeping, security-team,
+     technical-team, landscape-team, pest and pantry-team; none of those are
+     in this list. staff-team.jpg is deliberately not here either — it is a
+     six-panel contact sheet and reads as a broken grid at full bleed. */
   var SLIDES = [
     { src: 'assets/images/staff/staff-supervisor.jpg',         pos: 'center 40%' },
-    { src: 'assets/images/staff/staff-security-team.jpg',      pos: 'center 42%' },
-    { src: 'assets/images/staff/staff-technical-team.jpg',     pos: 'center 44%' },
+    { src: 'assets/images/staff/staff-security.jpg',           pos: 'center 42%' },
+    { src: 'assets/images/staff/staff-technician.jpg',         pos: 'center 40%' },
     { src: 'assets/images/staff/staff-housekeeping-lobby.jpg', pos: 'center 46%' },
-    { src: 'assets/images/staff/staff-landscape-team.jpg',     pos: 'center 48%' }
+    { src: 'assets/images/staff/staff-landscape.jpg',          pos: 'center 48%' }
   ];
 
   var HOLD = 6000;   /* ms each photograph is held */
@@ -134,6 +139,13 @@
     var step  = parseFloat(el.getAttribute('data-letter-step')) || 40;
     var after = parseFloat(el.getAttribute('data-letter-after')) || 0;
 
+    /* data-letters="word" advances the delay once per word instead of once
+       per character. A headline is short enough to read letter by letter and
+       the effect is the point; a three-line paragraph at the same rate takes
+       ten seconds and the reader has already scrolled. Word mode keeps the
+       same slow cadence without that cost. */
+    var byWord = el.getAttribute('data-letters') === 'word';
+
     /* Walk the original nodes so inline markup — the <b> around the second
        headline line — survives the split and can still be coloured. */
     var out = document.createDocumentFragment();
@@ -154,19 +166,22 @@
             if (/^\s+$/.test(part)) {
               /* A real space between two inline-blocks: the break point. */
               target.appendChild(document.createTextNode(' '));
-              idx++;
+              if (!byWord) idx++;
               return;
             }
             var word = document.createElement('span');
             word.className = 'wrd';
+            var wordDelay = after + idx * step / 1000;
             part.split('').forEach(function (ch) {
               var s = document.createElement('span');
               s.className = 'ltr';
               s.textContent = ch;
-              s.style.transitionDelay = (after + idx * step / 1000) + 's';
-              idx++;
+              s.style.transitionDelay =
+                (byWord ? wordDelay : after + idx * step / 1000) + 's';
+              if (!byWord) idx++;
               word.appendChild(s);
             });
+            if (byWord) idx++;
             target.appendChild(word);
           });
           return;

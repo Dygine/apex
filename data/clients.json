@@ -1,13 +1,65 @@
 {
-  "_note": "PLACEHOLDER LOGOS — see assets/images/clients/README.md. None of these are real companies. To use real client logos: get WRITTEN permission from each client, export their logo at ~300x60 with a transparent background into assets/images/clients/, then set `name`, `logo` and `confirmed:true` here. The 'placeholder' note under the strip disappears by itself once every entry is confirmed. If Apex is not ready to name clients, delete this file and the whole strip disappears cleanly.",
+  "_note": "Real Apex client list. Two logo files are included: wipro.png and garuda-mall.png, both taken from those companies' own websites rather than from a search engine. The other eight entries render a monogram in the same box until a logo is supplied. To add one: get WRITTEN permission from the client, ask them for their logo file at the same time (most have a brand or press kit), drop it into assets/images/clients/ at about 72px tall with a transparent background, set the `logo` path below, then run `node tools/build-data.js`. Set confirmed:false on any client not yet cleared to name publicly and the caveat under the strip returns.",
   "clients": [
-    { "name": "Corporate Campus",     "sector": "IT park, Whitefield",       "logo": "assets/images/clients/corporate-campus.svg",     "confirmed": false },
-    { "name": "Multi-Speciality",     "sector": "Hospital, North Bangalore", "logo": "assets/images/clients/multi-speciality.svg",     "confirmed": false },
-    { "name": "Manufacturing Unit",   "sector": "Industrial, Peenya",        "logo": "assets/images/clients/manufacturing-unit.svg",   "confirmed": false },
-    { "name": "Residential Township", "sector": "Apartments, Sarjapur",      "logo": "assets/images/clients/residential-township.svg", "confirmed": false },
-    { "name": "Logistics Hub",        "sector": "Warehousing, Nelamangala",  "logo": "assets/images/clients/logistics-hub.svg",        "confirmed": false },
-    { "name": "Retail Chain",         "sector": "Stores, Bengaluru metro",   "logo": "assets/images/clients/retail-chain.svg",         "confirmed": false },
-    { "name": "Education Campus",     "sector": "College, KR Puram",         "logo": "assets/images/clients/education-campus.svg",     "confirmed": false },
-    { "name": "Business Hotel",       "sector": "Hospitality, MG Road",      "logo": "assets/images/clients/business-hotel.svg",       "confirmed": false }
+    {
+      "name": "Wipro Enterprises",
+      "sector": "Corporate, Bengaluru",
+      "logo": "assets/images/clients/wipro.png",
+      "confirmed": true
+    },
+    {
+      "name": "INOX",
+      "sector": "Cinema, multiplex",
+      "logo": "",
+      "confirmed": true
+    },
+    {
+      "name": "VR Bengaluru",
+      "sector": "Mall, Whitefield",
+      "logo": "",
+      "confirmed": true
+    },
+    {
+      "name": "Garuda Mall",
+      "sector": "Mall, Magrath Road",
+      "logo": "assets/images/clients/garuda-mall.png",
+      "confirmed": true
+    },
+    {
+      "name": "Raymond Retail",
+      "sector": "Apparel retail",
+      "logo": "",
+      "confirmed": true
+    },
+    {
+      "name": "St Peter's Hospital",
+      "sector": "Healthcare, Bengaluru",
+      "logo": "",
+      "confirmed": true
+    },
+    {
+      "name": "Swasya Living",
+      "sector": "Residential developer",
+      "logo": "",
+      "confirmed": true
+    },
+    {
+      "name": "Sannidhi Eco Farms",
+      "sector": "Managed farmland, Sakleshpur",
+      "logo": "",
+      "confirmed": true
+    },
+    {
+      "name": "Tanzior Jewels",
+      "sector": "Manufacturing, Bellandur",
+      "logo": "",
+      "confirmed": true
+    },
+    {
+      "name": "Transit Food Court",
+      "sector": "Food and beverage",
+      "logo": "",
+      "confirmed": true
+    }
   ]
 }

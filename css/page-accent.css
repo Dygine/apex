@@ -1,0 +1,229 @@
+/* ==========================================================================
+   APEX — page-accent.css
+   Linked LAST on all seven pages.
+
+   One idea: every page takes its accent colour from the photograph at the
+   top of that page. The structure, the near-black navy grounds and the brand
+   red all stay exactly as they were — only the accent moves, so each page
+   feels tied to its own hero image without any of them drifting off-brand.
+
+   The values below were read off the photographs themselves (dominant
+   chromatic cluster, then lifted to a lightness that stays legible on the
+   dark bands). Where a photograph is essentially neutral, the accent falls
+   back to the blue in the uniforms rather than to the wood and skin tones,
+   which sampled strongest but say nothing about Apex.
+
+   ── WHERE THE ACCENT IS USED ────────────────────────────────────────────
+   Rules under eyebrows, mono numerals, hover and active states, the hairline
+   at the head of a dark band, the border on the schematic info panel, link
+   hovers. Never a large fill.
+
+   ── WHAT IT NEVER TOUCHES ───────────────────────────────────────────────
+   The two logo grounds. The header stays light (navy wordmark) and the
+   footer and dark bands stay near-black navy (white wordmark), on every
+   page, whatever the accent is. See the logo note at the bottom.
+
+     01 Default
+     02 Per-page accents
+     03 Where the accent is applied
+   ========================================================================== */
+
+
+/* 01 ─ DEFAULT ============================================================
+   Used if a page has no p-* class on <html>. The brand navy, lifted. */
+:root{
+  --accent:    #6FA8D8;
+  --accent-2:  #4C86BA;
+  --accent-w:  #EDF3FA;
+  --accent-w2: #DFEAF6;
+}
+
+
+/* 02 ─ PER-PAGE ACCENTS ===================================================
+   page              photograph at the top          read as
+   ----------------  -----------------------------  ---------------------- */
+
+/* index    staff-supervisor.jpg           daylight office, pale blue shirts */
+.p-home{
+  --accent:    #74AEDC;
+  --accent-2:  #4F8BBE;
+  --accent-w:  #EEF4FB;
+  --accent-w2: #E0EBF7;
+}
+
+/* about    staff-handover.jpg             warm floor, timber, grey uniform */
+.p-about{
+  --accent:    #CB9E70;
+  --accent-2:  #A87C50;
+  --accent-w:  #F8F3EC;
+  --accent-w2: #F1E8DC;
+}
+
+/* services staff-technical-team.jpg       plant room, navy technical shirts */
+.p-services{
+  --accent:    #6FA6CC;
+  --accent-2:  #4A83AC;
+  --accent-w:  #EDF3F8;
+  --accent-w2: #DEE9F2;
+}
+
+/* industries staff-landscape-team.jpg     planting, green grounds uniform */
+.p-industries{
+  --accent:    #63B58A;
+  --accent-2:  #3F8C64;
+  --accent-w:  #ECF6F0;
+  --accent-w2: #DCEDE3;
+}
+
+/* process  staff-supervisor.jpg           same photograph as the home page,
+                                           so deliberately the same accent */
+.p-process{
+  --accent:    #74AEDC;
+  --accent-2:  #4F8BBE;
+  --accent-w:  #EEF4FB;
+  --accent-w2: #E0EBF7;
+}
+
+/* work     staff-housekeeping-pair.jpg    deep navy uniform against timber */
+.p-work{
+  --accent:    #7099D8;
+  --accent-2:  #4C76B6;
+  --accent-w:  #EEF2FB;
+  --accent-w2: #E0E7F7;
+}
+
+/* contact  staff-management.jpg           warm meeting room, blush uniforms */
+.p-contact{
+  --accent:    #D19685;
+  --accent-2:  #AE7160;
+  --accent-w:  #FAF1EE;
+  --accent-w2: #F4E4DF;
+}
+
+
+/* 03 ─ WHERE THE ACCENT IS APPLIED ======================================== */
+
+/* Small labels and their rule */
+.eyebrow::before{ background:var(--accent-2); }
+
+/* Mono numerals — service numbers, step indices, node numbers */
+.sdet-num,
+.indc-i,
+.proc-step .idx,
+.fmap-info .mono,
+.uni-code{ color:var(--accent-2); }
+
+/* Light section tint. This was a flat blue-grey on every page; now it is a
+   wash of that page's own accent, at about 4% — enough to feel related to
+   the photograph above it, not enough to read as a colour. */
+.section.on-mist{ background:var(--accent-w); }
+
+/* Interactive states */
+.inds-row.on h3,
+.inds-row.on .idx{ color:var(--accent-2); }
+.svc-card:hover .svc-go{ color:var(--accent-2); }
+.tlink:hover{ color:var(--accent-2); }
+.faq-q[aria-expanded="true"]{ color:var(--accent-2); }
+.wk-filter.on{ background:var(--accent-2); border-color:var(--accent-2); color:#fff; }
+
+/* On the dark bands the accent has to be the lifted value, not the deep one */
+.on-dark .eyebrow::before,
+.band-deep .eyebrow::before,
+.phero .eyebrow::before{ background:var(--accent); }
+.on-dark .mono,
+.band-deep .mono{ color:var(--accent); }
+
+/* Tap targets, continued. Inline text links in the footer and the breadcrumb
+   sat at 16-25px tall on a phone, under the 30px a thumb needs. Padding is
+   vertical only, so nothing moves on desktop. */
+.foot-contact a,
+.foot-credit a,
+.panel-foot a,
+.crumb a,
+.tlink,
+.foot-col ul a,
+.tbc{ display:inline-block; padding-block:5px; }
+.uni-dot{ position:relative; }
+.uni-dot::after{
+  content:""; position:absolute; left:50%; top:50%;
+  width:44px; height:44px; transform:translate(-50%,-50%);
+}
+
+/* Tap targets. Both of these were under 30px on a phone: the hero slide dots
+   are 4px tall by design, and the scroll cue is a 1px rule with an arrow
+   under it. The visible shape stays the same; the hit area is padded out
+   around it so a thumb can actually land on it. */
+.hero-dot,
+.uni-dot{
+  position:relative;
+  min-width:34px; min-height:34px;
+  background:transparent !important;
+  display:grid; place-items:center;
+}
+.hero-dot::before{
+  content:""; display:block;
+  width:26px; height:3px; border-radius:2px;
+  background:rgba(255,255,255,.4);
+  transition:background .3s var(--ease), width .3s var(--ease);
+}
+.hero-dot.on::before{ background:var(--accent); width:34px; }
+.uni-dot::before{
+  content:""; display:block; width:12px; height:12px; border-radius:50%;
+  background:var(--line); transition:background .3s var(--ease);
+}
+.uni-dot.is-active::before{ background:var(--accent-2); }
+.phero-scroll{ min-width:44px; min-height:44px; justify-content:flex-end; }
+
+
+/* 404 */
+.err404{ padding-block:clamp(96px,11vw,170px); background:var(--paper); }
+.err404-code{
+  font-family:var(--mono); font-size:.9rem; letter-spacing:.1em;
+  color:var(--accent-2); margin:0 0 18px;
+}
+.err404 h1{ margin:0 0 18px; max-width:18ch; }
+.err404 .vlede{ margin:0 0 32px; }
+.err404-links{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:clamp(44px,5vw,72px); }
+.err404-nav{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1px; background:var(--line-2);
+  border-top:1px solid var(--line-2); border-bottom:1px solid var(--line-2);
+}
+.err404-nav a{
+  background:var(--paper); padding:22px 20px;
+  transition:background .3s var(--ease);
+}
+.err404-nav a:hover{ background:var(--accent-w); }
+.err404-nav b{ display:block; color:var(--navy); font-weight:600; margin-bottom:4px; }
+.err404-nav span{ display:block; color:var(--mute); font-size:.86rem; }
+@media (max-width:760px){ .err404-nav{ grid-template-columns:1fr; } }
+
+
+/* Footer credit line */
+.foot-credit{ margin:0; }
+.foot-credit a{
+  color:#fff; font-weight:500;
+  border-bottom:1px solid rgba(255,255,255,.34);
+  transition:border-color .3s var(--ease), color .3s var(--ease);
+}
+.foot-credit a:hover{ color:var(--accent); border-color:var(--accent); }
+
+
+/* Form focus */
+.f input:focus,
+.f select:focus,
+.f textarea:focus{ border-color:var(--accent-2); }
+
+
+/* ── LOGO NOTE ───────────────────────────────────────────────────────────
+   Two wordmark files exist and each only works on one kind of ground:
+
+     apex-wordmark.png          navy #011D4C + red A  →  LIGHT grounds
+     apex-wordmark-reverse.png  white #FCFCFC         →  DEEP grounds
+
+   Nothing in this file changes a background that either mark sits on. The
+   header ground and the footer ground are fixed, on every page, precisely so
+   that changing an accent can never break the logo. If you add a section,
+   give it either a light ground or a near-black navy one — never a mid-tone,
+   which breaks both marks at once.
+   ──────────────────────────────────────────────────────────────────────── */
