@@ -83,8 +83,8 @@ window.APEX_DATA = {
       {
         "id": "itpark",
         "title": "IT parks and campuses",
-        "image": "assets/images/ind-education.jpg",
-        "alt": "Large campus building",
+        "image": "assets/images/staff/staff-landscape-team.jpg",
+        "alt": "Apex grounds team maintaining the landscaping at an IT campus",
         "brief": "Multi-block campuses running long shifts across large footprints.",
         "needs": [
           "Multi-block coordination",
@@ -182,8 +182,8 @@ window.APEX_DATA = {
         "category": "Corporate",
         "title": "Multi-floor corporate office",
         "meta": "Bengaluru · Illustrative scope",
-        "image": "assets/images/ind-corporate.jpg",
-        "alt": "Corporate office building exterior",
+        "image": "assets/images/staff/staff-team.jpg",
+        "alt": "Apex teams deployed across a corporate campus",
         "scope": "Housekeeping, front office, technical maintenance",
         "brief": "A single-tenant office across several floors, occupied through standard business hours with meeting rooms in near-continuous use.",
         "approach": "Daytime housekeeping sized to footfall rather than floor area, with meeting-room turnaround handled between bookings. A resident technician covers lighting, plumbing and HVAC complaints so small faults never reach a vendor queue.",
@@ -247,8 +247,8 @@ window.APEX_DATA = {
         "category": "Corporate",
         "title": "Shared business centre",
         "meta": "Bengaluru · Illustrative scope",
-        "image": "assets/images/corridor.jpg",
-        "alt": "Modern office corridor",
+        "image": "assets/images/staff/staff-housekeeping-lobby.jpg",
+        "alt": "Apex housekeeping operative maintaining a shared building lobby",
         "scope": "Common-area housekeeping, reception, helpdesk",
         "brief": "A multi-tenant floor where shared areas belong to everybody and therefore to nobody.",
         "approach": "A single accountable supervisor for all shared space, a published cleaning frequency per zone, and a helpdesk that logs tenant requests so recurring problems become visible instead of repeating quietly.",
@@ -274,7 +274,7 @@ window.APEX_DATA = {
           "Deep cleaning"
         ],
         "image": "assets/images/staff/staff-housekeeping.jpg",
-        "alt": "Apex housekeeping team member cleaning a modern corporate workspace",
+        "alt": "Apex housekeeping team maintaining a corporate office atrium",
         "applications": [
           "Corporate floors and workstations",
           "Restrooms and pantry areas",
@@ -296,8 +296,8 @@ window.APEX_DATA = {
           "Patrol rounds",
           "Shift handover"
         ],
-        "image": "assets/images/staff/staff-security.jpg",
-        "alt": "Apex security professional at a corporate building entrance",
+        "image": "assets/images/staff/staff-security-team.jpg",
+        "alt": "Apex security team managing access control at a building entrance",
         "applications": [
           "Main gate and reception posts",
           "Visitor and contractor entry control",
@@ -319,8 +319,8 @@ window.APEX_DATA = {
           "Preventive schedule",
           "Breakdown response"
         ],
-        "image": "assets/images/staff/staff-technician.jpg",
-        "alt": "Apex maintenance technician inspecting building services plant",
+        "image": "assets/images/staff/staff-technical-team.jpg",
+        "alt": "Apex maintenance technicians testing building services plant",
         "applications": [
           "Planned preventive maintenance calendar",
           "Electrical panels, lighting and DG sets",
@@ -342,8 +342,8 @@ window.APEX_DATA = {
           "Seasonal planting",
           "Indoor plants"
         ],
-        "image": "assets/images/staff/staff-landscape.jpg",
-        "alt": "Apex landscaping professional maintaining a corporate campus lawn",
+        "image": "assets/images/staff/staff-landscape-team.jpg",
+        "alt": "Apex landscaping team maintaining the grounds of a corporate campus",
         "applications": [
           "Campus lawns and garden beds",
           "Tree pruning and green waste removal",
@@ -366,7 +366,7 @@ window.APEX_DATA = {
           "Service records"
         ],
         "image": "assets/images/staff/staff-pest.jpg",
-        "alt": "Apex pest management technician carrying out a documented treatment",
+        "alt": "Pest management treatment being carried out in a warehouse",
         "applications": [
           "Kitchens, pantries and waste areas",
           "Basements, ducts and service shafts",
@@ -388,8 +388,8 @@ window.APEX_DATA = {
           "Office assistants",
           "Replacement cover"
         ],
-        "image": "assets/images/staff/staff-briefing.jpg",
-        "alt": "Apex support staff at a shift briefing before deployment",
+        "image": "assets/images/staff/staff-pantry-team.jpg",
+        "alt": "Apex pantry and support staff running an office refreshment counter",
         "applications": [
           "Reception and front office",
           "Pantry and cafeteria support",
@@ -405,7 +405,7 @@ window.APEX_DATA = {
       {
         "id": "supervisor",
         "role": "Facility supervisor",
-        "label": "SUPERVISION",
+        "label": "Supervision",
         "line": "Walks the site, signs the checklist, and owns what did not get done.",
         "image": "assets/images/staff/staff-supervisor.jpg",
         "alt": "Apex facility supervisor on a corporate office floor"
@@ -413,108 +413,126 @@ window.APEX_DATA = {
       {
         "id": "housekeeping",
         "role": "Housekeeping operative",
-        "label": "CARE",
+        "label": "Care",
         "line": "Holds the same standard on an ordinary Tuesday as on an audit day.",
-        "image": "assets/images/staff/staff-housekeeping.jpg",
+        "image": "assets/images/staff/staff-housekeeping-detail.jpg",
         "alt": "Apex housekeeping operative cleaning an office workspace"
       },
       {
         "id": "security",
         "role": "Security personnel",
-        "label": "CONTROL",
+        "label": "Control",
         "line": "Knows the post instructions without being asked for them.",
         "image": "assets/images/staff/staff-security.jpg",
-        "alt": "Apex security personnel at a building entrance"
+        "alt": "Apex security officer at a building reception desk"
       },
       {
         "id": "technician",
         "role": "Maintenance technician",
-        "label": "UPTIME",
+        "label": "Uptime",
         "line": "Finds the fault on the schedule, not on the complaint.",
         "image": "assets/images/staff/staff-technician.jpg",
-        "alt": "Apex maintenance technician inspecting building plant"
+        "alt": "Apex maintenance technician inspecting an HVAC panel"
       },
       {
         "id": "landscape",
         "role": "Landscape operative",
-        "label": "PRESENTATION",
+        "label": "Presentation",
         "line": "Maintains the first thing every visitor forms an opinion about.",
         "image": "assets/images/staff/staff-landscape.jpg",
-        "alt": "Apex landscape operative maintaining a campus lawn"
+        "alt": "Apex landscape operative maintaining a campus garden"
+      },
+      {
+        "id": "pantry",
+        "role": "Pantry and support staff",
+        "label": "Hospitality",
+        "line": "Keeps the everyday things stocked, clean and ready before anyone asks.",
+        "image": "assets/images/staff/staff-pantry.jpg",
+        "alt": "Apex pantry service staff member preparing refreshments in an office pantry"
       }
     ]
   },
   "uniform": {
-    "_note": "Drives the uniform showcase. `spec` items become the interactive hotspots on the uniform drawing. Update measurements after the client confirms their uniform standard.",
+    "_note": "Drives the uniform showcase. `spec` items become the interactive hotspots on the uniform photograph. `x` / `y` are percentages of the image. Update the measurements once the client confirms their uniform standard.",
     "intro": {
       "eyebrow": "The Apex standard",
       "headline": "Every detail represents a standard.",
-      "body": "A uniform is the first thing anyone in your building reads about the people working in it. The Apex standard is a navy shirt, a chest logo, a name badge and a photo ID that says who this person is, what they do and which site they belong to — so nobody in your facility ever has to wonder."
+      "body": "A uniform is the first thing anyone in your building reads about the people working in it. Shirt colour identifies the service line, the chest logo identifies the company, and the name badge and photo ID identify the person — so nobody in your facility ever has to wonder who is on their floor or why."
     },
     "photo": {
       "image": "assets/images/staff/uniform-full.jpg",
-      "alt": "Apex staff member in full uniform, standing portrait"
+      "alt": "Apex facility supervisor in uniform walking a client office floor with a checklist"
     },
     "spec": [
       {
-        "id": "logo",
+        "id": "colour",
         "code": "A",
+        "title": "Service-line colour",
+        "detail": "Shirt colour says which team a person belongs to before anyone reads a badge — blue for housekeeping, green for landscaping, navy for technical, black for security, white for pantry and grey for supervision.",
+        "image": "assets/images/staff/staff-team.jpg",
+        "alt": "Apex teams in service-line uniform colours",
+        "x": 50,
+        "y": 36
+      },
+      {
+        "id": "logo",
+        "code": "B",
         "title": "Chest logo",
-        "detail": "Wearer's left chest, 70 mm wide, embroidered flat stitch in bone and signal green.",
+        "detail": "Wearer's left chest, 70 mm wide, embroidered flat stitch. The same mark on every shirt, every site, every service line.",
         "image": "assets/images/staff/uniform-logo.jpg",
         "alt": "Close crop of the embroidered Apex chest logo",
-        "x": 62,
-        "y": 34
+        "x": 72,
+        "y": 31
       },
       {
         "id": "badge",
-        "code": "B",
+        "code": "C",
         "title": "Name badge",
-        "detail": "Wearer's right chest, 75 x 24 mm. Name over role, on a signal-green plate.",
+        "detail": "Wearer's right chest, 75 x 24 mm. Name over role, so the person in front of you can be addressed by name rather than flagged down.",
         "image": "assets/images/staff/uniform-logo.jpg",
         "alt": "Close crop of the Apex name badge",
-        "x": 36,
-        "y": 35
+        "x": 48,
+        "y": 32
       },
       {
         "id": "id",
-        "code": "C",
+        "code": "D",
         "title": "Photo ID",
-        "detail": "86 x 54 mm card on a breakaway lanyard. Photo, name, staff ID, site, and a colour band by service line.",
+        "detail": "86 x 54 mm card on a breakaway lanyard. Photo, name, staff ID, site, and a colour band matching the service line.",
         "image": "assets/images/staff/uniform-id.jpg",
-        "alt": "Close crop of the Apex photo ID card and lanyard",
-        "x": 50,
-        "y": 47
+        "alt": "Close crop of an Apex photo ID card on a lanyard",
+        "x": 58,
+        "y": 45
       },
       {
         "id": "epaulette",
-        "code": "D",
-        "title": "Epaulette",
-        "detail": "Supervisor grade only, so the person accountable on site is identifiable at a glance.",
+        "code": "E",
+        "title": "Supervisor grade",
+        "detail": "Supervisors carry a shoulder marking, so the person accountable on site is identifiable at a glance rather than by asking around.",
         "image": "assets/images/staff/uniform-full.jpg",
-        "alt": "Apex supervisor epaulette detail",
-        "x": 65,
-        "y": 17
+        "alt": "Apex supervisor shoulder detail",
+        "x": 76,
+        "y": 24
       },
       {
         "id": "tape",
-        "code": "E",
+        "code": "F",
         "title": "Service tape",
-        "detail": "Left sleeve, service line in caps — housekeeping, security, technical, landscape or pest.",
+        "detail": "Left sleeve, service line printed in full — housekeeping, security, technical, landscape, pest or pantry.",
         "image": "assets/images/staff/uniform-full.jpg",
         "alt": "Apex sleeve service tape detail",
-        "x": 24,
+        "x": 40,
         "y": 38
       },
       {
         "id": "hem",
-        "code": "F",
+        "code": "G",
         "title": "Reflective hem",
-        "detail": "Technical and night-shift grades carry a 20 mm reflective band at the hem.",
-        "image": "assets/images/staff/uniform-full.jpg",
-        "alt": "Apex reflective hem tape detail",
-        "x": 50,
-        "y": 88
+        "detail": "Technical and night-shift grades carry a 20 mm reflective band, because plant rooms and basements are not lit like offices.",
+        "image": "assets/images/staff/staff-technician.jpg",
+        "alt": "Apex technician working in a plant room",
+        "x": 60,
+        "y": 62
       }
     ]
   }

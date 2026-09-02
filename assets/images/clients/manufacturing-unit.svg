@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 193 52" role="img" aria-label="Manufacturing Unit — placeholder logo">
+<!-- PLACEHOLDER. Not a real company logo. Replace with the client's own
+     artwork, transparent background. See README.md in this folder. -->
+<g color="#5C6A80" transform="translate(-6,-2) scale(0.95)"><path d="M26 10l15 26H11Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></g>
+<text x="52" y="27" font-family="Archivo, Helvetica Neue, Arial, sans-serif"
+      font-size="19" font-weight="700" letter-spacing="-0.4" fill="#0B2A5F">Manufacturing</text>
+<text x="53" y="43" font-family="IBM Plex Mono, monospace"
+      font-size="9" letter-spacing="2.2" fill="#8493A8">UNIT</text>
+</svg>

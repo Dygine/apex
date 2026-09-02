@@ -1,0 +1,45 @@
+{
+  "_note": "PLACEHOLDER FEEDBACK. Written to describe outcomes facility managers ask for, attributed to roles rather than to named individuals. Nothing here is a real quote from a real client. Replace `quote`, `name` and `role`, then set `confirmed: true`. While confirmed is false the section carries a visible note saying so.",
+  "feedback": [
+    {
+      "quote": "One number to call when something breaks, and a report at month end that tells us what actually happened. That is the whole ask, and it is harder to find than it sounds.",
+      "name": "Facility manager",
+      "role": "Corporate office, Bengaluru",
+      "initials": "FM",
+      "rating": 5,
+      "confirmed": false
+    },
+    {
+      "quote": "Consistency matters more than intensity. We want the same standard on a Tuesday afternoon as on an audit morning, without anyone being told an inspection is coming.",
+      "name": "Administration head",
+      "role": "Healthcare facility",
+      "initials": "AH",
+      "rating": 5,
+      "confirmed": false
+    },
+    {
+      "quote": "Safety paperwork has to be ready before the inspector asks, not assembled afterwards. Statutory records are the first thing we check when we review a contract.",
+      "name": "Plant operations lead",
+      "role": "Industrial facility",
+      "initials": "PO",
+      "rating": 5,
+      "confirmed": false
+    },
+    {
+      "quote": "The supervisor knowing our building matters more than the size of the company behind them. We had four vendors before; the handover between them was where everything fell through.",
+      "name": "Estate manager",
+      "role": "Residential township",
+      "initials": "EM",
+      "rating": 5,
+      "confirmed": false
+    },
+    {
+      "quote": "Attendance you can verify, consumables logged against a rate, and open issues carried forward instead of quietly dropped. That is what a monthly review should contain.",
+      "name": "Finance controller",
+      "role": "Logistics facility",
+      "initials": "FC",
+      "rating": 4,
+      "confirmed": false
+    }
+  ]
+}

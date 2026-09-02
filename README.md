@@ -1,31 +1,32 @@
 # Apex Integrated Facility Management — website
 
-Seven pages. HTML5, CSS3, vanilla JavaScript. GSAP, ScrollTrigger and Lenis from
-CDN for the scroll work. No framework, no build step, no backend, no database.
+Seven pages. HTML5, CSS3, vanilla JavaScript. No framework, no build step, no
+backend, no database, and no third-party JavaScript.
 
 Open `index.html` and it runs. Push the folder to GitHub Pages and it runs there.
 
 ---
 
-## 1. Read this first — the one gap
+## 1. Read this first — what changed in this pass
 
-**The staff photography is not real yet.** Twelve photo slots hold branded
-placeholders showing the slot code and the scene each one wants. Every prompt is
-written and waiting in `assets/images/staff/PROMPTS.md`.
+The site was redesigned from a dark, heavily animated build into a bright
+corporate one. Three things are worth knowing before you open a file.
 
-Until those are replaced, the site is a complete and honest demo — but it is not
-finished. Nothing else on the site is blocked on anything.
+**The photography is in.** The twelve branded placeholder slots are gone.
+`assets/images/staff/` holds twenty-one Apex workforce photographs and all of
+them are used. One image is sourced rather than Apex-supplied — see
+`assets/images/CREDITS.md`.
 
-```bash
-# 1. Generate or shoot the twelve images (prompts in PROMPTS.md)
-# 2. Save each at the same filename in assets/images/staff/
-# 3. Stamp the Apex logo on consistently
-python3 tools/brand-photos.py --preview staff-supervisor.jpg   # check placement
-python3 tools/brand-photos.py --all                            # stamp everything
-python3 tools/brand-photos.py --restore                        # undo, any time
-```
+**There are no CDN dependencies any more.** GSAP, ScrollTrigger and Lenis have
+been removed. Scroll reveal is one IntersectionObserver in `js/animations.js`,
+about 130 lines. The site no longer depends on three third-party servers being
+up, and it works offline.
 
-No HTML changes needed. The `alt` text is already written to match each scene.
+**Two sections were re-thought rather than re-styled.** The pinned five-image
+sequence on the home page and the pinned five-stage story on the process page
+both cost several screens of scrolling to deliver a few short paragraphs. The
+same copy, the same images and the same order are now laid out to be read
+rather than scrubbed. No content was removed from either.
 
 ---
 
@@ -54,8 +55,8 @@ apex-integrated-facility-management/
 │   ├── config.js       ← EDIT COMPANY DETAILS HERE (phone, email, address…)
 │   ├── data.js         Auto-generated offline snapshot — do not hand-edit
 │   ├── render.js       Turns config + JSON into the page
-│   ├── main.js         Nav, menu, cursor, facility map, counters, form
-│   └── animations.js   Lenis + GSAP choreography, with fallbacks
+│   ├── main.js         Nav, menu, facility map, industries preview, form
+│   └── animations.js   Scroll reveal — one IntersectionObserver, no libraries
 │
 ├── css/
 │   ├── style.css       Design tokens and the original components
@@ -69,14 +70,15 @@ apex-integrated-facility-management/
 │   │   ├── apex-mark-mono.svg     ← REPLACE (single colour, for embroidery)
 │   │   └── apex-uniform-spec.svg  Vendor-ready uniform drawing
 │   ├── images/
-│   │   ├── staff/      12 photo slots + PROMPTS.md
+│   │   ├── CREDITS.md  ← licensing for every image on the site
+│   │   ├── staff/      21 Apex workforce photographs + PROMPTS.md
 │   │   └── *.jpg       Buildings, interiors, facility types
 │   └── icons/favicon.svg          ← REPLACE (match apex-mark.svg)
 │
 ├── tools/              Maintenance scripts, not part of the site
 │   ├── build-data.js        Refresh js/data.js after editing JSON
 │   ├── brand-photos.py      Stamp the logo onto photographs
-│   ├── make-placeholders.py Regenerate the placeholder slots
+│   ├── make-placeholders.py Regenerate placeholder slots (no longer needed)
 │   └── test-site.py         Full production-readiness check
 │
 ├── robots.txt
@@ -135,7 +137,8 @@ python3 -m http.server 8000     # then open http://localhost:8000
 ```
 
 Or VS Code Live Server, or `npx serve`. Double-clicking `index.html` also works
-via the `js/data.js` fallback.
+via the `js/data.js` fallback — and now that nothing loads from a CDN, the only
+external request left is the Google Fonts stylesheet.
 
 ---
 
@@ -209,36 +212,36 @@ python3 tools/test-site.py
 
 **Accessibility.** Semantic sectioning, skip link, visible focus rings, ARIA on
 the menu toggle and FAQ panels, keyboard-reachable hotspots and industry rows,
-`alt` on every image. `prefers-reduced-motion` disables Lenis, GSAP, the custom
-cursor and all ambient motion, un-pins the sticky sections, and reveals
-everything that would otherwise animate in.
+`alt` on every image. `prefers-reduced-motion` turns the reveal system off
+entirely and shows the finished page immediately.
 
-**Graceful degradation.** If the GSAP or Lenis CDN is blocked, `animations.js`
-detects it and calls `revealAll()` — the site renders as a clean static page with
-nothing invisible. If `fetch` is unavailable, `js/data.js` supplies the content.
-Pinned sections are desktop-only; touch devices get purpose-built vertical
-equivalents rather than a broken pin.
-
----
-
-## 8. Tuning the scroll speed
-
-Top of `js/animations.js`:
-
-```js
-var SMOOTH_SCROLL = true;   // false = native browser scrolling
-var SCROLL_EASE   = 0.75;   // lower = snappier. 0.6 quick, 1.2 floaty
-```
-
-Setting `SMOOTH_SCROLL = false` turns Lenis off entirely. Every scroll animation
-still works.
+**Graceful degradation.** If `IntersectionObserver` is missing, or anything in
+`animations.js` throws, it calls `revealAll()` and the site renders as a clean
+static page with nothing invisible. If `fetch` is unavailable, `js/data.js`
+supplies the content. Nothing is pinned any more, so there is no pin to break
+on a touch device.
 
 ---
+
+## 8. Tuning the motion
+
+All of it lives in `js/animations.js`. There is no configuration to set.
+
+- **Which elements reveal** — the `AUTO` array near the top. Add a selector and
+  those elements fade up on entry; nothing else needs touching.
+- **How far and how fast** — `[data-anim]` in `css/style.css`, section 05. The
+  default is 22px of lift over 0.7s.
+- **When it fires** — the `rootMargin` on the observer, currently `-12%`, so an
+  element starts its reveal once it is 12% into the viewport.
+
+Reveals run once. Nothing re-animates on the way back up, nothing loops, and
+`prefers-reduced-motion` turns the whole thing off and shows the finished page
+immediately.
 
 ## 9. Before launch — checklist
 
 - [ ] Replace the four logo files and re-export the uniform spec sheet
-- [ ] Replace the twelve photo slots, then run `tools/brand-photos.py --all`
+- [ ] Replace `staff-pest.jpg`, the one sourced photograph (see `assets/images/CREDITS.md`)
 - [ ] Fill `js/config.js` and flip each `confirmed` to `true`
 - [ ] Set `demoMode: false` in `js/config.js`
 - [ ] Replace `example.com` in `robots.txt`, `sitemap.xml` and every `<head>`

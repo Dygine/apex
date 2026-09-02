@@ -1,17 +1,84 @@
 {
-  "_note": "Drives the uniform showcase. `spec` items become the interactive hotspots on the uniform drawing. Update measurements after the client confirms their uniform standard.",
+  "_note": "Drives the uniform showcase. `spec` items become the interactive hotspots on the uniform photograph. `x` / `y` are percentages of the image. Update the measurements once the client confirms their uniform standard.",
   "intro": {
     "eyebrow": "The Apex standard",
     "headline": "Every detail represents a standard.",
-    "body": "A uniform is the first thing anyone in your building reads about the people working in it. The Apex standard is a navy shirt, a chest logo, a name badge and a photo ID that says who this person is, what they do and which site they belong to — so nobody in your facility ever has to wonder."
+    "body": "A uniform is the first thing anyone in your building reads about the people working in it. Shirt colour identifies the service line, the chest logo identifies the company, and the name badge and photo ID identify the person — so nobody in your facility ever has to wonder who is on their floor or why."
   },
-  "photo": { "image": "assets/images/staff/uniform-full.jpg", "alt": "Apex staff member in full uniform, standing portrait" },
+  "photo": {
+    "image": "assets/images/staff/uniform-full.jpg",
+    "alt": "Apex facility supervisor in uniform walking a client office floor with a checklist"
+  },
   "spec": [
-    { "id": "logo",     "code": "A", "title": "Chest logo",      "detail": "Wearer's left chest, 70 mm wide, embroidered flat stitch in bone and signal green.", "image": "assets/images/staff/uniform-logo.jpg", "alt": "Close crop of the embroidered Apex chest logo", "x": 62, "y": 34 },
-    { "id": "badge",    "code": "B", "title": "Name badge",      "detail": "Wearer's right chest, 75 x 24 mm. Name over role, on a signal-green plate.",         "image": "assets/images/staff/uniform-logo.jpg", "alt": "Close crop of the Apex name badge", "x": 36, "y": 35 },
-    { "id": "id",       "code": "C", "title": "Photo ID",        "detail": "86 x 54 mm card on a breakaway lanyard. Photo, name, staff ID, site, and a colour band by service line.", "image": "assets/images/staff/uniform-id.jpg", "alt": "Close crop of the Apex photo ID card and lanyard", "x": 50, "y": 47 },
-    { "id": "epaulette","code": "D", "title": "Epaulette",       "detail": "Supervisor grade only, so the person accountable on site is identifiable at a glance.", "image": "assets/images/staff/uniform-full.jpg", "alt": "Apex supervisor epaulette detail", "x": 65, "y": 17 },
-    { "id": "tape",     "code": "E", "title": "Service tape",    "detail": "Left sleeve, service line in caps — housekeeping, security, technical, landscape or pest.", "image": "assets/images/staff/uniform-full.jpg", "alt": "Apex sleeve service tape detail", "x": 24, "y": 38 },
-    { "id": "hem",      "code": "F", "title": "Reflective hem",  "detail": "Technical and night-shift grades carry a 20 mm reflective band at the hem.",          "image": "assets/images/staff/uniform-full.jpg", "alt": "Apex reflective hem tape detail", "x": 50, "y": 88 }
+    {
+      "id": "colour",
+      "code": "A",
+      "title": "Service-line colour",
+      "detail": "Shirt colour says which team a person belongs to before anyone reads a badge — blue for housekeeping, green for landscaping, navy for technical, black for security, white for pantry and grey for supervision.",
+      "image": "assets/images/staff/staff-team.jpg",
+      "alt": "Apex teams in service-line uniform colours",
+      "x": 50,
+      "y": 36
+    },
+    {
+      "id": "logo",
+      "code": "B",
+      "title": "Chest logo",
+      "detail": "Wearer's left chest, 70 mm wide, embroidered flat stitch. The same mark on every shirt, every site, every service line.",
+      "image": "assets/images/staff/uniform-logo.jpg",
+      "alt": "Close crop of the embroidered Apex chest logo",
+      "x": 72,
+      "y": 31
+    },
+    {
+      "id": "badge",
+      "code": "C",
+      "title": "Name badge",
+      "detail": "Wearer's right chest, 75 x 24 mm. Name over role, so the person in front of you can be addressed by name rather than flagged down.",
+      "image": "assets/images/staff/uniform-logo.jpg",
+      "alt": "Close crop of the Apex name badge",
+      "x": 48,
+      "y": 32
+    },
+    {
+      "id": "id",
+      "code": "D",
+      "title": "Photo ID",
+      "detail": "86 x 54 mm card on a breakaway lanyard. Photo, name, staff ID, site, and a colour band matching the service line.",
+      "image": "assets/images/staff/uniform-id.jpg",
+      "alt": "Close crop of an Apex photo ID card on a lanyard",
+      "x": 58,
+      "y": 45
+    },
+    {
+      "id": "epaulette",
+      "code": "E",
+      "title": "Supervisor grade",
+      "detail": "Supervisors carry a shoulder marking, so the person accountable on site is identifiable at a glance rather than by asking around.",
+      "image": "assets/images/staff/uniform-full.jpg",
+      "alt": "Apex supervisor shoulder detail",
+      "x": 76,
+      "y": 24
+    },
+    {
+      "id": "tape",
+      "code": "F",
+      "title": "Service tape",
+      "detail": "Left sleeve, service line printed in full — housekeeping, security, technical, landscape, pest or pantry.",
+      "image": "assets/images/staff/uniform-full.jpg",
+      "alt": "Apex sleeve service tape detail",
+      "x": 40,
+      "y": 38
+    },
+    {
+      "id": "hem",
+      "code": "G",
+      "title": "Reflective hem",
+      "detail": "Technical and night-shift grades carry a 20 mm reflective band, because plant rooms and basements are not lit like offices.",
+      "image": "assets/images/staff/staff-technician.jpg",
+      "alt": "Apex technician working in a plant room",
+      "x": 60,
+      "y": 62
+    }
   ]
 }

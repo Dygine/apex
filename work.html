@@ -6,18 +6,18 @@
 <title>Work | Apex Integrated Facility Management</title>
 <meta name="description" content="Worked examples of facility management scopes across corporate, residential, industrial, retail and healthcare buildings in Bengaluru.">
 <link rel="canonical" href="https://example.com/work.html">
-<meta name="theme-color" content="#0C0D0F">
+<meta name="theme-color" content="#0B2A5F">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Work | Apex Integrated Facility Management">
 <meta property="og:description" content="Worked examples of facility management scopes across corporate, residential, industrial, retail and healthcare buildings in Bengaluru.">
 <meta property="og:image" content="assets/images/ind-corporate.jpg">
 <meta property="og:url" content="https://example.com/work.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-<link rel="apple-touch-icon" href="assets/icons/favicon.svg">
+<link rel="icon" type="image/png" href="assets/icons/favicon.png">
+<link rel="apple-touch-icon" href="assets/icons/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/responsive.css">
@@ -30,17 +30,20 @@
   "name": "Apex Integrated Facility Management",
   "description": "Integrated facility management in Bengaluru: housekeeping, security, technical maintenance, landscaping, pest management and support manpower under one contract.",
   "url": "https://example.com/",
-  "logo": "https://example.com/assets/brand/apex-logo.svg",
+  "logo": "https://example.com/assets/brand/apex-logo.png",
   "areaServed": {
     "@type": "City",
     "name": "Bengaluru"
   },
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Bengaluru",
+    "streetAddress": "#52, 2nd Main, RMS Colony, near Ganesh Temple, Bhattarahalli, KR Puram",
+    "addressLocality": "Bangalore",
     "addressRegion": "Karnataka",
+    "postalCode": "560049",
     "addressCountry": "IN"
   },
+  "taxID": "29EUTPR9062Q1Z1",
   "knowsAbout": [
     "Integrated facility management",
     "Housekeeping services",
@@ -55,22 +58,46 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+
+<!-- ══ NAVIGATION ══════════════════════════════════════════════════════ -->
 <header class="nav" id="nav">
   <div class="wrap-wide nav-in">
     <a href="index.html" class="nav-logo" aria-label="Apex Integrated Facility Management, home">
-      <svg class="brand-mark" viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="20" fill="#16233D"/><path d="M54 20 L88 78 H72 L54 47 L36 78 H20 Z" fill="#FBFAF7"/><rect x="36" y="82" width="36" height="7" rx="3.5" fill="#0FA47F"/><rect x="45" y="64" width="18" height="6" rx="3" fill="#FBFAF7" opacity=".55"/></svg><span class="nav-word"><b>Apex</b><span>Integrated Facility Management</span></span>
+      <img src="assets/brand/apex-wordmark.png" alt="Apex" width="330" height="140">
+      <span class="nav-word">Integrated Facility Management</span>
     </a>
     <nav class="nav-menu" aria-label="Primary">
       <a class="nav-a" href="index.html">Home</a>
       <a class="nav-a" href="about.html">About</a>
-      <a class="nav-a" href="services.html">Services</a>
+
+      <div class="nav-drop" data-drop>
+        <a class="nav-a nav-drop-btn" href="services.html" aria-expanded="false" aria-haspopup="true">Services
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav-drop-panel" role="menu">
+          <div class="nav-drop-head">
+            <p>What we manage</p>
+            <a href="services.html">All services
+              <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <ul class="nav-drop-list">
+          <li><a href="services.html#service-housekeeping"><b>Housekeeping</b><span>Daily cleaning, restrooms, waste, facade</span></a></li>
+          <li><a href="services.html#service-security"><b>Security</b><span>Manned guarding, access, patrols</span></a></li>
+          <li><a href="services.html#service-technical"><b>Technical maintenance</b><span>Electrical, plumbing, HVAC, DG</span></a></li>
+          <li><a href="services.html#service-landscaping"><b>Landscaping</b><span>Grounds, planting, irrigation</span></a></li>
+          <li><a href="services.html#service-pest"><b>Pest management</b><span>Scheduled treatment and monitoring</span></a></li>
+          <li><a href="services.html#service-manpower"><b>Manpower &amp; support</b><span>Pantry, front desk, helpdesk</span></a></li>
+          </ul>
+        </div>
+      </div>
+
       <a class="nav-a" href="industries.html">Industries</a>
       <a class="nav-a" href="process.html">Process</a>
       <a class="nav-a current" href="work.html">Work</a>
       <a class="nav-a" href="contact.html">Contact</a>
     </nav>
-    <a href="contact.html" class="btn btn-solid nav-cta" data-magnetic>Request a consultation</a>
+    <a href="contact.html" class="btn btn-solid nav-cta">Request a consultation</a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="panel"><span></span></button>
   </div>
   <div class="progress" id="progress"></div>
@@ -78,25 +105,43 @@
 
 <div class="panel" id="panel">
   <ul class="panel-list">
-    <li><a href="index.html"><span class="idx">01</span>Home</a></li>
-    <li><a href="about.html"><span class="idx">02</span>About</a></li>
-    <li><a href="services.html"><span class="idx">03</span>Services</a></li>
-    <li><a href="industries.html"><span class="idx">04</span>Industries</a></li>
-    <li><a href="process.html"><span class="idx">05</span>Process</a></li>
-    <li><a href="work.html"><span class="idx">06</span>Work</a></li>
-    <li><a href="contact.html"><span class="idx">07</span>Contact</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="panel-has-sub">
+      <div class="panel-row">
+        <a href="services.html">Services</a>
+        <button class="panel-toggle" id="panelSvcToggle" aria-expanded="false" aria-controls="panelSvcSub" aria-label="Show all services">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+      <ul class="panel-sub" id="panelSvcSub">
+        <li><a href="services.html#service-housekeeping">Housekeeping</a></li>
+        <li><a href="services.html#service-security">Security</a></li>
+        <li><a href="services.html#service-technical">Technical maintenance</a></li>
+        <li><a href="services.html#service-landscaping">Landscaping</a></li>
+        <li><a href="services.html#service-pest">Pest management</a></li>
+        <li><a href="services.html#service-manpower">Manpower &amp; support</a></li>
+        <li><a href="services.html" class="panel-sub-all">All services</a></li>
+      </ul>
+    </li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="panel-foot">
     <a data-cfg-tel>+91 00000 00000</a>
     <a data-cfg-mail>hello@example.com</a>
-    <a href="https://wa.me/910000000000" target="_blank" rel="noopener" data-placeholder>WhatsApp</a>
+    <a data-cfg-wa target="_blank" rel="noopener">WhatsApp</a>
   </div>
 </div>
+
 <main id="main">
 <section class="phero" id="top">
-  <div class="phero-bg"><img src="assets/images/ind-corporate.jpg" alt="Corporate building exterior" fetchpriority="high"></div>
-  <div class="noise"></div>
-  <div class="wrap" style="position:relative;z-index:2">
+  <figure class="phero-bg"><img loading="eager" decoding="async" src="assets/images/staff/staff-housekeeping-pair.jpg" alt="Apex housekeeping team working across an occupied office floor" width="1600" height="1100" fetchpriority="high"></figure>
+  <div class="phero-veil" aria-hidden="true"></div>
+  <div class="wrap phero-in">
+    <div class="phero-copy">
     <p class="crumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Work</p>
     <h1 class="d2 lines"><span class="line"><span>Scopes of work.</span></span><span class="line"><span class="hollow">Not claims.</span></span></h1>
     <p class="lede" style="margin-top:26px" data-anim="up">Each entry below describes how a facility of that type would be run &mdash; the scope, the reasoning and the deployment. They are worked examples, and they are labelled as such.</p>
@@ -106,6 +151,11 @@
       <div><span>Figures claimed</span><b>None</b></div>
       <div><span>Replaces with</span><b>Real sites, on consent</b></div>
     </div>
+    </div>
+    <a class="phero-scroll" href="#main-body" aria-label="Scroll to content">
+      <span></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
   </div>
 </section>
 
@@ -118,7 +168,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="main-body">
   <div class="wrap">
     <div class="wk-filters" data-render="work-filters" role="group" aria-label="Filter by facility type"></div>
     <div class="wk-grid" data-render="work">
@@ -130,50 +180,74 @@
 <div class="lb" data-render="lightbox"></div>
 
 <section class="cta">
-  <div class="cta-bg"><img src="assets/images/staff/staff-supervisor.jpg" alt="" loading="lazy" decoding="async"></div>
-  <div class="wrap" style="position:relative;z-index:2">
-    <h2 class="d1 lines"><span class="line"><span>Let&rsquo;s talk about</span></span><span class="line"><span class="hollow">your building.</span></span></h2>
+  <div class="wrap cta-in">
+    <div class="cta-grid">
+      <div>
+<h2 class="d2 lines"><span class="line"><span>Let&rsquo;s talk about</span></span><span class="line"><span class="hollow">your building.</span></span></h2>
     <p class="lede" style="margin-top:26px" data-anim="up">Tell us the facility type and rough size, and we will come and look at it.</p>
     <p style="margin-top:34px" data-anim="up" data-delay="0.1">
-      <a href="contact.html" class="btn btn-solid" data-magnetic data-cfg-cta="ctaTextAlt">Request a proposal</a>
+      <a href="contact.html" class="btn btn-solid" data-cfg-cta="ctaTextAlt">Request a proposal</a>
     </p>
+      </div>
+      <div class="cta-shot img-reveal"><img src="assets/images/staff/staff-supervisor.jpg" alt="Apex supervisors on a client office floor" loading="lazy" decoding="async"></div>
+    </div>
   </div>
 </section>
 
 </main>
 
+<!-- ══ FOOTER ══════════════════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <svg class="brand-mark" viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="20" fill="#16233D"/><path d="M54 20 L88 78 H72 L54 47 L36 78 H20 Z" fill="#FBFAF7"/><rect x="36" y="82" width="36" height="7" rx="3.5" fill="#0FA47F"/><rect x="45" y="64" width="18" height="6" rx="3" fill="#FBFAF7" opacity=".55"/></svg>
-        <b>Apex</b>
-        <span class="mono">Integrated Facility Management</span>
+        <img class="foot-logo" src="assets/brand/apex-wordmark-reverse.png" alt="Apex" width="330" height="140">
+        <p class="foot-descriptor">Integrated Facility Management</p>
         <p>A Bangalore-based integrated facility management company delivering housekeeping, security, technical, electrical, HVAC, landscaping, pest control, waste and fire safety services under one accountable contract.</p>
         <ul class="socials">
           <li><a href="#top" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9h4v12H3zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.84 0-2.12 1.43-2.12 2.9V21h-4z"/></svg></a></li>
           <li><a href="#top" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12"/></svg></a></li>
-          <li><a href="#top" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9s.68.82.9 1.38c.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38s-.82.68-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9s-.68-.82-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38s.82-.68 1.38-.9c.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16m0 3.68a6 6 0 1 1 0 12 6 6 0 0 1 0-12m0 2.16a3.84 3.84 0 1 0 0 7.68 3.84 3.84 0 0 0 0-7.68m6.24-3.86a1.44 1.44 0 1 1 0 2.88 1.44 1.44 0 0 1 0-2.88"/></svg></a></li>
+          <li><a href="#top" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9s.68.82.9 1.38c.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38s-.82.68-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9s-.68-.82-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38s.82-.68 1.38-.9c.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16m0 3.68a6 6 0 1 1 0 12 6 6 0 0 1 0-12m0 2.16a3.84 3.84 0 1 0 0 7.68 3.84 3.84 0 0 0 0-7.68m6.24-3.86a1.44 1.44 0 1 1 0 2.88 1.44 1.44 0 0 1 0-2.88"/></svg></a></li>
         </ul>
       </div>
+
       <nav class="foot-col" aria-label="Pages">
         <h4>Pages</h4>
-        <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="industries.html">Industries</a></li><li><a href="work.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
+
       <nav class="foot-col" aria-label="Services">
         <h4>Services</h4>
-        <ul><li><a href="services.html#housekeeping">Housekeeping</a></li><li><a href="services.html#security">Security</a></li><li><a href="services.html#technical">Technical</a></li><li><a href="services.html#electrical">Electrical</a></li><li><a href="services.html#hvac">HVAC</a></li><li><a href="services.html#landscaping">Landscaping</a></li></ul>
+        <ul>
+          <li><a href="services.html#service-housekeeping">Housekeeping</a></li>
+          <li><a href="services.html#service-security">Security</a></li>
+          <li><a href="services.html#service-technical">Technical maintenance</a></li>
+          <li><a href="services.html#service-landscaping">Landscaping</a></li>
+          <li><a href="services.html#service-pest">Pest management</a></li>
+          <li><a href="services.html#service-manpower">Manpower &amp; support</a></li>
+        </ul>
       </nav>
+
       <div class="foot-col foot-contact">
         <h4>Contact</h4>
         <ul>
           <li data-cfg-address>Bengaluru, Karnataka</li>
           <li><a data-cfg-tel>+91 00000 00000</a></li>
           <li><a data-cfg-mail>hello@example.com</a></li>
+          <li class="foot-gst">GST <span data-cfg-gst>29EUTPR9062Q1Z1</span></li>
         </ul>
-        <p style="margin-top:20px"><a href="contact.html" class="btn btn-solid" style="padding:12px 20px">Get in touch</a></p>
+        <p style="margin-top:20px"><a href="contact.html" class="btn btn-solid">Get in touch</a></p>
       </div>
     </div>
+
     <div class="foot-bottom">
       <p>&copy; <span data-year>2026</span> Apex Integrated Facility Management. All rights reserved.</p>
       <p class="demo-only">Demonstration website &mdash; imagery, sample projects and contact details are placeholders pending client content.</p>
@@ -184,9 +258,6 @@
 <!-- WhatsApp — number comes from js/config.js -->
 <a class="wa-float" data-cfg-wa target="_blank" rel="noopener" aria-label="Message Apex on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97s-.47-.15-.67.15-.77.96-.94 1.16-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3 0-.46.13-.6s.3-.35.45-.53.2-.3.3-.5 0-.37-.03-.52-.67-1.62-.92-2.22-.49-.5-.67-.51h-.57a1.1 1.1 0 0 0-.79.37 3.32 3.32 0 0 0-1.04 2.47 5.77 5.77 0 0 0 1.21 3.06 13.2 13.2 0 0 0 5.05 4.46c.7.3 1.26.49 1.69.63a4.06 4.06 0 0 0 1.86.12 3.05 3.05 0 0 0 2-1.41 2.47 2.47 0 0 0 .17-1.41c-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2A9.94 9.94 0 0 0 3.6 17.2L2 22l4.94-1.55A9.94 9.94 0 1 0 12.04 2m0 1.8a8.14 8.14 0 1 1-4.24 15.1l-.3-.18-2.94.92.93-2.86-.2-.31a8.14 8.14 0 0 1 6.75-12.67" /></svg></a>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="js/config.js"></script>
 <script src="js/data.js" defer></script>
 <script src="js/render.js" defer></script>
@@ -194,3 +265,4 @@
 <script src="js/animations.js" defer></script>
 </body>
 </html>
+

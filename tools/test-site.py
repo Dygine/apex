@@ -55,6 +55,11 @@ def run():
             elif h1 != 1:
                 fails.append(f'{page_name}: {h1} h1 elements')
 
+            cdn = pg.evaluate("""() => [...document.scripts]
+                .map(s => s.src).filter(s => s && !s.startsWith(location.origin))""")
+            if cdn:
+                fails.append(f'{page_name}: third-party script -> {cdn[:2]}')
+
             title = pg.title()
             desc = pg.evaluate("() => (document.querySelector('meta[name=description]')||{}).content || ''")
             if not title or not desc:
@@ -72,7 +77,7 @@ def run():
 
             # rendered content from JSON
             counts = pg.evaluate("""() => ({
-                svc:  document.querySelectorAll('[data-svc-panel]').length,
+                svc:  document.querySelectorAll('.svc-card').length,
                 sdet: document.querySelectorAll('.sdet').length,
                 inds: document.querySelectorAll('.inds-row').length,
                 indc: document.querySelectorAll('.indc').length,
@@ -122,13 +127,14 @@ def run():
         if not act:
             fails.append('Uniform: hotspot click did not change the readout')
 
-        # service sequence swaps the pinned image
+        # service cards render from JSON and reveal on scroll
         pg.evaluate("() => document.querySelector('#services').scrollIntoView()")
-        pg.wait_for_timeout(500)
-        pg.mouse.wheel(0, 2400)
-        pg.wait_for_timeout(800)
-        c = pg.evaluate("() => (document.querySelector('[data-svc-count]')||{}).textContent")
-        notes.append(f'Service sequence: counter reads {c}')
+        pg.wait_for_timeout(900)
+        n = pg.evaluate("() => document.querySelectorAll('.svc-card').length")
+        shown = pg.evaluate("() => document.querySelectorAll('.svc-card.is-revealed').length")
+        notes.append(f'Service cards: {n} rendered, {shown} revealed on scroll')
+        if n and not shown:
+            fails.append('Service cards rendered but never revealed')
 
         # mobile menu
         pg.set_viewport_size({'width': 390, 'height': 844})
@@ -179,13 +185,17 @@ def run():
         flagged = pg.evaluate("() => document.querySelectorAll('.f.bad, .f.err, .f.invalid').length")
         notes.append(f'Contact: empty submit flagged {flagged} fields')
 
-        # process page scroll story
+        # process page sequence — five stages, all readable without a pin
         pg.goto(BASE + 'process.html', wait_until='networkidle')
         pg.wait_for_timeout(600)
         pg.mouse.wheel(0, 2600)
-        pg.wait_for_timeout(700)
-        step = pg.evaluate("() => (document.querySelector('.sstory-step.is-active')||{}).dataset?.step")
-        notes.append(f'Process story: advanced to step {step}')
+        pg.wait_for_timeout(800)
+        steps = pg.evaluate("() => document.querySelectorAll('.sstory-step').length")
+        vis = pg.evaluate("""() => [...document.querySelectorAll('.sstory-step')]
+            .filter(s => getComputedStyle(s).opacity !== '0').length""")
+        notes.append(f'Process sequence: {steps} stages, {vis} visible')
+        if steps != 5:
+            fails.append(f'Process sequence: expected 5 stages, found {steps}')
 
         # reduced motion — nothing may stay invisible
         ctx2 = b.new_context(viewport={'width': 1440, 'height': 900}, reduced_motion='reduce')

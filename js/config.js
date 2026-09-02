@@ -15,13 +15,16 @@ window.APEX_CONFIG = {
   /* ── Identity ───────────────────────────────────────────────────────── */
   companyName:  'Apex Integrated Facility Management',
   companyShort: 'Apex',
-  tagline:      'Your facility. Our responsibility.',
+  tagline:      'Your Facilities, Our Responsibility',
 
-  /* Logo files. Replace the SVGs, not these paths. */
-  logo:      'assets/brand/apex-logo.svg',
-  logoMark:  'assets/brand/apex-mark.svg',
-  logoMono:  'assets/brand/apex-mark-mono.svg',
-  favicon:   'assets/icons/favicon.svg',
+  /* Logo files. These are the real Apex artwork, lifted off the signage
+     render and cut out to transparent PNG. The white version is for dark
+     backgrounds (footer, overlays). */
+  logo:      'assets/brand/apex-logo.png',
+  logoWhite: 'assets/brand/apex-logo-white.png',
+  logoMark:  'assets/brand/apex-mark.png',
+  logoMono:  'assets/brand/apex-mark-white.png',
+  favicon:   'assets/icons/favicon.png',
 
   /* ── Contact ────────────────────────────────────────────────────────── */
   /* Set `confirmed: false` on anything the client has not supplied. Those
@@ -29,14 +32,23 @@ window.APEX_CONFIG = {
      appearing as though they are real. */
   phone:     { value: '+91 00000 00000',            confirmed: false },
   email:     { value: 'hello@example.com',          confirmed: false },
+  /* ►► THE ONE THING STILL MISSING ►►
+     Put the real WhatsApp number here in full international form, no plus,
+     no spaces — e.g. '919876543210'. The floating WhatsApp button reads it
+     from here. While it is all zeros the button still shows, but it opens
+     the contact page instead of a dead wa.me link. */
   whatsapp:  { value: '910000000000',               confirmed: false },
+
+  /* From the company signage. */
   address:   {
-    line1: 'Office address to be confirmed',
-    city:  'Bengaluru',
+    line1: '#52, 2nd Main, RMS Colony, near Ganesh Temple',
+    line2: 'Bhattarahalli, KR Puram',
+    city:  'Bangalore',
     state: 'Karnataka',
-    pin:   '',
-    confirmed: false
+    pin:   '560049',
+    confirmed: true
   },
+  gst:       { value: '29EUTPR9062Q1Z1',            confirmed: true },
   hours:     { value: 'Operations desk — 24 x 7',   confirmed: true },
   mapEmbed:  '',   /* paste a Google Maps embed URL to replace the placeholder */
 

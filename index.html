@@ -6,23 +6,24 @@
 <title>Apex Integrated Facility Management | Bangalore</title>
 <meta name="description" content="Apex Integrated Facility Management delivers housekeeping, security, technical maintenance, HVAC, landscaping, pest control, waste and fire safety services for corporate, healthcare, industrial and residential facilities in Bangalore.">
 <link rel="canonical" href="https://example.com/">
-<meta name="theme-color" content="#0C0D0F">
+<meta name="theme-color" content="#0B2A5F">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Apex Integrated Facility Management | Bangalore">
 <meta property="og:description" content="We manage every detail. Integrated facility management that keeps people, places and operations performing at their best.">
-<meta property="og:image" content="assets/images/hero-towers.jpg">
+<meta property="og:image" content="assets/images/staff/staff-supervisor.jpg">
 <meta property="og:url" content="https://example.com/">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-<link rel="apple-touch-icon" href="assets/icons/favicon.svg">
+<link rel="icon" type="image/png" href="assets/icons/favicon.png">
+<link rel="apple-touch-icon" href="assets/icons/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/home.css">
 <!-- Structured data. Add telephone, email and streetAddress here once
      confirmed — do not publish values that are not real. -->
 <script type="application/ld+json">
@@ -32,17 +33,17 @@
   "name": "Apex Integrated Facility Management",
   "description": "Integrated facility management in Bengaluru: housekeeping, security, technical maintenance, landscaping, pest management and support manpower under one contract.",
   "url": "https://example.com/",
-  "logo": "https://example.com/assets/brand/apex-logo.svg",
-  "areaServed": {
-    "@type": "City",
-    "name": "Bengaluru"
-  },
+  "logo": "https://example.com/assets/brand/apex-logo.png",
+  "areaServed": { "@type": "City", "name": "Bengaluru" },
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Bengaluru",
+    "streetAddress": "#52, 2nd Main, RMS Colony, near Ganesh Temple, Bhattarahalli, KR Puram",
+    "addressLocality": "Bangalore",
     "addressRegion": "Karnataka",
+    "postalCode": "560049",
     "addressCountry": "IN"
   },
+  "taxID": "29EUTPR9062Q1Z1",
   "knowsAbout": [
     "Integrated facility management",
     "Housekeeping services",
@@ -58,24 +59,46 @@
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
-<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
 
 <!-- ══ NAVIGATION ══════════════════════════════════════════════════════ -->
 <header class="nav" id="nav">
   <div class="wrap-wide nav-in">
     <a href="index.html" class="nav-logo" aria-label="Apex Integrated Facility Management, home">
-      <svg class="brand-mark" viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="20" fill="#16233D"/><path d="M54 20 L88 78 H72 L54 47 L36 78 H20 Z" fill="#FBFAF7"/><rect x="36" y="82" width="36" height="7" rx="3.5" fill="#0FA47F"/><rect x="45" y="64" width="18" height="6" rx="3" fill="#FBFAF7" opacity=".55"/></svg><span class="nav-word"><b>Apex</b><span>Integrated Facility Management</span></span>
+      <img src="assets/brand/apex-wordmark.png" alt="Apex" width="330" height="140">
+      <span class="nav-word">Integrated Facility Management</span>
     </a>
     <nav class="nav-menu" aria-label="Primary">
       <a class="nav-a current" href="index.html">Home</a>
       <a class="nav-a" href="about.html">About</a>
-      <a class="nav-a" href="services.html">Services</a>
+
+      <div class="nav-drop" data-drop>
+        <a class="nav-a nav-drop-btn" href="services.html" aria-expanded="false" aria-haspopup="true">Services
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav-drop-panel" role="menu">
+          <div class="nav-drop-head">
+            <p>What we manage</p>
+            <a href="services.html">All services
+              <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <ul class="nav-drop-list">
+          <li><a href="services.html#service-housekeeping"><b>Housekeeping</b><span>Daily cleaning, restrooms, waste, facade</span></a></li>
+          <li><a href="services.html#service-security"><b>Security</b><span>Manned guarding, access, patrols</span></a></li>
+          <li><a href="services.html#service-technical"><b>Technical maintenance</b><span>Electrical, plumbing, HVAC, DG</span></a></li>
+          <li><a href="services.html#service-landscaping"><b>Landscaping</b><span>Grounds, planting, irrigation</span></a></li>
+          <li><a href="services.html#service-pest"><b>Pest management</b><span>Scheduled treatment and monitoring</span></a></li>
+          <li><a href="services.html#service-manpower"><b>Manpower &amp; support</b><span>Pantry, front desk, helpdesk</span></a></li>
+          </ul>
+        </div>
+      </div>
+
       <a class="nav-a" href="industries.html">Industries</a>
       <a class="nav-a" href="process.html">Process</a>
       <a class="nav-a" href="work.html">Work</a>
       <a class="nav-a" href="contact.html">Contact</a>
     </nav>
-    <a href="contact.html" class="btn btn-solid nav-cta" data-magnetic>Request a consultation</a>
+    <a href="contact.html" class="btn btn-solid nav-cta">Request a consultation</a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="panel"><span></span></button>
   </div>
   <div class="progress" id="progress"></div>
@@ -83,178 +106,193 @@
 
 <div class="panel" id="panel">
   <ul class="panel-list">
-    <li><a href="index.html"><span class="idx">01</span>Home</a></li>
-    <li><a href="about.html"><span class="idx">02</span>About</a></li>
-    <li><a href="services.html"><span class="idx">03</span>Services</a></li>
-    <li><a href="industries.html"><span class="idx">04</span>Industries</a></li>
-    <li><a href="process.html"><span class="idx">05</span>Process</a></li>
-    <li><a href="work.html"><span class="idx">06</span>Work</a></li>
-    <li><a href="contact.html"><span class="idx">07</span>Contact</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="panel-has-sub">
+      <div class="panel-row">
+        <a href="services.html">Services</a>
+        <button class="panel-toggle" id="panelSvcToggle" aria-expanded="false" aria-controls="panelSvcSub" aria-label="Show all services">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+      <ul class="panel-sub" id="panelSvcSub">
+        <li><a href="services.html#service-housekeeping">Housekeeping</a></li>
+        <li><a href="services.html#service-security">Security</a></li>
+        <li><a href="services.html#service-technical">Technical maintenance</a></li>
+        <li><a href="services.html#service-landscaping">Landscaping</a></li>
+        <li><a href="services.html#service-pest">Pest management</a></li>
+        <li><a href="services.html#service-manpower">Manpower &amp; support</a></li>
+        <li><a href="services.html" class="panel-sub-all">All services</a></li>
+      </ul>
+    </li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="panel-foot">
     <a data-cfg-tel>+91 00000 00000</a>
     <a data-cfg-mail>hello@example.com</a>
-    <a href="https://wa.me/910000000000" target="_blank" rel="noopener" data-placeholder>WhatsApp</a>
+    <a data-cfg-wa target="_blank" rel="noopener">WhatsApp</a>
   </div>
 </div>
 
 <main id="main">
 
-<!-- ══ 01 HERO ════════════════════════════════════════════════════════ -->
-<section class="hero" id="top">
-  <div class="hero-bg"><img src="assets/images/hero-towers.jpg" alt="Commercial towers at dusk, managed under an integrated facility management contract" width="2000" height="1333" fetchpriority="high"></div>
-  <div class="hero-mask"></div>
-  <div class="hero-light"></div>
-  <div class="noise"></div>
+<!-- ══ 01 HERO ════════════════════════════════════════════════════════
+     Full-bleed, and now rotating. Five photographs cross-fade every 6s while
+     the one on screen pushes in slowly. Cross-fade rather than slide: sliding
+     puts a hard vertical seam down the middle of the screen with two
+     different photographs either side of it, which reads as a glitch.
 
-  <!-- Layered foreground cards; each parallaxes at its own rate -->
-  <div class="hero-cards" aria-hidden="true">
-    <figure class="hero-card c1"><img src="assets/images/portrait-tech.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <figure class="hero-card c2"><img src="assets/images/ops-control.jpg" alt="" loading="lazy" decoding="async"></figure>
+     The first slide is written into the HTML so the browser can start
+     fetching it before any script runs — it is the largest thing on the page.
+     The rest are added by js/hero.js once this one has landed. -->
+<section class="hero hero--full hero--light" id="top">
+
+  <div class="hero-media" data-hero-slides aria-hidden="true">
+    <div class="hslide is-active">
+      <img src="assets/images/staff/staff-supervisor.jpg" alt="" width="1200" height="896" fetchpriority="high" decoding="async" style="object-position:center 40%">
+    </div>
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+
+  <p class="hero-mark" aria-hidden="true">Your Facilities, Our Responsibility</p>
+
+  <div class="hero-skyline" aria-hidden="true">
+    <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
+      <path class="sk1" d="M0 220V112h64v-30h44v30h58V70h50v42h62V52h74v60h48V88h58v24h66V60h52v52h70V96h56v16h74V74h50v38h60V98h58v14h72V66h54v46h70v-24h56v24h44v108Z"/>
+      <path class="sk2" d="M0 220V150h78v-26h52v26h66v-38h58v38h70v-20h48v20h74v-46h56v46h64v-28h60v28h72v-34h54v34h66v-18h56v18h70v-40h50v40h96v70Z"/>
+      <path class="sk3" d="M0 220V184h96v-18h70v18h84v-26h64v26h88v-14h72v14h86v-22h68v22h90v-16h74v16h88v-20h66v20h94v36Z"/>
+    </svg>
   </div>
 
   <div class="wrap hero-in">
-    <p class="hero-tag"><i></i> Apex <em>/</em> Integrated Facility Management <em>/</em> Bangalore</p>
+    <div class="hero-copy">
+      <p class="hero-tag" data-anim="fade"><i></i> Bangalore <em>&middot;</em> Six service lines <em>&middot;</em> One contract</p>
 
-    <h1 class="d1 hero-title lines">
-      <span class="line"><span>We manage</span></span>
-      <span class="line"><span>every detail.</span></span>
-    </h1>
+      <!-- data-letters: js/hero.js splits this into one span per character and
+           brings them in one at a time. The text stays in the HTML so it is
+           readable without JavaScript and by search engines; the split spans
+           are marked aria-hidden and the original string is restored to the
+           element's aria-label, so a screen reader hears a sentence rather
+           than twenty-three separate letters. -->
+      <h1 class="d1 hero-title" data-letters data-letter-step="46">We manage <b>every detail.</b></h1>
 
-    <div class="hero-grid">
-      <p class="lede hero-sub">Integrated facility management solutions that keep people, places and operations performing at their best.</p>
-      <div class="hero-actions">
-        <a href="services.html" class="btn btn-solid" data-magnetic>
+      <p class="lede hero-sub" data-letters data-letter-step="11" data-letter-after="0.9">Housekeeping, security, technical, landscaping, pest and support staff &mdash; run by one team, under one supervision structure, reported on one sheet.</p>
+
+      <div class="hero-actions" data-anim="up" data-delay="0.1">
+        <a href="services.html" class="btn btn-solid">
           Explore services
           <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="contact.html" class="btn btn-line" data-magnetic>Talk to our team</a>
+        <a href="contact.html" class="btn btn-glass">Talk to our team</a>
       </div>
     </div>
 
-    <div class="hero-foot">
-      <div class="hero-stats">
-        <div><b>09</b><span>Service lines</span></div>
-        <div><b>24/7</b><span>Response desk</span></div>
-        <div><b>360&deg;</b><span>Facility coverage</span></div>
+    <div class="hero-thumbs" data-anim="up" data-delay="0.18">
+      <a href="services.html#service-housekeeping" class="hthumb" data-label="Housekeeping"><img src="assets/images/staff/staff-housekeeping.jpg" alt="Housekeeping" loading="lazy" decoding="async"></a>
+      <a href="services.html#service-security" class="hthumb" data-label="Security"><img src="assets/images/staff/staff-security-team.jpg" alt="Security" loading="lazy" decoding="async"></a>
+      <a href="services.html#service-technical" class="hthumb" data-label="Technical"><img src="assets/images/staff/staff-technical-team.jpg" alt="Technical maintenance" loading="lazy" decoding="async"></a>
+      <a href="services.html#service-landscaping" class="hthumb" data-label="Landscaping"><img src="assets/images/staff/staff-landscape-team.jpg" alt="Landscaping" loading="lazy" decoding="async"></a>
+      <a href="services.html#service-pest" class="hthumb" data-label="Pest control"><img src="assets/images/staff/staff-pest.jpg" alt="Pest management" loading="lazy" decoding="async"></a>
+      <a href="services.html#service-manpower" class="hthumb" data-label="Support staff"><img src="assets/images/staff/staff-pantry-team.jpg" alt="Manpower and support" loading="lazy" decoding="async"></a>
+    </div>
+
+    <div class="hero-dots" data-hero-dots role="tablist" aria-label="Choose hero image"></div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true"><span class="track"></span>Scroll</div>
+</section>
+
+<!-- ══ 01b STAT BAND ══════════════════════════════════════════════════ -->
+<section class="statband" aria-label="Apex at a glance">
+  <div class="wrap statband-in">
+    <div class="stat"><b>06<i>+</i></b><span>Service lines under one contract</span></div>
+    <div class="stat"><b>24<i>/7</i></b><span>Response desk, every day</span></div>
+    <div class="stat"><b>08<i>+</i></b><span>Facility types we run</span></div>
+    <div class="stat"><b>100<i>%</i></b><span>Statutory records maintained</span></div>
+  </div>
+</section>
+
+
+
+<!-- ══ 01c TRUSTED BY ═════════════════════════════════════════════════
+     Content comes from data/clients.json. Every entry there is currently
+     confirmed:false, so the strip renders the facility type rather than a
+     company name and carries a visible note saying the list is illustrative.
+     Set confirmed:true on an entry and the note disappears once they all are.
+     Nothing here claims a client Apex has not named. -->
+<section class="clients" aria-label="Facilities we are built for">
+  <div class="wrap">
+    <p class="clients-lead"><span>Built for</span></p>
+    <div class="clients-rail" data-render="clients">
+      <noscript><p class="lede">Corporate, healthcare, industrial, residential, logistics, retail, education and hospitality facilities.</p></noscript>
+    </div>
+    <p class="clients-note demo-only" data-clients-note hidden>Facility types, not client names &mdash; a named client list will replace this once Apex supplies one with written permission.</p>
+  </div>
+</section>
+
+<!-- ══ 02 A DAY ON SITE ═══════════════════════════════════════════════
+     Was a pinned five-image sequence that took five screens of scrolling.
+     Same five moments, same captions, one screen. -->
+<section class="section day band-white" aria-label="A day on site">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">The facility never stops</p>
+        <h2 class="d2 lines"><span class="line"><span>Every hour, somewhere on site,</span></span><span class="line"><span>something needs attention.</span></span></h2>
       </div>
-      <p class="hero-scroll"><i></i> Scroll to begin</p>
+      <p class="lede">One roster covers the whole day, from the first floor clean before anyone arrives to the handover after the building empties.</p>
+    </div>
+
+    <div class="day-grid">
+      <figure class="day-item"><img src="assets/images/staff/staff-housekeeping.jpg" alt="Apex housekeeping operative cleaning a building atrium in the morning" loading="lazy" decoding="async"><figcaption class="day-cap"><span>06:00</span><b>Housekeeping</b></figcaption></figure>
+      <figure class="day-item"><img src="assets/images/staff/staff-security-team.jpg" alt="Apex security team managing the main entrance and access control" loading="lazy" decoding="async"><figcaption class="day-cap"><span>09:30</span><b>Security &amp; monitoring</b></figcaption></figure>
+      <figure class="day-item"><img src="assets/images/staff/staff-technical-team.jpg" alt="Apex technicians working in a building plant room" loading="lazy" decoding="async"><figcaption class="day-cap"><span>13:15</span><b>HVAC &amp; plant</b></figcaption></figure>
+      <figure class="day-item"><img src="assets/images/staff/staff-technician.jpg" alt="Apex technician testing an HVAC distribution panel under permit" loading="lazy" decoding="async"><figcaption class="day-cap"><span>17:40</span><b>Technical maintenance</b></figcaption></figure>
+      <figure class="day-item"><img src="assets/images/staff/staff-review.jpg" alt="Apex supervisor briefing staff at the evening shift handover" loading="lazy" decoding="async"><figcaption class="day-cap"><span>22:00</span><b>Shift handover</b></figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- ══ 02 PINNED IMAGE STACK ══════════════════════════════════════════ -->
-<section class="stack" aria-label="The work we do">
-  <div class="stack-head">
-    <span class="mono">The facility never stops</span>
-    <h2 class="d3">Every hour, somewhere on site,<br>something needs attention.</h2>
-  </div>
-
-  <div class="stack-stage" aria-hidden="true">
-    <figure class="stack-item s1">
-      <img src="assets/images/about-housekeeping.jpg" alt="" loading="lazy" decoding="async">
-      <figcaption class="stack-cap"><b>Housekeeping</b><span>06:00</span></figcaption>
-    </figure>
-    <figure class="stack-item s2">
-      <img src="assets/images/ops-control.jpg" alt="" loading="lazy" decoding="async">
-      <figcaption class="stack-cap"><b>Security &amp; monitoring</b><span>09:30</span></figcaption>
-    </figure>
-    <figure class="stack-item s3">
-      <img src="assets/images/quality-plantroom.jpg" alt="" loading="lazy" decoding="async">
-      <figcaption class="stack-cap"><b>HVAC &amp; plant</b><span>13:15</span></figcaption>
-    </figure>
-    <figure class="stack-item s4">
-      <img src="assets/images/safety-engineer.jpg" alt="" loading="lazy" decoding="async">
-      <figcaption class="stack-cap"><b>Technical maintenance</b><span>17:40</span></figcaption>
-    </figure>
-    <figure class="stack-item s5">
-      <img src="assets/images/staff/staff-team.jpg" alt="Apex facility team in uniform at a client site" loading="lazy" decoding="async">
-      <figcaption class="stack-cap"><b>Shift handover</b><span>22:00</span></figcaption>
-    </figure>
-  </div>
-
-  <p class="stack-count"><b id="stackNum">01</b> &mdash; 05</p>
-
-  <!-- Vertical sequence shown instead of the pin on touch devices -->
-  <div class="wrap stack-fallback">
-    <span class="mono" style="color:var(--brass);display:block;margin-bottom:14px">The facility never stops</span>
-    <h2 class="d3" style="margin-bottom:34px">Every hour, somewhere on site, something needs attention.</h2>
-    <figure class="sf-item"><img src="assets/images/about-housekeeping.jpg" alt="Housekeeping team cleaning interior glass" loading="lazy" decoding="async"><figcaption class="sf-cap"><span>06:00</span><b>Housekeeping</b></figcaption></figure>
-    <figure class="sf-item"><img src="assets/images/ops-control.jpg" alt="Security and monitoring desk" loading="lazy" decoding="async"><figcaption class="sf-cap"><span>09:30</span><b>Security &amp; monitoring</b></figcaption></figure>
-    <figure class="sf-item"><img src="assets/images/quality-plantroom.jpg" alt="Plant room pipework under maintenance" loading="lazy" decoding="async"><figcaption class="sf-cap"><span>13:15</span><b>HVAC &amp; plant</b></figcaption></figure>
-    <figure class="sf-item"><img src="assets/images/safety-engineer.jpg" alt="Technician working on an electrical panel" loading="lazy" decoding="async"><figcaption class="sf-cap"><span>17:40</span><b>Technical maintenance</b></figcaption></figure>
-    <figure class="sf-item"><img src="assets/images/staff/staff-team.jpg" alt="Apex facility team in uniform at a client site" loading="lazy" decoding="async"><figcaption class="sf-cap"><span>22:00</span><b>Shift handover</b></figcaption></figure>
-  </div>
-</section>
-
-<!-- ══ 03 STICKY SCROLL STORY ═════════════════════════════════════════ -->
-<section class="story" aria-label="Every space has a system">
-  <div class="wrap story-grid">
-
-    <div class="story-visual">
-      <div class="story-frame">
-        <img src="assets/images/staff/staff-team.jpg" alt="Apex facility team in uniform at a client site" loading="lazy" decoding="async">
-        <img src="assets/images/ops-control.jpg" alt="Operations desk monitoring building systems" loading="lazy" decoding="async">
-        <img src="assets/images/safety-engineer.jpg" alt="Engineer working safely on an electrical panel" loading="lazy" decoding="async">
-        <img src="assets/images/staff/staff-briefing.jpg" alt="Apex team at a shift briefing before deployment" loading="lazy" decoding="async">
-        <p class="story-badge"><i></i><span id="storyLabel">People</span></p>
+<!-- ══ 03 SERVICE LINES ═══════════════════════════════════════════════
+     Content comes from data/services.json — add, reorder or delete a service
+     there and this section and services.html both follow. -->
+<section class="section svcs on-mist" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">What we manage</p>
+        <h2 class="d2 lines"><span class="line"><span>Six service lines.</span></span><span class="line"><span>One contract.</span></span></h2>
       </div>
+      <p class="lede">Take the whole scope or a single line. Either way the supervision structure, the checklists and the person you call when something goes wrong stay the same.</p>
     </div>
 
-    <div class="story-steps">
-      <p class="eyebrow" data-anim="up">Every space has a system</p>
-
-      <article class="story-step" data-label="People">
-        <span class="idx">Step 01</span>
-        <h3 class="d3">People</h3>
-        <p>Trained professionals delivering consistent service. We recruit locally, verify every hire, and put a named supervisor on site so accountability has a face rather than a helpdesk number.</p>
-        <ul><li>Background verification</li><li>Role-specific induction</li><li>On-site supervision</li></ul>
-      </article>
-
-      <article class="story-step" data-label="Systems">
-        <span class="idx">Step 02</span>
-        <h3 class="d3">Systems</h3>
-        <p>Structured processes that keep operations predictable. Daily schedules, checklists and escalation paths are written for your building before anyone starts work, then reviewed as the site settles.</p>
-        <ul><li>Written scope of work</li><li>Shift rosters</li><li>Single escalation path</li></ul>
-      </article>
-
-      <article class="story-step" data-label="Safety">
-        <span class="idx">Step 03</span>
-        <h3 class="d3">Safety</h3>
-        <p>Safety-first operations across every facility. Risk assessment happens before the job, not after the incident &mdash; permits for hazardous work, protective equipment as standard, and records that stay current.</p>
-        <ul><li>Pre-task risk assessment</li><li>Permit-controlled work</li><li>PPE discipline</li></ul>
-      </article>
-
-      <article class="story-step" data-label="Performance">
-        <span class="idx">Step 04</span>
-        <h3 class="d3">Performance</h3>
-        <p>Continuous monitoring and improvement. Spot audits, consumable tracking and a monthly review that shows what was completed, what slipped and what changes next month.</p>
-        <ul><li>Scheduled audits</li><li>Monthly reporting</li><li>Corrective actions</li></ul>
-      </article>
+    <div class="svc-wrap" data-render="service-scroll">
+      <noscript><p class="lede">Service details are listed on the <a href="services.html">services page</a>.</p></noscript>
     </div>
-
   </div>
 </section>
 
 <!-- ══ 04 FACILITY MAP — signature interactive section ════════════════ -->
-<section class="section fmap on-dark" id="integrated">
+<section class="section fmap on-mist" id="integrated">
   <div class="grid-overlay"></div>
   <div class="wrap fmap-grid" style="position:relative;z-index:2">
 
     <div class="fmap-copy">
-      <p class="eyebrow" data-anim="up">Integrated facility management</p>
+      <p class="eyebrow">Integrated facility management</p>
       <h2 class="d2 lines">
         <span class="line"><span>One facility.</span></span>
-        <span class="line"><span class="hollow">Countless</span></span>
-        <span class="line"><span>moving parts.</span></span>
+        <span class="line"><span>Countless moving parts.</span></span>
       </h2>
-      <p class="lede" style="margin-top:26px" data-anim="up" data-delay="0.1">
+      <p class="lede" style="margin-top:22px">
         Hover any service to see how it connects. In an integrated contract these are not eight
         separate vendors &mdash; they share a roster, a supervisor structure and one report.
       </p>
 
       <!-- Panel updated by main.js as nodes are hovered or focused -->
-      <div class="fmap-info" data-anim="up" data-delay="0.15">
+      <div class="fmap-info">
         <span class="mono" id="fmIdx">Node 01</span>
         <h4 id="fmName">Housekeeping</h4>
         <p id="fmText">Daily cleaning, washroom hygiene, facade and glass, waste segregation at source.</p>
@@ -262,7 +300,7 @@
       </div>
     </div>
 
-    <div class="fmap-stage" data-anim="scale">
+    <div class="fmap-stage">
       <!-- Stylised facility schematic. Nodes are HTML for accessibility. -->
       <svg class="fmap-svg" viewBox="0 0 900 660" role="img" aria-label="Diagram of eight facility services connected to a central building">
         <circle class="halo" cx="450" cy="330" r="248"/>
@@ -344,104 +382,11 @@
   </div>
 </section>
 
-
-<!-- ══ 05 PEOPLE ══════════════════════════════════════════════════════ -->
-<section class="section ppl" id="people">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow" data-anim="up">People</p>
-        <h2 class="d2 lines"><span class="line"><span>People keep</span></span><span class="line"><span class="hollow">facilities moving.</span></span></h2>
-      </div>
-      <p class="lede" data-anim="up" data-delay="0.1">Equipment and schedules matter, but a building is kept working by the people walking it every day. These are the roles that make up an Apex team on site.</p>
-    </div>
-
-    <div class="ppl-grid" data-render="people"></div>
-
-    <p class="demo-note demo-only">Roles, not individuals. No person on this site is invented &mdash; real names and photographs go in only with their consent.</p>
-  </div>
-</section>
-
-<!-- ══ 06 UNIFORM SHOWCASE ════════════════════════════════════════════ -->
-<!-- The client asked specifically for the uniform to be shown with Apex
-     branding. Hotspot content lives in data/uniform.json; the vendor-ready
-     drawing is assets/brand/apex-uniform-spec.svg. -->
-<section class="section uni" id="uniform">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow" data-anim="up">The Apex standard</p>
-        <h2 class="d2 lines"><span class="line"><span>Every detail</span></span><span class="line"><span>represents</span></span><span class="line"><span class="hollow">a standard.</span></span></h2>
-      </div>
-      <p class="lede" data-anim="up" data-delay="0.1">A uniform is the first thing anyone in your building reads about the people working in it. Navy shirt, chest logo, name badge, photo ID &mdash; so nobody ever has to wonder who is on their floor or why.</p>
-    </div>
-
-    <div class="uni-wrap" data-render="uniform"></div>
-  </div>
-</section>
-
-<!-- ══ 07 SERVICE SEQUENCE ════════════════════════════════════════════ -->
-<!-- Scroll-driven. Content comes from data/services.json — add, reorder or
-     delete a service there and this section and services.html both follow. -->
-<section class="section svcs" id="services">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow" data-anim="up">What we manage</p>
-        <h2 class="d2 lines"><span class="line"><span>Six service lines.</span></span><span class="line"><span class="hollow">One contract.</span></span></h2>
-      </div>
-      <p class="lede" data-anim="up" data-delay="0.1">Take the whole scope or a single line. Either way the supervision structure, the checklists and the person you call when something goes wrong stay the same.</p>
-    </div>
-
-    <div class="svc-wrap" data-render="service-scroll">
-      <noscript><p class="lede">Service details are listed on the <a href="services.html">services page</a>.</p></noscript>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 08 MARQUEE ═════════════════════════════════════════════════════ -->
-<section class="marq" aria-hidden="true">
-  <!-- Each row's content is duplicated so the -50% loop is seamless -->
-  <div class="marq-row" data-dir="left">
-    <figure class="marq-item m-lg"><img src="assets/images/ind-corporate.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <span class="marq-word">People</span>
-    <figure class="marq-item m-md"><img src="assets/images/staff/staff-team.jpg" alt="Apex facility team in uniform at a client site" loading="lazy" decoding="async"></figure>
-    <figure class="marq-item m-sm"><img src="assets/images/about-housekeeping.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <span class="marq-word fill">Places</span>
-    <figure class="marq-item m-lg"><img src="assets/images/ind-hospital.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <figure class="marq-item m-md"><img src="assets/images/corridor.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <figure class="marq-item m-lg"><img src="assets/images/ind-corporate.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <span class="marq-word">People</span>
-    <figure class="marq-item m-md"><img src="assets/images/staff/staff-team.jpg" alt="Apex facility team in uniform at a client site" loading="lazy" decoding="async"></figure>
-    <figure class="marq-item m-sm"><img src="assets/images/about-housekeeping.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <span class="marq-word fill">Places</span>
-    <figure class="marq-item m-lg"><img src="assets/images/ind-hospital.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <figure class="marq-item m-md"><img src="assets/images/corridor.jpg" alt="" loading="lazy" decoding="async"></figure>
-  </div>
-
-  <div class="marq-row" data-dir="right">
-    <figure class="marq-item m-md"><img src="assets/images/quality-plantroom.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <span class="marq-word fill">Performance</span>
-    <figure class="marq-item m-lg"><img src="assets/images/ind-industrial.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <figure class="marq-item m-sm"><img src="assets/images/staff/staff-technician.jpg" alt="Apex maintenance technician inspecting building plant" loading="lazy" decoding="async"></figure>
-    <span class="marq-word">Precision</span>
-    <figure class="marq-item m-md"><img src="assets/images/ind-warehouse.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <figure class="marq-item m-lg"><img src="assets/images/staff/staff-briefing.jpg" alt="Apex team at a shift briefing before deployment" loading="lazy" decoding="async"></figure>
-    <figure class="marq-item m-md"><img src="assets/images/quality-plantroom.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <span class="marq-word fill">Performance</span>
-    <figure class="marq-item m-lg"><img src="assets/images/ind-industrial.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <figure class="marq-item m-sm"><img src="assets/images/staff/staff-technician.jpg" alt="Apex maintenance technician inspecting building plant" loading="lazy" decoding="async"></figure>
-    <span class="marq-word">Precision</span>
-    <figure class="marq-item m-md"><img src="assets/images/ind-warehouse.jpg" alt="" loading="lazy" decoding="async"></figure>
-    <figure class="marq-item m-lg"><img src="assets/images/staff/staff-briefing.jpg" alt="Apex team at a shift briefing before deployment" loading="lazy" decoding="async"></figure>
-  </div>
-</section>
-
-<!-- ══ 09 EDITORIAL ABOUT ═════════════════════════════════════════════ -->
+<!-- ══ 05 EDITORIAL ABOUT ═════════════════════════════════════════════ -->
 <section class="section edit" id="about">
   <div class="wrap">
     <div class="edit-title">
-      <p class="eyebrow" data-anim="up">About Apex</p>
+      <p class="eyebrow">About Apex</p>
       <h2 class="d2 lines">
         <span class="line"><span>Behind every</span></span>
         <span class="line"><span>well-run facility.</span></span>
@@ -449,28 +394,28 @@
     </div>
 
     <div class="edit-grid">
-      <div class="edit-media" data-anim="fade">
-        <div class="edit-main img-reveal" data-cursor="Explore">
-          <img src="assets/images/staff/staff-team.jpg" alt="Apex facility team in uniform at a client site" loading="lazy" decoding="async">
+      <div class="edit-media">
+        <div class="edit-main img-reveal">
+          <img src="assets/images/staff/staff-management.jpg" alt="Apex facility managers planning a site deployment over building drawings" loading="lazy" decoding="async">
         </div>
-        <figure class="edit-float f1 img-reveal"><img src="assets/images/ops-control.jpg" alt="Operations desk tracking building systems" loading="lazy" decoding="async"></figure>
-        <figure class="edit-float f2 img-reveal"><img src="assets/images/portrait-tech.jpg" alt="Facility technician on site" loading="lazy" decoding="async"></figure>
+        <figure class="edit-float f1 img-reveal"><img src="assets/images/staff/staff-pantry.jpg" alt="Apex pantry attendant preparing service in a corporate kitchen" loading="lazy" decoding="async"></figure>
+        <figure class="edit-float f2 img-reveal"><img src="assets/images/staff/staff-housekeeping-lobby.jpg" alt="Apex housekeeping operative maintaining a building lobby" loading="lazy" decoding="async"></figure>
         <span class="edit-label l1">Bangalore &middot; Karnataka</span>
         <span class="edit-label l2">Single contract</span>
       </div>
 
       <div class="edit-copy">
-        <p data-anim="up">Apex Integrated Facility Management runs the day-to-day operation of commercial, healthcare, industrial, institutional and residential premises. We take on the people, the schedules, the checklists and the reporting, so the building works without your team having to chase it.</p>
-        <p data-anim="up" data-delay="0.05">Most facilities do not fail dramatically. They drift &mdash; a skipped inspection here, an unfilled log there, three vendors each assuming the fourth handled it. Integrated management exists to close those gaps, because when every service sits inside one operating plan there is nowhere for work to fall between contracts.</p>
+        <p>Apex Integrated Facility Management runs the day-to-day operation of commercial, healthcare, industrial, institutional and residential premises. We take on the people, the schedules, the checklists and the reporting, so the building works without your team having to chase it.</p>
+        <p>Most facilities do not fail dramatically. They drift &mdash; a skipped inspection here, an unfilled log there, three vendors each assuming the fourth handled it. Integrated management exists to close those gaps, because when every service sits inside one operating plan there is nowhere for work to fall between contracts.</p>
 
-        <ul class="edit-list" data-anim="up" data-delay="0.1">
+        <ul class="edit-list">
           <li><span class="idx">01</span><div><b>One accountable partner</b><span>A named account manager and an on-site supervisor, not a rotating helpdesk.</span></div></li>
           <li><span class="idx">02</span><div><b>Scope built for your building</b><span>Written after a site walk, not lifted from a template.</span></div></li>
           <li><span class="idx">03</span><div><b>Visible operations</b><span>Attendance, consumables, completed tasks and open issues, reported monthly.</span></div></li>
           <li><span class="idx">04</span><div><b>Compliance kept current</b><span>Statutory records maintained and available when an auditor asks.</span></div></li>
         </ul>
 
-        <p style="margin-top:32px" data-anim="up" data-delay="0.15">
+        <p style="margin-top:28px">
           <a href="about.html" class="tlink">Read our approach
             <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
@@ -480,15 +425,15 @@
   </div>
 </section>
 
-<!-- ══ 10 INDUSTRIES ══════════════════════════════════════════════════ -->
-<section class="section inds" id="industries">
+<!-- ══ 07 INDUSTRIES ══════════════════════════════════════════════════ -->
+<section class="section inds on-mist" id="industries">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <p class="eyebrow" data-anim="up">Industries</p>
+        <p class="eyebrow">Industries</p>
         <h2 class="d2 lines"><span class="line"><span>Built for every</span></span><span class="line"><span>type of facility.</span></span></h2>
       </div>
-      <p class="lede" data-anim="up" data-delay="0.1">A hospital corridor and a warehouse floor need very different routines. The scope is written around how your building is actually used.</p>
+      <p class="lede">A hospital corridor and a warehouse floor need very different routines. The scope is written around how your building is actually used.</p>
     </div>
 
     <div class="inds-grid">
@@ -498,234 +443,74 @@
   </div>
 </section>
 
-<!-- ══ 11 COMPLIANCE ══════════════════════════════════════════════════ -->
-<!-- Replaces the old operations board, which drew its bars from invented
-     values. Compliance is the thing Indian facility buyers actually ask
-     about first, and it can be described truthfully today. -->
-<section class="section cmp" id="compliance">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow" data-anim="up">Compliance</p>
-        <h2 class="d2 lines"><span class="line"><span>The paperwork</span></span><span class="line"><span class="hollow">is our problem.</span></span></h2>
-      </div>
-      <p class="lede" data-anim="up" data-delay="0.1">Staff deployed at your site are on Apex&rsquo;s rolls. The statutory obligations that come with them sit with us, and the records behind them can be produced when your auditor asks.</p>
-    </div>
-
-    <div class="cmp-grid">
-      <div class="cmp-cell" data-anim="up">
-        <span class="mono">01</span>
-        <h3>Employment sits with Apex</h3>
-        <p>Deployed staff are engaged, paid and managed by us. You hold one contract with one company, not an employment relationship with a floating workforce.</p>
-      </div>
-      <div class="cmp-cell" data-anim="up" data-delay="0.06">
-        <span class="mono">02</span>
-        <h3>Statutory contributions</h3>
-        <p>Wage, PF, ESI and welfare obligations for deployed staff are administered by Apex, with the supporting records kept against each site.</p>
-      </div>
-      <div class="cmp-cell" data-anim="up" data-delay="0.12">
-        <span class="mono">03</span>
-        <h3>Records you can produce</h3>
-        <p>Attendance, deployment and service records are maintained per site so a compliance question can be answered with a document rather than an assurance.</p>
-      </div>
-    </div>
-
-    <p class="demo-note demo-only">Registration numbers and certifications are deliberately not listed. Add them here once the client confirms which are in place &mdash; nothing on this site claims a credential Apex has not supplied.</p>
-  </div>
-</section>
-
-<!-- ══ 12 STATEMENTS ══════════════════════════════════════════════════ -->
-<section class="section stm">
-  <div class="wrap">
-    <p class="eyebrow" data-anim="up">Why Apex</p>
-    <div class="stm-list">
-      <div class="stm-item" data-anim="up"><span class="idx">01</span><h3 class="d3">Trained people.</h3><p>Verified, inducted and supervised on every site.</p></div>
-      <div class="stm-item" data-anim="up"><span class="idx">02</span><h3 class="d3">Smart systems.</h3><p>Rosters, checklists and escalation written before day one.</p></div>
-      <div class="stm-item" data-anim="up"><span class="idx">03</span><h3 class="d3">Safety first.</h3><p>Risk assessed before the task, not after the incident.</p></div>
-      <div class="stm-item" data-anim="up"><span class="idx">04</span><h3 class="d3">Consistent quality.</h3><p>Defined standards, spot audits and corrective actions.</p></div>
-      <div class="stm-item" data-anim="up"><span class="idx">05</span><h3 class="d3">Responsive support.</h3><p>A desk that answers outside office hours.</p></div>
-      <div class="stm-item" data-anim="up"><span class="idx">06</span><h3 class="d3">Customized solutions.</h3><p>Scope shaped by your building, not by a package.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 13 PROCESS ═════════════════════════════════════════════════════ -->
+<!-- ══ 10 PROCESS ═════════════════════════════════════════════════════ -->
 <section class="section proc" id="approach">
-  <div class="proc-bg" aria-hidden="true">
-    <img src="assets/images/corridor.jpg" alt="" loading="lazy" decoding="async">
-    <img src="assets/images/staff/staff-briefing.jpg" alt="Apex team at a shift briefing before deployment" loading="lazy" decoding="async">
-    <img src="assets/images/ops-control.jpg" alt="" loading="lazy" decoding="async">
-    <img src="assets/images/staff/staff-team.jpg" alt="Apex facility team in uniform at a client site" loading="lazy" decoding="async">
-    <img src="assets/images/quality-plantroom.jpg" alt="" loading="lazy" decoding="async">
-    <img src="assets/images/staff/staff-technician.jpg" alt="Apex maintenance technician inspecting building plant" loading="lazy" decoding="async">
-  </div>
-
-  <div class="wrap proc-in">
+  <div class="wrap">
     <div class="sec-head">
       <div>
-        <p class="eyebrow" data-anim="up">Our approach</p>
+        <p class="eyebrow">Our approach</p>
         <h2 class="d2 lines"><span class="line"><span>How we take</span></span><span class="line"><span>over a facility.</span></span></h2>
       </div>
-      <p class="lede" data-anim="up" data-delay="0.1">A six-stage mobilisation that runs from the first site walk to a reviewed, improving operation.</p>
+      <p class="lede">A six-stage mobilisation that runs from the first site walk to a reviewed, improving operation.</p>
     </div>
 
     <div class="proc-list">
-      <div class="proc-step" tabindex="0" role="button"><span class="idx">01</span><div><h3>Discover</h3><p>We walk the site, meet the people who use it, and understand what already works before proposing changes.</p></div></div>
-      <div class="proc-step" tabindex="0" role="button"><span class="idx">02</span><div><h3>Assess</h3><p>Asset condition, manpower requirement, risk exposure and statutory gaps are recorded against each area of the building.</p></div></div>
-      <div class="proc-step" tabindex="0" role="button"><span class="idx">03</span><div><h3>Plan</h3><p>A written scope, roster and maintenance calendar built for this facility, with costs and service levels agreed up front.</p></div></div>
-      <div class="proc-step" tabindex="0" role="button"><span class="idx">04</span><div><h3>Deploy</h3><p>Trained teams mobilise with equipment, consumables and a named supervisor. Handover runs in parallel so nothing stops.</p></div></div>
-      <div class="proc-step" tabindex="0" role="button"><span class="idx">05</span><div><h3>Monitor</h3><p>Checklists, spot audits and a response desk that logs every escalation with a closing time against it.</p></div></div>
-      <div class="proc-step" tabindex="0" role="button"><span class="idx">06</span><div><h3>Improve</h3><p>A monthly review of what was completed, what slipped and what changes next month, agreed with your team.</p></div></div>
+      <div class="proc-step" tabindex="0"><span class="idx">01</span><div><h3>Discover</h3><p>We walk the site, meet the people who use it, and understand what already works before proposing changes.</p></div></div>
+      <div class="proc-step" tabindex="0"><span class="idx">02</span><div><h3>Assess</h3><p>Asset condition, manpower requirement, risk exposure and statutory gaps are recorded against each area of the building.</p></div></div>
+      <div class="proc-step" tabindex="0"><span class="idx">03</span><div><h3>Plan</h3><p>A written scope, roster and maintenance calendar built for this facility, with costs and service levels agreed up front.</p></div></div>
+      <div class="proc-step" tabindex="0"><span class="idx">04</span><div><h3>Deploy</h3><p>Trained teams mobilise with equipment, consumables and a named supervisor. Handover runs in parallel so nothing stops.</p></div></div>
+      <div class="proc-step" tabindex="0"><span class="idx">05</span><div><h3>Monitor</h3><p>Checklists, spot audits and a response desk that logs every escalation with a closing time against it.</p></div></div>
+      <div class="proc-step" tabindex="0"><span class="idx">06</span><div><h3>Improve</h3><p>A monthly review of what was completed, what slipped and what changes next month, agreed with your team.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ 14 SAFETY ══════════════════════════════════════════════════════ -->
-<section class="section safe">
-  <div class="wrap safe-grid">
-    <div class="safe-media img-reveal" data-anim="fade" data-cursor="Discover">
-      <img src="assets/images/safety-engineer.jpg" alt="Facility engineer in protective equipment working on an electrical panel" loading="lazy" decoding="async">
-      <span class="safe-chip p1"><i></i>Permit issued</span>
-      <span class="safe-chip p2"><i></i>PPE verified</span>
-      <span class="safe-chip p3"><i></i>Isolation confirmed</span>
-    </div>
-
-    <div>
-      <p class="eyebrow" data-anim="up">Safety &amp; quality</p>
-      <h2 class="d2 lines"><span class="line"><span>Safety is not</span></span><span class="line"><span>a checkbox.</span></span></h2>
-      <p class="lede" style="margin-top:24px" data-anim="up" data-delay="0.1">The failures in facility management are quiet ones &mdash; an untrained hand on live equipment, an inspection nobody logged. Our job is to make those impossible to skip.</p>
-
-      <ul class="safe-list" data-anim="up" data-delay="0.15">
-        <li><span class="mono">01</span><div><b>Risk awareness</b><span>Every task assessed before it starts, with hazardous work under permit.</span></div></li>
-        <li><span class="mono">02</span><div><b>Trained workforce</b><span>Role-specific induction on joining and refresher training on schedule.</span></div></li>
-        <li><span class="mono">03</span><div><b>Preventive maintenance</b><span>Planned servicing that catches faults before they become breakdowns.</span></div></li>
-        <li><span class="mono">04</span><div><b>Quality monitoring</b><span>Checklists, spot audits and corrective actions tracked to closure.</span></div></li>
-        <li><span class="mono">05</span><div><b>Compliance</b><span>Statutory records maintained and produced on request.</span></div></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 15 FACILITY STORIES ════════════════════════════════════════════ -->
-<!-- DEMO CONTENT — replace with real projects once available -->
-<section class="section stories" id="projects">
+<!-- ══ 15 FEEDBACK ═══════════════════════════════════════════════════
+     Content comes from data/feedback.json. -->
+<section class="section fb on-mist" id="feedback">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <p class="eyebrow" data-anim="up">Facility stories</p>
-        <h2 class="d2 lines"><span class="line"><span>Concepts, not</span></span><span class="line"><span>case studies.</span></span></h2>
+        <p class="eyebrow">Feedback</p>
+        <h2 class="d2 lines"><span class="line"><span>What facility managers</span></span><span class="line"><span>ask us for.</span></span></h2>
       </div>
-      <p class="lede" data-anim="up" data-delay="0.1">These are illustrative scenarios written to show how an Apex engagement is structured. They are not past client work.</p>
+      <p class="lede">Five things come up in almost every first conversation. They are the same five we are measured on afterwards.</p>
     </div>
 
-    <div class="stories-grid">
-      <a href="work.html" class="story-card" data-anim="up" data-cursor="Explore">
-        <img src="assets/images/ind-corporate.jpg" alt="Corporate campus office interior" loading="lazy" decoding="async">
-        <div class="story-card-body">
-          <span class="demo-tag">Demo concept</span>
-          <h3>Corporate campus</h3>
-          <p>Multi-block office campus consolidating five vendors into one integrated contract.</p>
-          <div class="story-meta"><span>Housekeeping</span><span>Security</span><span>HVAC</span></div>
-        </div>
-      </a>
-      <a href="work.html" class="story-card" data-anim="up" data-delay="0.06" data-cursor="Explore">
-        <img src="assets/images/ind-residential.jpg" alt="Residential community building" loading="lazy" decoding="async">
-        <div class="story-card-body">
-          <span class="demo-tag">Demo concept</span>
-          <h3>Residential community</h3>
-          <p>Gated development where resident complaints centred on inconsistent common-area upkeep.</p>
-          <div class="story-meta"><span>Housekeeping</span><span>Landscaping</span><span>Security</span></div>
-        </div>
-      </a>
-      <a href="work.html" class="story-card" data-anim="up" data-delay="0.12" data-cursor="Explore">
-        <img src="assets/images/ind-industrial.jpg" alt="Industrial facility floor" loading="lazy" decoding="async">
-        <div class="story-card-body">
-          <span class="demo-tag">Demo concept</span>
-          <h3>Industrial facility</h3>
-          <p>Production site needing permit-controlled maintenance without interrupting shift output.</p>
-          <div class="story-meta"><span>Electrical</span><span>Waste</span><span>Fire &amp; safety</span></div>
-        </div>
-      </a>
-      <a href="work.html" class="story-card" data-anim="up" data-delay="0.18" data-cursor="Explore">
-        <img src="assets/images/ind-hospital.jpg" alt="Healthcare facility exterior" loading="lazy" decoding="async">
-        <div class="story-card-body">
-          <span class="demo-tag">Demo concept</span>
-          <h3>Healthcare facility</h3>
-          <p>Hospital wing requiring infection-aware cleaning protocols and audited documentation.</p>
-          <div class="story-meta"><span>Housekeeping</span><span>Pest control</span><span>Waste</span></div>
-        </div>
-      </a>
+    <div class="fb-rail" data-render="feedback">
+      <noscript><p class="lede">Feedback is listed on the <a href="contact.html">contact page</a>.</p></noscript>
+    </div>
+
+    <div class="fb-nav">
+      <button class="fb-btn" type="button" data-fb-prev aria-label="Previous feedback">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="fb-btn" type="button" data-fb-next aria-label="Next feedback">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="fb-note demo-only" data-fb-note hidden>Illustrative statements attributed to roles, not quotes from named clients.</p>
     </div>
   </div>
 </section>
 
-<!-- ══ 16 FAQ ═════════════════════════════════════════════════════════ -->
-<!-- Questions and answers come from data/faq.json -->
-<section class="section faq" id="faq">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow" data-anim="up">Questions</p>
-        <h2 class="d2 lines"><span class="line"><span>Before you</span></span><span class="line"><span class="hollow">ask us.</span></span></h2>
-      </div>
-      <p class="lede" data-anim="up" data-delay="0.1">The things people want to know before the first call. If yours is not here, the contact form reaches an actual person.</p>
-    </div>
-    <div class="faq-list" data-render="faq"></div>
-  </div>
-</section>
-
-<!-- ══ 17 TESTIMONIALS ════════════════════════════════════════════════ -->
-<!-- DEMO CONTENT — REPLACE WITH REAL CLIENT TESTIMONIALS.
-     Names below are role descriptions, not real individuals or companies. -->
-<section class="section tst">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow" data-anim="up">What clients look for</p>
-        <h2 class="d3" data-anim="up" data-delay="0.05">Written as placeholders<br>until real quotes are collected.</h2>
-      </div>
-      <p class="lede" data-anim="up" data-delay="0.1">The statements below describe outcomes facility managers typically ask for. They are illustrative and attributed to roles rather than to named people.</p>
-    </div>
-
-    <div class="tst-grid">
-      <blockquote class="tst-card" data-anim="up">
-        <p class="tst-quote">&ldquo;What we needed was one number to call when something breaks, and a report at month end that tells us what actually happened.&rdquo;</p>
-        <footer class="tst-by"><b>Facility manager</b><span>Corporate office &mdash; placeholder</span></footer>
-
-<!-- WhatsApp — number comes from js/config.js -->
-<a class="wa-float" data-cfg-wa target="_blank" rel="noopener" aria-label="Message Apex on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97s-.47-.15-.67.15-.77.96-.94 1.16-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3 0-.46.13-.6s.3-.35.45-.53.2-.3.3-.5 0-.37-.03-.52-.67-1.62-.92-2.22-.49-.5-.67-.51h-.57a1.1 1.1 0 0 0-.79.37 3.32 3.32 0 0 0-1.04 2.47 5.77 5.77 0 0 0 1.21 3.06 13.2 13.2 0 0 0 5.05 4.46c.7.3 1.26.49 1.69.63a4.06 4.06 0 0 0 1.86.12 3.05 3.05 0 0 0 2-1.41 2.47 2.47 0 0 0 .17-1.41c-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2A9.94 9.94 0 0 0 3.6 17.2L2 22l4.94-1.55A9.94 9.94 0 1 0 12.04 2m0 1.8a8.14 8.14 0 1 1-4.24 15.1l-.3-.18-2.94.92.93-2.86-.2-.31a8.14 8.14 0 0 1 6.75-12.67" /></svg></a>
-      </blockquote>
-      <blockquote class="tst-card" data-anim="up" data-delay="0.06">
-        <p class="tst-quote">&ldquo;Consistency matters more than intensity. The same standard on a Tuesday afternoon as on an audit morning.&rdquo;</p>
-        <footer class="tst-by"><b>Administration head</b><span>Healthcare facility &mdash; placeholder</span></footer>
-
-<!-- WhatsApp — number comes from js/config.js -->
-<a class="wa-float" data-cfg-wa target="_blank" rel="noopener" aria-label="Message Apex on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97s-.47-.15-.67.15-.77.96-.94 1.16-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3 0-.46.13-.6s.3-.35.45-.53.2-.3.3-.5 0-.37-.03-.52-.67-1.62-.92-2.22-.49-.5-.67-.51h-.57a1.1 1.1 0 0 0-.79.37 3.32 3.32 0 0 0-1.04 2.47 5.77 5.77 0 0 0 1.21 3.06 13.2 13.2 0 0 0 5.05 4.46c.7.3 1.26.49 1.69.63a4.06 4.06 0 0 0 1.86.12 3.05 3.05 0 0 0 2-1.41 2.47 2.47 0 0 0 .17-1.41c-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2A9.94 9.94 0 0 0 3.6 17.2L2 22l4.94-1.55A9.94 9.94 0 1 0 12.04 2m0 1.8a8.14 8.14 0 1 1-4.24 15.1l-.3-.18-2.94.92.93-2.86-.2-.31a8.14 8.14 0 0 1 6.75-12.67" /></svg></a>
-      </blockquote>
-      <blockquote class="tst-card" data-anim="up" data-delay="0.12">
-        <p class="tst-quote">&ldquo;Safety paperwork has to be ready before the inspector asks, not assembled afterwards.&rdquo;</p>
-        <footer class="tst-by"><b>Plant operations lead</b><span>Industrial facility &mdash; placeholder</span></footer>
-
-<!-- WhatsApp — number comes from js/config.js -->
-<a class="wa-float" data-cfg-wa target="_blank" rel="noopener" aria-label="Message Apex on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97s-.47-.15-.67.15-.77.96-.94 1.16-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3 0-.46.13-.6s.3-.35.45-.53.2-.3.3-.5 0-.37-.03-.52-.67-1.62-.92-2.22-.49-.5-.67-.51h-.57a1.1 1.1 0 0 0-.79.37 3.32 3.32 0 0 0-1.04 2.47 5.77 5.77 0 0 0 1.21 3.06 13.2 13.2 0 0 0 5.05 4.46c.7.3 1.26.49 1.69.63a4.06 4.06 0 0 0 1.86.12 3.05 3.05 0 0 0 2-1.41 2.47 2.47 0 0 0 .17-1.41c-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2A9.94 9.94 0 0 0 3.6 17.2L2 22l4.94-1.55A9.94 9.94 0 1 0 12.04 2m0 1.8a8.14 8.14 0 1 1-4.24 15.1l-.3-.18-2.94.92.93-2.86-.2-.31a8.14 8.14 0 0 1 6.75-12.67" /></svg></a>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 18 FINAL CTA ═══════════════════════════════════════════════════ -->
-<section class="cta">
-  <div class="cta-bg"><img src="assets/images/ind-corporate.jpg" alt="" loading="lazy" decoding="async" data-parallax="8"></div>
-  <div class="noise"></div>
+<!-- ══ 16 FINAL CTA ═══════════════════════════════════════════════════ -->
+<section class="cta cta--light">
   <div class="wrap cta-in">
-    <h2 class="d1 lines"><span class="line"><span>Your facility.</span></span><span class="line"><span class="hollow">Our responsibility.</span></span></h2>
-    <p class="lede" data-anim="up" data-delay="0.1">Let&rsquo;s create a safer, cleaner and better-performing environment.</p>
-    <div class="cta-actions" data-anim="up" data-delay="0.15">
-      <a href="contact.html" class="btn btn-solid" data-magnetic>
-        Request a consultation
-        <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="contact.html" class="btn btn-line" data-magnetic>Contact Apex</a>
+    <div class="cta-grid">
+      <div>
+        <h2 class="d2 lines"><span class="line"><span>Your facility.</span></span><span class="line"><span class="accent">Our responsibility.</span></span></h2>
+        <p class="lede">Let&rsquo;s create a safer, cleaner and better-performing environment.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-solid">
+            Request a consultation
+            <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="contact.html" class="btn btn-line">Contact Apex</a>
+        </div>
+      </div>
+      <div class="cta-shot img-reveal">
+        <img src="assets/images/staff/staff-team.jpg" alt="Apex housekeeping, landscaping, security, technical and pantry teams across client sites" loading="lazy" decoding="async">
+      </div>
     </div>
   </div>
 </section>
@@ -737,14 +522,13 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <svg class="brand-mark" viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="20" fill="#16233D"/><path d="M54 20 L88 78 H72 L54 47 L36 78 H20 Z" fill="#FBFAF7"/><rect x="36" y="82" width="36" height="7" rx="3.5" fill="#0FA47F"/><rect x="45" y="64" width="18" height="6" rx="3" fill="#FBFAF7" opacity=".55"/></svg>
-        <b>Apex</b>
-        <span class="mono">Integrated Facility Management</span>
+        <img class="foot-logo" src="assets/brand/apex-wordmark-reverse.png" alt="Apex" width="330" height="140">
+        <p class="foot-descriptor">Integrated Facility Management</p>
         <p>A Bangalore-based integrated facility management company delivering housekeeping, security, technical, electrical, HVAC, landscaping, pest control, waste and fire safety services under one accountable contract.</p>
         <ul class="socials">
           <li><a href="#top" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9h4v12H3zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.84 0-2.12 1.43-2.12 2.9V21h-4z"/></svg></a></li>
           <li><a href="#top" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12"/></svg></a></li>
-          <li><a href="#top" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9s.68.82.9 1.38c.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38s-.82.68-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9s-.68-.82-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38s.82-.68 1.38-.9c.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16m0 3.68a6 6 0 1 1 0 12 6 6 0 0 1 0-12m0 2.16a3.84 3.84 0 1 0 0 7.68 3.84 3.84 0 0 0 0-7.68m6.24-3.86a1.44 1.44 0 1 1 0 2.88 1.44 1.44 0 0 1 0-2.88"/></svg></a></li>
+          <li><a href="#top" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9s.68.82.9 1.38c.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38s-.82.68-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9s-.68-.82-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38s.82-.68 1.38-.9c.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16m0 3.68a6 6 0 1 1 0 12 6 6 0 0 1 0-12m0 2.16a3.84 3.84 0 1 0 0 7.68 3.84 3.84 0 0 0 0-7.68m6.24-3.86a1.44 1.44 0 1 1 0 2.88 1.44 1.44 0 0 1 0-2.88"/></svg></a></li>
         </ul>
       </div>
 
@@ -779,8 +563,9 @@
           <li data-cfg-address>Bengaluru, Karnataka</li>
           <li><a data-cfg-tel>+91 00000 00000</a></li>
           <li><a data-cfg-mail>hello@example.com</a></li>
+          <li class="foot-gst">GST <span data-cfg-gst>29EUTPR9062Q1Z1</span></li>
         </ul>
-        <p style="margin-top:20px"><a href="contact.html" class="btn btn-solid" style="padding:12px 20px">Get in touch</a></p>
+        <p style="margin-top:20px"><a href="contact.html" class="btn btn-solid">Get in touch</a></p>
       </div>
     </div>
 
@@ -794,12 +579,10 @@
 <!-- WhatsApp — number comes from js/config.js -->
 <a class="wa-float" data-cfg-wa target="_blank" rel="noopener" aria-label="Message Apex on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97s-.47-.15-.67.15-.77.96-.94 1.16-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3 0-.46.13-.6s.3-.35.45-.53.2-.3.3-.5 0-.37-.03-.52-.67-1.62-.92-2.22-.49-.5-.67-.51h-.57a1.1 1.1 0 0 0-.79.37 3.32 3.32 0 0 0-1.04 2.47 5.77 5.77 0 0 0 1.21 3.06 13.2 13.2 0 0 0 5.05 4.46c.7.3 1.26.49 1.69.63a4.06 4.06 0 0 0 1.86.12 3.05 3.05 0 0 0 2-1.41 2.47 2.47 0 0 0 .17-1.41c-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2A9.94 9.94 0 0 0 3.6 17.2L2 22l4.94-1.55A9.94 9.94 0 1 0 12.04 2m0 1.8a8.14 8.14 0 1 1-4.24 15.1l-.3-.18-2.94.92.93-2.86-.2-.31a8.14 8.14 0 0 1 6.75-12.67" /></svg></a>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="js/config.js"></script>
 <script src="js/data.js" defer></script>
 <script src="js/render.js" defer></script>
+<script src="js/hero.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/animations.js" defer></script>
 </body>

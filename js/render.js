@@ -34,11 +34,17 @@
   function ok(f) { return f && typeof f === 'object' ? f.confirmed !== false : !!f; }
 
   function load() {
-    var names = ['services', 'industries', 'projects', 'faq', 'team', 'uniform'];
+    var names = ['services', 'industries', 'projects', 'faq', 'team', 'uniform',
+                 'clients', 'feedback'];
+    /* Resolve per file rather than all-or-nothing. Promise.all rejects on the
+       first failure, so a single missing JSON used to blank every rendered
+       section on the page. A file that 404s now yields null and only its own
+       section stays empty. */
     return Promise.all(names.map(function (n) {
       return fetch('data/' + n + '.json')
         .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-        .then(function (j) { return [n, j]; });
+        .then(function (j) { return [n, j]; })
+        .catch(function () { return [n, null]; });
     })).then(function (pairs) {
       var o = {};
       pairs.forEach(function (p) { o[p[0]] = p[1]; });
@@ -93,9 +99,17 @@
     /* Address */
     $$('[data-cfg-address]').forEach(function (el) {
       var a = CFG.address || {};
-      var parts = [a.line1, a.city, a.state, a.pin].filter(Boolean);
+      var parts = [a.line1, a.line2, a.city, a.state, a.pin].filter(Boolean);
       el.innerHTML = parts.map(esc).join('<br>');
       if (a.confirmed === false) el.classList.add('tbc');
+    });
+
+    /* GST number — printed wherever [data-cfg-gst] appears */
+    $$('[data-cfg-gst]').forEach(function (el) {
+      var g = CFG.gst;
+      if (!g) return;
+      el.textContent = val(g);
+      if (!ok(g)) el.classList.add('tbc');
     });
 
     /* CTA labels */
@@ -108,55 +122,144 @@
     $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
   }
 
-  /* ── 03 ─ SERVICES (home scroll sequence) ─────────────────────────────── */
+  /* ── 03 ─ SERVICES (home) ────────────────────────────────────────
+     One card per service line, each with its own photograph. This used to be
+     a pinned stage plus six full-height panels, which meant six screens of
+     scrolling to read six short paragraphs. */
+
+  /* ── TRUSTED BY ────────────────────────────────────────────────────────
+     Two copies of the list run end to end so the rail can scroll seamlessly:
+     when the first copy has moved exactly its own width the second is in the
+     identical position, and the animation restarts invisibly. The duplicate
+     is aria-hidden so it is not read out twice. */
+  /* Two letters, from two words if there are two, otherwise from one.
+     Taking only word-initials gave "Multi-speciality" a single "M". */
+  function initials(name) {
+    var words = String(name || '?').replace(/[^A-Za-z ]/g, ' ').trim().split(/\s+/);
+    if (words.length > 1) {
+      return (words[0].charAt(0) + words[1].charAt(0)).toUpperCase();
+    }
+    return words[0].slice(0, 2).toUpperCase();
+  }
+
+  function renderClients() {
+    var host = $('[data-render="clients"]');
+    if (!host || !DATA.clients) return;
+    var list = DATA.clients.clients || [];
+    if (!list.length) return;
+
+    /* An <img> when a logo file is given, the monogram fallback when it is
+       not — so a half-supplied list still renders as one even wall rather
+       than logos next to text plates. */
+    function plate(c, dup) {
+      var inner = c.logo
+        ? '<img src="' + esc(c.logo) + '" alt="' + esc(c.name) + '" ' +
+          'loading="lazy" decoding="async" width="300" height="60">'
+        : '<span class="cplate-mark" aria-hidden="true">' + esc(initials(c.name)) + '</span>' +
+          '<span class="cplate-txt"><b>' + esc(c.name) + '</b>' +
+          '<span>' + esc(c.sector || '') + '</span></span>';
+
+      return '<li class="cplate' + (c.logo ? ' cplate--logo' : '') + '"' +
+        (dup ? ' aria-hidden="true"' : '') + '>' + inner + '</li>';
+    }
+
+    var once = list.map(function (c) { return plate(c, false); }).join('');
+    var dup  = list.map(function (c) { return plate(c, true);  }).join('');
+    host.innerHTML = '<ul class="cplates">' + once + dup + '</ul>';
+
+    /* Show the note only while at least one entry is unconfirmed. */
+    var note = $('[data-clients-note]');
+    if (note && list.some(function (c) { return c.confirmed === false; })) {
+      note.hidden = false;
+    }
+  }
+
+  /* ── FEEDBACK ──────────────────────────────────────────────────────────
+     A horizontal rail rather than a three-up grid. The grid capped the page
+     at three quotes and made a fourth a layout problem; the rail scrolls, is
+     swipeable on touch, and the arrow buttons page it on a desktop. */
+  function renderFeedback() {
+    var host = $('[data-render="feedback"]');
+    if (!host || !DATA.feedback) return;
+    var list = DATA.feedback.feedback || [];
+    if (!list.length) return;
+
+    host.innerHTML = list.map(function (f) {
+      var n = Math.max(0, Math.min(5, parseInt(f.rating, 10) || 5));
+      var stars = '';
+      for (var i = 0; i < 5; i++) {
+        stars += '<svg class="star' + (i < n ? ' on' : '') + '" viewBox="0 0 24 24" ' +
+                 'fill="currentColor" aria-hidden="true">' +
+                 '<path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45L2.6 9.45l6.5-.95Z"/></svg>';
+      }
+      return '<figure class="fb-card">' +
+        '<div class="fb-stars" role="img" aria-label="' + n + ' out of 5">' + stars + '</div>' +
+        '<blockquote class="fb-quote">' + esc(f.quote) + '</blockquote>' +
+        '<figcaption class="fb-by">' +
+          '<span class="fb-av" aria-hidden="true">' + esc(f.initials || '') + '</span>' +
+          '<span class="fb-who"><b>' + esc(f.name) + '</b>' +
+          '<span>' + esc(f.role || '') + '</span></span>' +
+        '</figcaption>' +
+      '</figure>';
+    }).join('');
+
+    var note = $('[data-fb-note]');
+    if (note && list.some(function (f) { return f.confirmed === false; })) {
+      note.hidden = false;
+    }
+
+    /* Arrows page by one card width. */
+    var prev = $('[data-fb-prev]');
+    var next = $('[data-fb-next]');
+    function step(dir) {
+      var card = $('.fb-card', host);
+      var by = card ? card.getBoundingClientRect().width + 20 : 340;
+      host.scrollBy({ left: dir * by, behavior: 'smooth' });
+    }
+    if (prev) prev.addEventListener('click', function () { step(-1); });
+    if (next) next.addEventListener('click', function () { step(1); });
+
+    function syncArrows() {
+      if (!prev || !next) return;
+      var max = host.scrollWidth - host.clientWidth - 2;
+      prev.disabled = host.scrollLeft <= 2;
+      next.disabled = host.scrollLeft >= max;
+    }
+    host.addEventListener('scroll', syncArrows, { passive: true });
+    syncArrows();
+  }
+
   function renderServiceScroll() {
     var host = $('[data-render="service-scroll"]');
     if (!host || !DATA.services) return;
     var list = DATA.services.services.filter(function (s) { return s.active !== false; });
 
-    var media = list.map(function (s, i) {
-      return '<figure class="svc-figure' + (i === 0 ? ' is-active' : '') + '" data-svc-fig="' + i + '">' +
-        '<img src="' + esc(s.image) + '" alt="' + esc(s.alt) + '" loading="lazy" decoding="async">' +
-        '<figcaption class="svc-figcap"><span class="mono">' + esc(s.number) + '</span>' + esc(s.title) + '</figcaption>' +
-        '</figure>';
+    /* The whole card is the link. The old build put a "See how we run it"
+       text link at the bottom, which meant a 400px card with a 140px target.
+       Now the article is an anchor and the arrow is an affordance, not the
+       only thing you can hit. */
+    host.innerHTML = list.map(function (s) {
+      return '<a class="svc-card" id="service-' + esc(s.id) + '" ' +
+             'href="services.html#service-' + esc(s.id) + '">' +
+        '<figure class="svc-figure">' +
+          '<img src="' + esc(s.image) + '" alt="' + esc(s.alt) + '" loading="lazy" decoding="async">' +
+          '<span class="svc-num">' + esc(s.number) + '</span>' +
+          '<span class="svc-name">' + esc(s.title) + '</span>' +
+        '</figure>' +
+        '<div class="svc-body">' +
+          '<p class="svc-short">' + esc(s.short) + '</p>' +
+          '<ul class="svc-labels">' + s.labels.slice(0, 4).map(function (l) {
+            return '<li>' + esc(l) + '</li>';
+          }).join('') + '</ul>' +
+          '<span class="svc-go">' +
+            '<span>See how we run it</span>' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" ' +
+            'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+            '<path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+          '</span>' +
+        '</div>' +
+      '</a>';
     }).join('');
-
-    var panels = list.map(function (s, i) {
-      return '<article class="svc-panel" data-svc-panel="' + i + '" id="service-' + esc(s.id) + '">' +
-        '<span class="svc-num mono">' + esc(s.number) + '</span>' +
-        '<h3 class="svc-title">' + esc(s.title) + '</h3>' +
-        '<p class="svc-short">' + esc(s.short) + '</p>' +
-        '<ul class="svc-labels">' + s.labels.map(function (l) {
-          return '<li>' + esc(l) + '</li>';
-        }).join('') + '</ul>' +
-        '<a class="link" href="services.html#service-' + esc(s.id) + '">See how we run it</a>' +
-        /* Mobile gets the image inline instead of the pinned stage. */
-        '<figure class="svc-panel-img"><img src="' + esc(s.image) + '" alt="' + esc(s.alt) +
-        '" loading="lazy" decoding="async"></figure>' +
-        '</article>';
-    }).join('');
-
-    host.innerHTML =
-      '<div class="svc-stage" aria-hidden="true">' + media +
-      '<span class="svc-count mono"><b data-svc-count>01</b> / ' +
-      String(list.length).padStart(2, '0') + '</span></div>' +
-      '<div class="svc-panels">' + panels + '</div>';
-
-    /* Swap the pinned image as each panel comes into view. */
-    var figs = $$('[data-svc-fig]', host);
-    var counter = $('[data-svc-count]', host);
-    if (!('IntersectionObserver' in window)) return;
-
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var i = +e.target.getAttribute('data-svc-panel');
-        figs.forEach(function (f, fi) { f.classList.toggle('is-active', fi === i); });
-        if (counter) counter.textContent = String(i + 1).padStart(2, '0');
-      });
-    }, { rootMargin: '-45% 0px -45% 0px' });
-
-    $$('[data-svc-panel]', host).forEach(function (p) { io.observe(p); });
   }
 
   /* ── 04 ─ SERVICES (services page detail) ─────────────────────────────── */
@@ -469,6 +572,8 @@
     load().then(function (d) {
       if (!d) { document.documentElement.classList.add('data-failed'); return; }
       DATA = d;
+      renderClients();
+      renderFeedback();
       renderServiceScroll();
       renderServiceDetail();
       renderIndustries();
@@ -487,56 +592,7 @@
   } else { boot(); }
 })();
 
-/* ==========================================================================
-   SCROLL STORY DRIVER
-   Advances the pinned sequence on the process page as the track scrolls past.
-   Pure IntersectionObserver-free maths so it works with or without GSAP, and
-   the reduced-motion stylesheet un-pins the whole thing anyway.
-   ========================================================================== */
-(function () {
-  'use strict';
-
-  function init() {
-    var track = document.getElementById('procTrack');
-    if (!track) return;
-
-    var steps = [].slice.call(track.querySelectorAll('.sstory-step'));
-    var figs  = [].slice.call(track.querySelectorAll('.sstory-media figure'));
-    var bars  = [].slice.call(track.querySelectorAll('.sstory-bar i'));
-    if (!steps.length) return;
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      steps.forEach(function (s) { s.classList.add('is-active'); });
-      return;
-    }
-
-    var current = -1;
-    function set(i) {
-      if (i === current) return;
-      current = i;
-      steps.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
-      figs.forEach(function (f, k) { f.classList.toggle('is-active', k === i); });
-      bars.forEach(function (b, k) { b.classList.toggle('on', k <= i); });
-    }
-
-    var ticking = false;
-    function update() {
-      ticking = false;
-      var r = track.getBoundingClientRect();
-      var travel = r.height - window.innerHeight;
-      if (travel <= 0) { set(0); return; }
-      var p = Math.min(1, Math.max(0, -r.top / travel));
-      set(Math.min(steps.length - 1, Math.floor(p * steps.length)));
-    }
-
-    window.addEventListener('scroll', function () {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
-    }, { passive: true });
-    window.addEventListener('resize', update);
-    update();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+/* The pinned scroll-story driver that used to live here has been removed.
+   The process page now lays its five stages out in sequence rather than
+   pinning one screen and swapping the copy as you scroll, so there is no
+   position to compute. */

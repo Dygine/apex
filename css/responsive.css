@@ -1,10 +1,9 @@
 /* ==========================================================================
    APEX — responsive.css
-   All breakpoint rules live here so style.css stays a single source of truth
-   for the design system.
+   Every breakpoint rule lives here so style.css and components.css stay a
+   single source of truth for the design system.
 
    Breakpoints
-     1440px  large desktop tuning
      1200px  small desktop
      1024px  tablet landscape / small laptop
      860px   tablet portrait — navigation becomes a full-screen panel
@@ -13,22 +12,19 @@
    ========================================================================== */
 
 
-/* ── 1440px: keep the very large display type from overwhelming ─────────── */
-@media (max-width:1440px){
-  .hero-card.c1{ width:186px; height:238px; }
-  .hero-card.c2{ width:140px; height:98px; }
-  .hero-card.c3{ width:112px; height:140px; }
-}
-
-
 /* ── 1200px ─────────────────────────────────────────────────────────────── */
 @media (max-width:1200px){
-  .nav-a{ padding:10px 11px; font-size:.66rem; }
-  .nav-cta{ margin-left:10px; padding:12px 18px; }
+  .nav-a{ padding:9px 11px; font-size:.86rem; }
+  .nav-cta{ margin-left:8px; padding:11px 16px; }
 
-  .foot-top{ grid-template-columns:1.4fr 1fr 1fr; }
+  .foot-top{ grid-template-columns:1.5fr 1fr 1fr; }
   .foot-contact{ grid-column:1 / -1; }
 
+  .svc-wrap{ grid-template-columns:repeat(2,1fr); }
+  .work-grid{ grid-template-columns:repeat(2,1fr); }
+  .stories-grid{ grid-template-columns:repeat(2,1fr); }
+  .ppl-grid{ grid-template-columns:repeat(3,1fr); }
+  .wk-grid{ grid-template-columns:repeat(2,1fr); }
   .tst-grid{ grid-template-columns:1fr 1fr; }
   .tst-card:last-child{ grid-column:1 / -1; }
 }
@@ -36,25 +32,37 @@
 
 /* ── 1024px: two-column layouts start collapsing ────────────────────────── */
 @media (max-width:1024px){
-  :root{ --sec:clamp(72px,9vw,120px); }
+  :root{ --sec:clamp(64px,8vw,104px); }
 
-  .sec-head{ grid-template-columns:1fr; align-items:start; gap:20px; }
+  .sec-head{ grid-template-columns:1fr; align-items:start; gap:18px; }
 
-  .hero-grid{ grid-template-columns:1fr; }
-  .hero-cards{ display:none; }          /* foreground cards need width to read */
-  .hero-foot{ flex-direction:column; align-items:flex-start; gap:26px; }
+  .hero{ padding-top:clamp(112px,14vh,140px); }
+  .hero-grid{ grid-template-columns:1fr; gap:34px; }
+  .hero-media{ max-width:620px; }
+  .hero-title{ max-width:20ch; }
+
+  /* .phero is now a full-bleed background hero — the old two-column grid
+     rules are gone. See components.css section 4. */
+  .phero{ min-height:clamp(400px,58vh,540px); }
+
+  .day-grid{ grid-template-columns:repeat(3,1fr); }
+  .day-item:nth-child(n+4) img{ aspect-ratio:4/3; }
 
   .fmap-grid,
-  .ops-grid,
   .safe-grid,
   .edit-grid,
   .inds-grid,
+  .cta-grid,
   .ctc-grid{ grid-template-columns:1fr; }
 
   .fmap-stage{ max-width:620px; margin-inline:auto; }
   .inds-preview{ position:relative; top:0; max-width:560px; aspect-ratio:4/3; order:-1; }
   .edit-media{ max-width:560px; }
   .safe-media{ max-width:560px; }
+  .cta-shot{ max-width:560px; }
+
+  .proc-list{ grid-template-columns:repeat(2,1fr); }
+  .stm-list{ grid-template-columns:repeat(2,1fr); }
 
   .detail-item{ grid-template-columns:1fr; }
   .detail-item:nth-child(even) .detail-media{ order:0; }
@@ -62,9 +70,16 @@
 
   .vgrid{ grid-template-columns:1fr 1fr; }
 
-  .nums-grid{ grid-template-columns:1fr 1fr; }
-  .nums-cell:nth-child(odd){ border-left:0; padding-left:0; }
-  .nums-cell:nth-child(n+3){ border-top:1px solid rgba(255,255,255,.12); }
+  .uni-wrap{ grid-template-columns:1fr; gap:34px; }
+  .uni-stage{ max-width:400px; }
+
+  .sdet, .sdet--flip{ grid-template-columns:1fr; }
+  .sdet--flip .sdet-img{ order:0; }
+  .indc, .indc:nth-child(even){ grid-template-columns:1fr; }
+  .indc:nth-child(even) .indc-img{ order:0; }
+  .cmp-grid{ grid-template-columns:repeat(2,1fr); }
+  .lb-inner{ grid-template-columns:1fr; max-height:88vh; overflow-y:auto; }
+  .lb-img img{ max-height:34vh; }
 }
 
 
@@ -75,159 +90,31 @@
   .nav-menu{ display:none; }
   .nav-cta{ display:none; }
   .burger{ display:flex; }
-  .nav-in{ height:74px; }
-  .nav.stuck .nav-in{ height:64px; }
+  .nav-in{ height:70px; }
+  .nav.stuck .nav-in{ height:62px; }
 
-  /* The pinned horizontal rail and image stack are pointer-driven ideas.
-     On touch they become straightforward vertical sequences instead. */
-  .stack{ height:auto; }
-  .stack-stage,
-  .stack-head,
-  .stack-count{ display:none; }
-  .stack-fallback{ display:block; padding-block:var(--sec); }
-  .stack-fallback .sf-item{ position:relative; border-radius:var(--r-lg); overflow:hidden;
-                            margin-bottom:16px; }
-  .stack-fallback .sf-item img{ width:100%; aspect-ratio:4/3.2; object-fit:cover; }
-  .stack-fallback .sf-item::after{
-    content:""; position:absolute; inset:0;
-    background:linear-gradient(transparent 45%, rgba(12,13,15,.9));
-  }
-  .stack-fallback .sf-cap{ position:absolute; left:20px; right:20px; bottom:18px; z-index:2; }
-  .stack-fallback .sf-cap span{ font-family:var(--mono); font-size:.58rem; letter-spacing:.18em;
-                                color:var(--signal-2); display:block; margin-bottom:6px; }
-  .stack-fallback .sf-cap b{ font-family:var(--display); font-size:1.2rem; font-weight:800;
-                             text-transform:uppercase; letter-spacing:-.02em; color:var(--bone); }
-
-  .rail-pin{ height:auto; display:block; padding-block:var(--sec); }
-  .rail-track{ display:none; }
-  .rail-prog{ display:none; }
-  .rail-mobile{ display:grid; gap:14px; padding-inline:var(--pad); }
-  .rail-mobile .rail-panel{ width:100%; height:auto; aspect-ratio:4/3.1; }
-  .rail-mobile .rail-body p{ max-height:none; opacity:1; }
-
-  /* Sticky story becomes image-then-text pairs */
-  .story-grid{ grid-template-columns:1fr; gap:0; }
-  .story-visual{ position:sticky; top:64px; height:auto; padding-top:24px; z-index:2; }
-  .story-frame{ height:44vh; }
-  .story-steps{ padding-block:36px 60px; }
-  .story-step{ min-height:auto; padding-block:34px; }
-
-  .stm-item{ grid-template-columns:52px 1fr; gap:14px; }
-  .stm-item p{ display:none; }
-
-  .proc-step{ grid-template-columns:60px 1fr; }
-
-  .stories-grid{ grid-template-columns:1fr; }
+  .svc-wrap{ grid-template-columns:1fr; }
+  .work-grid{ grid-template-columns:1fr; }
+  .stories-grid{ grid-template-columns:1fr 1fr; }
+  .wk-grid{ grid-template-columns:1fr; }
+  .cmp-grid{ grid-template-columns:1fr; }
   .tst-grid{ grid-template-columns:1fr; }
   .tst-card:last-child{ grid-column:auto; }
 
-  .f-row{ grid-template-columns:1fr; gap:0; }
+  /* The process sequence stops alternating and reads image-then-copy */
+  .sstory-track{ grid-template-columns:1fr; }
+  .sstory-media figure:nth-of-type(1){ grid-area:1 / 1; }
+  .sstory-step:nth-of-type(1){ grid-area:2 / 1; }
+  .sstory-media figure:nth-of-type(2){ grid-area:3 / 1; }
+  .sstory-step:nth-of-type(2){ grid-area:4 / 1; }
+  .sstory-media figure:nth-of-type(3){ grid-area:5 / 1; }
+  .sstory-step:nth-of-type(3){ grid-area:6 / 1; }
+  .sstory-media figure:nth-of-type(4){ grid-area:7 / 1; }
+  .sstory-step:nth-of-type(4){ grid-area:8 / 1; }
+  .sstory-media figure:nth-of-type(5){ grid-area:9 / 1; }
+  .sstory-step:nth-of-type(5){ grid-area:10 / 1; }
+  .sstory-media figure img{ aspect-ratio:4/2.6; }
 
-  .foot-top{ grid-template-columns:1fr 1fr; }
-  .foot-brand{ grid-column:1 / -1; }
-
-  .cursor{ display:none !important; }
-}
-
-
-/* ── 620px: mobile ──────────────────────────────────────────────────────── */
-@media (max-width:620px){
-  :root{ --sec:clamp(60px,13vw,88px); }
-
-  .hero{ min-height:94svh; padding:124px 0 36px; }
-  .hero-mask{
-    background:linear-gradient(180deg, rgba(12,13,15,.86) 0%, rgba(12,13,15,.58) 40%,
-                                        rgba(12,13,15,.96) 92%);
-  }
-  .hero-actions .btn{ flex:1 1 100%; justify-content:center; }
-  .hero-stats{ gap:24px; }
-  .hero-stats div b{ font-size:1.3rem; }
-
-  .inds-row{ grid-template-columns:40px 1fr auto; gap:12px; }
-  .inds-preview{ aspect-ratio:4/3.4; }
-
-  .nums-grid{ grid-template-columns:1fr; }
-  .nums-cell{ border-left:0; padding-left:0; padding-block:26px;
-              border-top:1px solid rgba(255,255,255,.12); }
-  .nums-cell:first-child{ border-top:0; padding-top:0; }
-
-  .edit-float.f1{ position:relative; right:auto; top:auto; width:100%; margin-top:14px;
-                  border-width:0; }
-  .edit-float.f2{ display:none; }
-  .edit-label.l1{ right:10px; top:10px; }
-  .edit-list li{ grid-template-columns:40px 1fr; gap:12px; }
-
-  .safe-chip.p2{ display:none; }
-  .safe-list li{ grid-template-columns:1fr; gap:6px; }
-
-  .ctc-details li{ grid-template-columns:1fr; gap:5px; }
-  .ctc-quick a{ flex:1 1 100%; justify-content:center; }
-
-  .cta-actions .btn{ flex:1 1 100%; justify-content:center; }
-  .cta{ min-height:auto; padding-block:var(--sec); }
-
-  .detail-cols{ grid-template-columns:1fr; gap:20px; }
-  .vgrid{ grid-template-columns:1fr; }
-
-  .phero-meta{ gap:16px 22px; }
-  .marq-item.m-lg{ width:230px; height:160px; }
-  .marq-item.m-md{ width:180px; height:135px; }
-  .marq-item.m-sm{ width:140px; height:112px; }
-
-  .foot-top{ grid-template-columns:1fr; gap:34px; }
-  .foot-bottom{ flex-direction:column; align-items:flex-start; }
-}
-
-
-/* ── 400px: small mobile — protect against overflow ─────────────────────── */
-@media (max-width:400px){
-  .nav-logo span{ display:none; }
-  .story-frame{ height:38vh; }
-  .stm-item h3{ font-size:1.5rem; }
-  .panel-list a{ font-size:1.7rem; }
-}
-
-
-/* ── Landscape phones: sticky story would otherwise fill the screen ─────── */
-@media (max-height:520px) and (orientation:landscape){
-  .story-visual{ position:relative; height:auto; }
-  .story-frame{ height:56vh; }
-  .hero{ min-height:auto; padding-block:120px 40px; }
-}
-
-
-/* ══════════════════════════════════════════════════════════════════════════
-   COMPONENTS ADDED IN THIS BUILD
-   Breakpoints for the service sequence, people, uniform, ecosystem, scroll
-   story, FAQ, compliance and work gallery. Mobile is designed rather than
-   stacked: the pinned stages become inline images, and the five-across people
-   row becomes a swipeable rail instead of five unreadable slivers.
-   ══════════════════════════════════════════════════════════════════════════ */
-
-@media (max-width:1200px){
-  .ppl-grid{ grid-template-columns:repeat(3,1fr); }
-  .ppl-card:nth-child(even){ margin-top:0; }
-  .wk-grid{ grid-template-columns:repeat(2,1fr); }
-}
-
-@media (max-width:1024px){
-  .svc-wrap{ grid-template-columns:1fr; }
-  .svc-stage{ display:none; }                 /* image moves inline instead */
-  .svc-panel-img{ display:block; }
-  .svc-panel{ min-height:0; padding:clamp(36px,7vw,56px) 0; }
-  .uni-wrap{ grid-template-columns:1fr; gap:36px; }
-  .uni-stage{ max-width:420px; }
-  .sdet, .sdet--flip{ grid-template-columns:1fr; }
-  .sdet--flip .sdet-img{ order:0; }
-  .indc, .indc:nth-child(even){ grid-template-columns:1fr; }
-  .indc:nth-child(even) .indc-img{ order:0; }
-  .cmp-grid{ grid-template-columns:repeat(2,1fr); }
-  .lb-inner{ grid-template-columns:1fr; max-height:88vh; overflow-y:auto; }
-  .lb-img img{ max-height:34vh; }
-  .eco-node{ font-size:.6rem; }
-}
-
-@media (max-width:860px){
   /* People becomes a swipeable rail — five columns is unreadable below this */
   .ppl-grid{
     display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory;
@@ -235,46 +122,124 @@
     padding-bottom:12px; -webkit-overflow-scrolling:touch;
   }
   .ppl-grid::-webkit-scrollbar{ height:3px; }
-  .ppl-grid::-webkit-scrollbar-thumb{ background:var(--line); }
-  .ppl-card{ flex:0 0 min(66vw,260px); scroll-snap-align:start; }
-  .ppl-card:nth-child(even){ margin-top:0; }
+  .ppl-grid::-webkit-scrollbar-thumb{ background:var(--line); border-radius:3px; }
+  .ppl-card{ flex:0 0 min(66vw,250px); scroll-snap-align:start; }
 
-  .wk-grid{ grid-template-columns:1fr; }
-  .cmp-grid{ grid-template-columns:1fr; }
-  .eco-stage{ aspect-ratio:1/1; }
-  .faq-a p{ padding-right:0; }
+  .f-row{ grid-template-columns:1fr; gap:0; }
+
+  .foot-top{ grid-template-columns:1fr 1fr; }
+  .foot-brand{ grid-column:1 / -1; }
+
+  .faq-a p{ padding-right:1.1em; }
   .faq-q button{ gap:1.2em; }
 }
 
+
+/* ── 620px: mobile ──────────────────────────────────────────────────────── */
 @media (max-width:620px){
-  .svc-title{ font-size:clamp(1.8rem,8vw,2.4rem); }
+  :root{ --sec:clamp(56px,12vw,84px); }
+
+  .hero{ padding-top:110px; }
+  .hero-actions .btn{ flex:1 1 100%; justify-content:center; }
+  .hero-stats{ grid-template-columns:1fr; }
+  .hero-stats div{ padding:16px 18px; }
+  .hero-stats b{ font-size:1.5rem; }
+  .hero-shot{ aspect-ratio:4/3.2; }
+
+  /* Two across keeps the faces readable; five slivers do not */
+  .day-grid{ grid-template-columns:repeat(2,1fr); }
+  .day-item img{ aspect-ratio:4/3.4 !important; }
+  .day-item:last-child{ grid-column:1 / -1; }
+  .day-item:last-child img{ aspect-ratio:16/7 !important; }
+
+  .stories-grid{ grid-template-columns:1fr; }
+  .proc-list{ grid-template-columns:1fr; }
+  .stm-list{ grid-template-columns:1fr; }
+
+  .inds-row{ grid-template-columns:32px 1fr auto; gap:12px; }
+  .inds-preview{ aspect-ratio:4/3.2; }
+
+  .edit-float.f1{ position:relative; right:auto; top:auto; width:100%; margin-top:14px;
+                  border-width:0; }
+  .edit-float.f2{ display:none; }
+  .edit-label.l1{ right:10px; top:10px; }
+  .edit-list li{ grid-template-columns:32px 1fr; gap:12px; }
+
+  .safe-chip.p2{ display:none; }
+  .safe-list li{ grid-template-columns:1fr; gap:5px; }
+
+  .ctc-details li{ grid-template-columns:1fr; gap:5px; }
+  .ctc-quick a{ flex:1 1 100%; justify-content:center; }
+
+  .cta-actions .btn{ flex:1 1 100%; justify-content:center; }
+
+  .detail-cols{ grid-template-columns:1fr; gap:20px; }
+  .vgrid{ grid-template-columns:1fr; }
+
   .uni-stage{ max-width:none; }
   .uni-dot{ width:26px; height:26px; }
-  .uni-index button{ font-size:.86rem; }
-  .wk-filters{ margin-block:20px 26px; }
-  .wf{ padding:.6em 1em; font-size:.68rem; }
+  .uni-index button{ font-size:.88rem; }
 
-  /* Scroll story un-pins on small screens — a 100vh pin with five stages is
-     a lot of thumb travel on a phone for very little payoff. */
-  .sstory-pin{ position:static; height:auto; padding:14vh 0; }
-  .sstory-media{ position:absolute; inset:0; }
-  .sstory-spacer{ display:none; }
-  .sstory-bar{ position:static; margin-top:2.5em; }
-  .sstory-step h3{ font-size:clamp(2.4rem,13vw,3.4rem); }
+  .wk-filters{ margin-block:18px 24px; }
+  .wf{ padding:.55em 1em; font-size:.8rem; }
 
   .lb{ padding:0; }
   .lb-inner{ border-radius:0; min-height:100vh; }
+
+  .foot-top{ grid-template-columns:1fr; gap:32px; }
+  .foot-bottom{ flex-direction:column; align-items:flex-start; }
 }
 
+
+/* ── 400px: small mobile — protect against overflow ─────────────────────── */
 @media (max-width:400px){
+  .nav-logo span{ display:none; }
   .ppl-card{ flex-basis:78vw; }
-  .svc-labels li{ font-size:.66rem; padding:.45em .75em; }
+  .panel-list a{ font-size:1.5rem; }
+  .svc-labels li{ font-size:.68rem; padding:3px 8px; }
 }
 
 
 /* ── Print ──────────────────────────────────────────────────────────────── */
 @media print{
-  .nav,.panel,.cursor,.progress,.hero-light,.marq,.rail,.stack{ display:none !important; }
+  .nav,.panel,.progress,.wa-float{ display:none !important; }
   body{ background:#fff; color:#000; }
-  .on-dark,.on-graphite,.footer{ background:#fff !important; color:#000 !important; }
+  .on-navy,.on-dark,.on-graphite,.footer,.uni,.cta{ background:#fff !important; color:#000 !important; }
+  [data-anim],[data-stagger] > *{ opacity:1 !important; transform:none !important; }
+  .line > span{ transform:none !important; }
+}
+
+
+/* ==========================================================================
+   ADDITIONS — dropdown, full-bleed hero, dock
+   ========================================================================== */
+
+/* Below the nav breakpoint the bar is replaced by the panel, so the desktop
+   dropdown must not be reachable or focusable. */
+@media (max-width:860px){
+  .nav-drop-panel{ display:none; }
+  .nav-logo img{ height:40px; }
+  .nav.stuck .nav-logo img{ height:36px; }
+
+  .phero{ min-height:auto; padding-top:calc(72px + clamp(44px,9vw,72px)); }
+  .phero-scroll{ display:none; }
+  .phero-copy{ max-width:100%; }
+  .foot-logo{ height:48px; }
+}
+
+/* Two dropdown columns need the room; one column below it. */
+@media (max-width:1080px){
+  .nav-drop-panel{ width:min(420px,92vw); padding:16px; }
+  .nav-drop-list{ grid-template-columns:1fr; }
+}
+
+@media (max-width:620px){
+  .phero-meta{ flex-direction:column; }
+  .phero-meta div{ border-right:0; border-bottom:1px solid rgba(255,255,255,.12); }
+  .phero-meta div:last-child{ border-bottom:0; }
+  .nav-logo img{ height:36px; }
+  .nav.stuck .nav-logo img{ height:32px; }
+
+  /* Keep the dock clear of the CTA button that sits at the foot of forms */
+  .dock{ right:14px; bottom:14px; gap:10px; }
 }

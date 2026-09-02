@@ -10,7 +10,7 @@
     { "id": "residential", "title": "Residential communities",  "image": "assets/images/ind-residential.jpg", "alt": "Residential apartment community",
       "brief": "Apartments and gated communities where residents are the daily audit.",
       "needs": ["Common-area cleaning", "Gate and visitor control", "STP, pumps and water systems", "Landscape and amenity upkeep"] },
-    { "id": "itpark",      "title": "IT parks and campuses",    "image": "assets/images/ind-education.jpg",   "alt": "Large campus building",
+    { "id": "itpark",      "title": "IT parks and campuses",    "image": "assets/images/staff/staff-landscape-team.jpg", "alt": "Apex grounds team maintaining the landscaping at an IT campus",
       "brief": "Multi-block campuses running long shifts across large footprints.",
       "needs": ["Multi-block coordination", "Shift-based deployment", "Cafeteria and pantry support", "Campus landscape"] },
     { "id": "industrial",  "title": "Industrial facilities",    "image": "assets/images/ind-industrial.jpg",  "alt": "Industrial facility interior",

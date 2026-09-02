@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151 52" role="img" aria-label="Logistics Hub — placeholder logo">
+<!-- PLACEHOLDER. Not a real company logo. Replace with the client's own
+     artwork, transparent background. See README.md in this folder. -->
+<g color="#5C6A80" transform="translate(-6,-2) scale(0.95)"><circle cx="19" cy="26" r="9" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="33" cy="26" r="9" fill="none" stroke="currentColor" stroke-width="4"/></g>
+<text x="52" y="27" font-family="Archivo, Helvetica Neue, Arial, sans-serif"
+      font-size="19" font-weight="700" letter-spacing="-0.4" fill="#0B2A5F">Logistics</text>
+<text x="53" y="43" font-family="IBM Plex Mono, monospace"
+      font-size="9" letter-spacing="2.2" fill="#8493A8">HUB</text>
+</svg>

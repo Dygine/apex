@@ -8,9 +8,15 @@
       "title": "Housekeeping",
       "short": "Daily upkeep that holds its standard on the three-hundredth day, not just the first.",
       "description": "Trained, uniformed housekeeping teams working to a written scope for your building — floors, restrooms, workstations, common areas, glass and waste. Each site gets a cleaning schedule matched to its footfall, a checklist the supervisor signs, and a named person accountable for the result.",
-      "labels": ["Daily cleaning", "Restroom hygiene", "Waste segregation", "Glass and facade", "Deep cleaning"],
+      "labels": [
+        "Daily cleaning",
+        "Restroom hygiene",
+        "Waste segregation",
+        "Glass and facade",
+        "Deep cleaning"
+      ],
       "image": "assets/images/staff/staff-housekeeping.jpg",
-      "alt": "Apex housekeeping team member cleaning a modern corporate workspace",
+      "alt": "Apex housekeeping team maintaining a corporate office atrium",
       "applications": [
         "Corporate floors and workstations",
         "Restrooms and pantry areas",
@@ -25,9 +31,15 @@
       "title": "Security",
       "short": "Uniformed, briefed and posted to a written duty chart — not just present, but accountable.",
       "description": "Manned guarding with documented post instructions for every position. Access control, visitor handling, gate and material movement records, patrol rounds and shift handover in writing. Supervisors check posts through the shift rather than only at the start of it.",
-      "labels": ["Manned guarding", "Access control", "Visitor management", "Patrol rounds", "Shift handover"],
-      "image": "assets/images/staff/staff-security.jpg",
-      "alt": "Apex security professional at a corporate building entrance",
+      "labels": [
+        "Manned guarding",
+        "Access control",
+        "Visitor management",
+        "Patrol rounds",
+        "Shift handover"
+      ],
+      "image": "assets/images/staff/staff-security-team.jpg",
+      "alt": "Apex security team managing access control at a building entrance",
       "applications": [
         "Main gate and reception posts",
         "Visitor and contractor entry control",
@@ -42,9 +54,15 @@
       "title": "Technical maintenance",
       "short": "Planned work that stops breakdowns being the only time anyone looks at the plant.",
       "description": "Electrical, plumbing, HVAC and general upkeep run on a planned preventive schedule rather than a call-out queue. Meter readings, filter changes, pump checks and DG runs recorded against a calendar, with breakdown response and escalation defined before anything fails.",
-      "labels": ["Electrical", "Plumbing", "HVAC", "Preventive schedule", "Breakdown response"],
-      "image": "assets/images/staff/staff-technician.jpg",
-      "alt": "Apex maintenance technician inspecting building services plant",
+      "labels": [
+        "Electrical",
+        "Plumbing",
+        "HVAC",
+        "Preventive schedule",
+        "Breakdown response"
+      ],
+      "image": "assets/images/staff/staff-technical-team.jpg",
+      "alt": "Apex maintenance technicians testing building services plant",
       "applications": [
         "Planned preventive maintenance calendar",
         "Electrical panels, lighting and DG sets",
@@ -59,9 +77,15 @@
       "title": "Landscaping",
       "short": "The first thing a visitor sees, maintained on a schedule instead of on request.",
       "description": "Lawn care, pruning, seasonal planting, irrigation checks and indoor plant upkeep. Grounds are worked to a maintenance calendar so a campus looks the same in the week before an audit as it does in the week after one.",
-      "labels": ["Lawn care", "Pruning", "Irrigation", "Seasonal planting", "Indoor plants"],
-      "image": "assets/images/staff/staff-landscape.jpg",
-      "alt": "Apex landscaping professional maintaining a corporate campus lawn",
+      "labels": [
+        "Lawn care",
+        "Pruning",
+        "Irrigation",
+        "Seasonal planting",
+        "Indoor plants"
+      ],
+      "image": "assets/images/staff/staff-landscape-team.jpg",
+      "alt": "Apex landscaping team maintaining the grounds of a corporate campus",
       "applications": [
         "Campus lawns and garden beds",
         "Tree pruning and green waste removal",
@@ -76,9 +100,15 @@
       "title": "Pest management",
       "short": "Scheduled, documented treatment — with a record you can produce during an audit.",
       "description": "Treatment programmes for cockroaches, rodents, termites and mosquitoes using approved chemicals, applied on a schedule and logged. Every visit produces a service record showing what was treated, with what, where and by whom.",
-      "labels": ["General pest", "Rodent control", "Termite treatment", "Mosquito management", "Service records"],
+      "labels": [
+        "General pest",
+        "Rodent control",
+        "Termite treatment",
+        "Mosquito management",
+        "Service records"
+      ],
       "image": "assets/images/staff/staff-pest.jpg",
-      "alt": "Apex pest management technician carrying out a documented treatment",
+      "alt": "Pest management treatment being carried out in a warehouse",
       "applications": [
         "Kitchens, pantries and waste areas",
         "Basements, ducts and service shafts",
@@ -93,9 +123,15 @@
       "title": "Manpower and support",
       "short": "Front office, pantry, helpdesk and general support staff, deployed and supervised.",
       "description": "Trained support roles placed on site and managed by Apex — front office, pantry and cafeteria support, helpdesk, mailroom, office assistants and general operatives. Attendance, replacement cover and statutory paperwork are handled by us, not by your admin team.",
-      "labels": ["Front office", "Pantry support", "Helpdesk", "Office assistants", "Replacement cover"],
-      "image": "assets/images/staff/staff-briefing.jpg",
-      "alt": "Apex support staff at a shift briefing before deployment",
+      "labels": [
+        "Front office",
+        "Pantry support",
+        "Helpdesk",
+        "Office assistants",
+        "Replacement cover"
+      ],
+      "image": "assets/images/staff/staff-pantry-team.jpg",
+      "alt": "Apex pantry and support staff running an office refreshment counter",
       "applications": [
         "Reception and front office",
         "Pantry and cafeteria support",
