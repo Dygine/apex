@@ -2,7 +2,7 @@
    Offline snapshot so the site also works when opened via file://          */
 window.APEX_DATA = {
   "clients": {
-    "_note": "Real Apex client list. Two logo files are included: wipro.png and garuda-mall.png, both taken from those companies' own websites rather than from a search engine. The other eight entries render a monogram in the same box until a logo is supplied. To add one: get WRITTEN permission from the client, ask them for their logo file at the same time (most have a brand or press kit), drop it into assets/images/clients/ at about 72px tall with a transparent background, set the `logo` path below, then run `node tools/build-data.js`. Set confirmed:false on any client not yet cleared to name publicly and the caveat under the strip returns.",
+    "_note": "Real Apex client list. Eight of the ten entries now carry a logo file. Wipro and Garuda Mall came from those companies' own websites; INOX, VR Bengaluru, Raymond, St Peter's Hospital, Swasya Living were supplied by Apex and trimmed to a transparent PNG 72px tall. Sannidhi Eco Farms, Tanzior Jewels and Transit Food Court still render a monogram — see assets/images/clients/README.md for why. To add one: get written permission from the client, ask for their logo file at the same time, drop it into assets/images/clients/ at about 72px tall with a transparent background, set the `logo` path below, then run `node tools/build-data.js`. Set confirmed:false on any client not yet cleared to name publicly and the caveat under the strip returns.",
     "clients": [
       {
         "name": "Wipro Enterprises",
@@ -13,13 +13,13 @@ window.APEX_DATA = {
       {
         "name": "INOX",
         "sector": "Cinema, multiplex",
-        "logo": "",
+        "logo": "assets/images/clients/inox.png",
         "confirmed": true
       },
       {
         "name": "VR Bengaluru",
         "sector": "Mall, Whitefield",
-        "logo": "",
+        "logo": "assets/images/clients/vr-bengaluru.png",
         "confirmed": true
       },
       {
@@ -31,19 +31,19 @@ window.APEX_DATA = {
       {
         "name": "Raymond Retail",
         "sector": "Apparel retail",
-        "logo": "",
+        "logo": "assets/images/clients/raymond.png",
         "confirmed": true
       },
       {
         "name": "St Peter's Hospital",
         "sector": "Healthcare, Bengaluru",
-        "logo": "",
+        "logo": "assets/images/clients/st-peters-hospital.png",
         "confirmed": true
       },
       {
         "name": "Swasya Living",
         "sector": "Residential developer",
-        "logo": "",
+        "logo": "assets/images/clients/swasya-living.png",
         "confirmed": true
       },
       {

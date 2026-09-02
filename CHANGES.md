@@ -482,3 +482,21 @@ the credibility that strip was meant to add.
 8 pages × 3 viewports, clean. Confirmed the home page hero, stat band, facility
 map and CTA all resolve to white or steel, and that `services.html` still
 resolves to navy — the light treatment has not leaked into the inner pages.
+
+## Client logos added
+
+Five supplied logo files wired into the client strip: INOX, VR Bengaluru,
+Raymond, St Peter's Hospital and Swasya Living. Each was trimmed, made
+transparent by flood-filling the background from the border (so white inside a
+mark — Raymond's wordmark sits on a red block — survives) and resized to 72px
+tall. The INOX file arrived as an "INOX Group / Team India" Olympic sponsor
+lockup and was cropped to the INOX Group mark; the VR file arrived
+white-on-black and was inverted to sit on a light plate; the Raymond file had a
+transparency checkerboard baked into the pixels, which was cleaned.
+
+Seven of ten clients now show a logo. Sannidhi Eco Farms, Tanzior Jewels and
+Transit Food Court remain on monograms — see
+`assets/images/clients/README.md` for the reason on each.
+
+`data/clients.json` updated and `js/data.js` regenerated via
+`node tools/build-data.js`. No HTML, CSS or JS changed.
